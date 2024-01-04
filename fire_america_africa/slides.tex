@@ -1,0 +1,495 @@
+% NOTE:
+% latexmk -shell-escape -pvc slides.tex # Watches and compiles on each change.
+% latexmk -c slides.tex   # Clean the temporal files.
+
+% NOTE: 
+% the minted package doesn't play well with the bibliography!
+
+% NOTE: Slides explaining bibliometrix figures:
+%https://bibliometrix.org/biblioshiny/assets/player/KeynoteDHTMLPlayer.html#109
+
+\documentclass[aspectratio=169]{beamer}
+
+\setbeamertemplate{footline}[frame number]
+\beamertemplatenavigationsymbolsempty
+
+% NOTE: Only use numeric for references' style!
+\usepackage[backend=biber,style=numeric]{biblatex}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{siunitx}
+\usepackage{subcaption}
+
+\addbibresource{slides.bib}  
+
+\captionsetup[figure]{labelformat=empty}
+
+\title{Bibliometric analysis of TreesLab scientific production}
+
+\author{Alber S\'{a}nchez \href{mailto:alber.ipia@inpe.br}
+{alber.ipia@inpe.br}\newline
+Michelle Picoli \href{mailto:mipicoli@gmail.com}
+{mipicoli@gmail.com}}
+\institute{
+  \includegraphics[width=1.8cm,keepaspectratio]
+  {logos/logoinpe-azul-menor.png} \\
+  National Institute for Space Research - INPE\\
+  Brazil
+}
+\date{\today}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+	\frametitle{Overview}
+	\tableofcontents
+\end{frame}
+
+
+
+\section{Introduction}
+
+\begin{frame}
+	\frametitle{Introduction}
+	\begin{itemize}
+		\item TODO.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{What is bibliometric analysis?}
+	\begin{itemize}
+		\item Bibliometrics is the measurement of physical units of 
+            publications, bibliographic citations, and surrogates for 
+            them~\cite{broadus1987}.
+		\item The bibliometric methodology encapsules the application of
+		      quantitative techniques (i.e., bibliometric analysis --- e.g.,
+              citation analysis) on bibliometric data (e.g., units of 
+              publication and citation)~\cite{donthu2021}.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Bibliometrix package}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item R package for bibliometric analysis~\cite{aria2017}.
+				\item It allows quantitative research in bibliometrics and
+				      scientometrics.
+				\item Statistical analysis of publications.
+				\item Useful for performance evaluation and policymaking.
+				\item It includes a Web Application (biblioshiny) for 
+                    non-programmers!
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.8\textwidth]{logos/bibliometrix.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Bibliographic databases}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item \href{https://www.scopus.com}{Scopus}.
+				\item \href{https://www.webofknowledge.com}{Web of science}.
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.9\textwidth]{logos/scopus.png}\newline
+				\includegraphics[width=0.9\textwidth]{logos/wos.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+
+\section{Method}
+
+\begin{frame}
+	\frametitle{Data pre-processing}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{enumerate}
+				\item Query Scopus and Web of Science.
+				\item Run analysis.
+				      \begin{itemize}
+                          \item Bibliometrix: R coders (these slides!).
+					      \item Biblioshiny: Non-coders.
+				      \end{itemize}
+			\end{enumerate}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.4\textwidth]{logos/logo_doi.png}\newline
+				\includegraphics[width=0.6\textwidth]{logos/logo_orcid.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+
+\section{Data analysis}
+
+\subsection{Overview}
+
+\begin{frame}
+	\frametitle{Overview}
+	\centering
+	\small
+	\include{./tables/summary_main_information.tex}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Documents by type}
+	\centering
+	\small
+	\include{./tables/summary_doc_type.tex}
+\end{frame}
+
+\begin{frame}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\frametitle{Authors' productivity}
+			\centering
+			\small
+			\include{./tables/summary_most_prod_authors.tex}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\centering
+			\small
+			\include{./tables/summary_most_prod_authors_frac.tex}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Most cited papers}
+	\centering
+	\small
+	\include{./tables/summary_most_cited_papers.tex}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Most relevant sources}
+	\centering
+	\scriptsize
+	\include{./tables/summary_most_rel_sources.tex}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Most relevant keywords}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\centering
+			\scriptsize
+			\include{./tables/summary_most_rel_keywords.tex}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\centering
+			\scriptsize
+			\include{./tables/summary_most_rel_keywords_kwplus.tex}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Most Productive Authors}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/MostProdAuthors.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Most Productive Countries}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/MostProdCountries.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Annual Scientific Production}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/AnnualScientProd.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Average Article Citation per Year}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/AverArtCitperYear.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Average Total Citation per Year}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/AverTotCitperYear.png}
+	\end{figure}
+\end{frame}
+
+
+
+\section{Knowledge synthesis}
+
+\begin{frame}
+	\frametitle{Structures of knowledge}
+	\begin{itemize}
+		\item Science mapping aims at displaying the structural and dynamic aspects of
+		      scientific research~\cite{borner2003}.
+		\item \emph{Science mapping} allows investigating scientific knowledge from a
+		      statistical point of view:
+		      \begin{itemize}
+			      \item \emph{Conceptual}: What science talks about.
+			      \item \emph{Intellectual}: How the work of an author influences a given
+			            scientific community.
+			      \item \emph{Social}: How authors, institutions, and countries interact each
+			            other.
+		      \end{itemize}
+	\end{itemize}
+\end{frame}
+
+
+
+\subsection{Conceptual structure}
+
+\begin{frame}
+	\frametitle{Conceptual structure}
+	Represent relations among concepts or words in a set of publications.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Conceptual Structure - Map of words}
+	\begin{itemize}
+		\item Clusters are identified by hierarchical clustering.
+		\item Each color corresponds to a topic.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Conceptual Structure - Map of words}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/con_stru_map.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Factorial Map - Most contributing documents}
+	\begin{itemize}
+		\item Identify the link between topic and documents.
+		\item Plot the document associated to the highest absolute contribution.
+		\item Absolute contributions measure the weight of each document in
+		      the information summarized by the two axes.
+		\item The colors represent the clusters.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Factorial Map - Most contributing documents}
+	\begin{itemize}
+		\item Identify the link between topic and most cited documents.
+		\item Plot documents associated to the highest global citations.
+		\item The colors represent the clusters.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Factorial Map - Most contributing documents}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/con_stru_map_contrib.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Factorial Map - Most cited documents}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/con_stru_map_cited.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Network analysis}
+	\begin{itemize}
+		\item A network is a representation of the co-occurrence matrix.
+		\item Diagonal elements are the occurrences of each item in the collection.
+		\item Non-diagonal elements are the co-occurrence of two item in a
+		      collection.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Network - Co-occurrences Authors-Keywords}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]
+		{figures/bnet_author_keywords_co-occurrences.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Network - Authors collaboration}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]
+		{figures/bnet_authors_collaboration.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Network - Authors co-occurrences}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]
+		{figures/bnet_authors_co-occurrences.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Network - Authors coupling}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]
+		{figures/bnet_authors_coupling.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Network - Keyword co-occurrences}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]
+		{figures/bnet_keywords_co-occurrences.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Network - References co-citation}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]
+		{figures/bnet_references_co-citation.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Network - Sources coupling}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]
+		{figures/bnet_sources_coupling.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Network - Universities collaboration}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]
+		{figures/bnet_universities_collaboration.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{The strategic diagram~\cite{cobo2011}}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item Upper-right: Themes are related externally to concepts applicable
+				      to other themes that are conceptually closely related.
+				\item Upper-left: Well-developed internal ties but unimportant external
+				      ties; marginal importance for the field.
+				\item Lower-left: Mainly represents emerging or disappearing themes.
+				\item Lower-right: Important for a research field but are not
+				      developed.
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.8\textwidth]
+				{./img/strategic_diagram_cobo2011.png}
+				\label{fig:strategic_diagram}
+				\caption{The strategic diagram. Source~\cite{cobo2011}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Thematic map (keyword plus)}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/thematic_map_keyword_plus.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Thematic map (authors' keywords)}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/thematic_map_keyword_authors.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Thematic map (titles)}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/thematic_map_titles.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Thematic map (abstracts)}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/thematic_map_abstracts.png}
+	\end{figure}
+\end{frame}
+
+
+
+\subsection{Intellectual structure}
+\subsection{Social structure}
+
+
+
+\section{Summary}
+
+\begin{frame}
+	\frametitle{Take home message}
+	\begin{itemize}
+		\item TODO.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+	\frametitle{References}
+	\printbibliography
+\end{frame}
+
+\end{document}
+
