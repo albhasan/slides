@@ -1,0 +1,67 @@
+\section{Material e methods}
+
+For our analysis, we selected the municipality of \textit{São Félix do Xingu} 
+in the Brazilian state of \textit{Pará} as our area of interest in the period 
+from August 2016 to July 2021. 
+This municipality extent is 82 square kilometers and it is consistently 
+reported as one of the most deforested in 
+Brazil by the PRODES system~\cite{f.g.assis2019}.
+
+We prepare a dataset of degradation and deforestation warnings produced by the 
+Brazilian National Institute for Space Research (INPE) and its DETER system.
+DETER is a Geographic Information System which produces a fast assessment of 
+forest degradation and deforestation in the Brazilian Amazon since 
+2004~\cite{shimabukuro2006}. 
+DETER is the backbone of law enforcement efforts in the Brazilian Amazon and 
+Cerrado Biomes.
+Since 2015, DETER uses remote sensing imagery captured by the WFI camera
+on board of the CBERS 4 \& 4A satellites, producing warnings 
+with a minimum area of 3 ha organized into classes: Wildfire scar, mining, 
+deforestation with either exposed soil or vegetation, degradation, and 
+selective cut with either disordered or geometric 
+pattern~\cite{diniz2015,f.g.assis2019}. 
+To spot deforestation, DETER employs human experts which use image composition 
+of red, near-infrared, and green along with a Linear Mixture 
+Model~\cite{shimabukuro1991} (soil fraction) and the criteria of tone, color, 
+shape, texture, and context. 
+These experts draw DETER warnings on top a computer screen fix on a scale 
+1:100,000 using as background the latest PRODES primary forest mask and 
+previous DETER warnings~\cite{dealmeida2022}.
+
+
+Our data set consists of the warnings issued in our area of interest during the
+aforementioned period downloaded from the TerraBrasilis 
+portal~\cite{f.g.assis2019}. 
+After downloading the data, we convert them into a 
+GeoPackage;~\footnote{GeoPackage Encoding Standard 
+\url{https://www.ogc.org/standards/geopackage}} this helps us overcome the 
+limitations~\footnote{Switch from Shapefile 
+\url{http://switchfromshapefile.org/}} of the traditional Shapefile format 
+available from INPE. 
+
+Then, it was used the self-intersect operation (union operation) on the warning 
+polygons and after that, we projected them to the coordinate reference system 
+UTM 22s; later, we removed duplicated vertices and enforced the right-hand-rule 
+of polygons; then we applied successive geometry fixing, and finally we 
+filtered out polygons smaller than 3 ha. 
+These operations were applied using the software QGIS version 
+3.28.0~\cite{QGIS_software}.
+We also converted the warning year to what we call PRODES year, which is time 
+period from August to July. Each PRODES year takes the year number from the 
+last month of its period (July).
+
+It is important to note that DETER warnings overlap over time but not
+completely. That means, some segments of a warning partially overlap with 
+some other segments of other warnings at other dates.
+We call the result of the self-intersect operation \textit{subareas} and they 
+correspond to segments of DETER warnings which, if overlap other subareas, 
+they do have the same spatial properties (position, area, shape, and centroid).
+
+Finally, we used the GNU's R language and environment for statistical 
+computing and graphics to estimate statistics and carry on further 
+analysis~\cite{r_manual}. 
+The source code of our analysis is available 
+online.~\footnote{File sbsr\_2013.R available at
+\url{https://github.com/albhasan/treesburnareas}}
+
+

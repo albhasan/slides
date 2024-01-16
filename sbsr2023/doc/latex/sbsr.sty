@@ -1,0 +1,68 @@
+% Standard for SBSR articles submission developed by Rogério Flores Junior 
+%% contact: rogerio.floresjr@gmail.com 
+
+\ProvidesPackage{sbsr}[2018/05/30]
+
+% Required packages
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{times}
+\RequirePackage{amsmath}
+\RequirePackage{url}
+\RequirePackage[top=2.5cm,bottom=2cm,left=1.9cm,right=1.9cm]{geometry}
+\RequirePackage[pdftex]{graphicx}
+\usepackage[center,font={small,bf}]{caption}
+% \usepackage[num]{abntex2cite}
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage[hidelinks]{hyperref}
+\RequirePackage[english]{babel}
+
+\renewcommand{\figurename}{Figure}
+% Graphs and Figures folder 
+\graphicspath{{figures/}}
+
+
+\pagestyle{empty}
+\linespread{1}
+\sloppy
+\flushbottom
+\hyphenpenalty=100000
+% \singlespacing
+
+
+\makeatletter
+
+% Title format
+\def\address#1{\def\@address{#1}}
+\def\maketitle
+{
+	\begin{center}
+	    {\bfseries \Large \MakeUppercase{\@title}}
+		\vskip 1em
+		{\itshape \@author}
+		\vskip 1em
+		\@address
+	\end{center}
+}
+
+% Sections format
+\RequirePackage{titlesec}
+
+\titleformat*{\section}{\center \normalsize \bfseries \uppercase}
+\titleformat*{\subsection}{\normalsize \bfseries}
+\titleformat*{\subsubsection}{\normalsize \itshape}
+\titlelabel{\thetitle.\hspace{1ex}}
+ 
+% Citation model
+\usepackage{cite}
+\renewcommand\citeleft{[}
+\renewcommand\citeright{]}
+\renewcommand\@biblabel[1]{{[#1]}}
+
+% Spacing format
+\setlength{\columnsep}{6mm}
+\setlength\textwidth{178mm}
+\setlength{\belowcaptionskip}{-6mm}
+
+% Balance last page text
+\usepackage[nospread]{flushend}
