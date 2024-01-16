@@ -1,34 +1,35 @@
+% NOTE:
 % latexmk -shell-escape -pvc slides.tex # Watches and compiles on each change.
 % latexmk -c slides.tex   # Clean the temporal files.
 
+% NOTE: 
+% the minted package doesn't play well with the bibliography!
+
 % NOTE: Slides explaining bibliometrix figures:
-% https://bibliometrix.org/biblioshiny/assets/player/KeynoteDHTMLPlayer.html#109
+%https://bibliometrix.org/biblioshiny/assets/player/KeynoteDHTMLPlayer.html#109
 
 \documentclass[aspectratio=169]{beamer}
 
 \setbeamertemplate{footline}[frame number]
+\beamertemplatenavigationsymbolsempty
 
-\usepackage{hyperref}
+% NOTE: Only use numeric for references' style!
+\usepackage[backend=biber,style=numeric]{biblatex}
+\usepackage{booktabs}
 \usepackage{caption}
-\usepackage{siunitx}
-\usepackage{minted}
-\usepackage[numbers]{natbib}
-\usepackage{subcaption}
 \usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{siunitx}
+\usepackage{subcaption}
+
+\addbibresource{slides.bib}  
 
 \captionsetup[figure]{labelformat=empty}
-
-\newmintedfile[inputsql]{sql}{%
-    linenos,
-    autogobble,
-    breaklines,
-}
-
 
 \title{Bibliometric analysis of TreesLab scientific production}
 
 \author{Alber S\'{a}nchez \href{mailto:alber.ipia@inpe.br}
-{alber.ipia@inpe.br} \\ 
+{alber.ipia@inpe.br}\newline
 Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 {guilherme.mataveli@inpe.br}}
 \institute{
@@ -45,510 +46,390 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 \frame{\titlepage}
 
 \begin{frame}
-  \frametitle{Overview} 
-  \tableofcontents
+	\frametitle{Overview}
+	\tableofcontents
 \end{frame}
+
 
 
 \section{Introduction}
 
-\begin{frame}
-  \frametitle{Introduction}
-  \begin{itemize}
-    \item Most of the definitions in this presentation were taken from 
-      \citeauthor{aria2017} or any of their papers, webpages, tutorials, or 
-      videos.
-    \item We assumed that TreesLab's papers are an study subject.
-  \end{itemize}
-\end{frame}
 
-% \begin{frame}
-%   \frametitle{What is bibliometry?}
-% \end{frame}
+
+\subsection{The research cycle}
 
 \begin{frame}
-  \frametitle{Bibliometrix package}
-  \begin{itemize}
-    \item R package for bibliometric analysis~\cite{aria2017}. 
-    \item It allows quantitative research in bibliometrics and scientometrics.
-    \item Statistical analysis of publications.
-    \item Useful for performance evaluation and policy making.
-  \end{itemize}
+	\frametitle{The research cycle}
+	\begin{figure}
+		\includegraphics[width=0.9\textwidth]{img/research_cycle.png}
+		\label{fig:research_cycle}
+		\caption{Source: \href{https://openscience101.org}{OpenScience101.org}}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Bibliometrix}
-  \begin{itemize}
-    \item Import and convert data from bibliographic databases.
-    \item Analysis of a publication dataset.
-    \item Building matrices of co-citation, coupling, collaboration, and 
-      co-word analysis.
-  \end{itemize}
+	\frametitle{Use, make, share open results}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{img/use_make_share.png}
+		\label{fig:use_make_share}
+		\caption{Source: \href{https://openscience101.org}{OpenScience101.org}}
+	\end{figure}
+\end{frame}
+
+
+
+\subsection{Bibliometrics}
+
+\begin{frame}
+	\frametitle{What is bibliometric analysis?}
+	\begin{itemize}
+		\item Bibliometrics is the measurement of physical units of 
+            publications, bibliographic citations, and surrogates for 
+            them~\cite{broadus1987}.
+		\item The bibliometric methodology encapsules the application of
+		      quantitative techniques (i.e., bibliometric analysis --- e.g.,
+              citation analysis) on bibliometric data (e.g., units of 
+              publication and citation)~\cite{donthu2021}.
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Bibliographic databases}
-  \begin{itemize}
-    \item \href{https://www.scopus.com}{Scopus}. 
-    \item \href{https://www.webofknowledge.com}{Web of science}.
-    \item To query them, use a machine at INPE and your Café login.
-  \end{itemize}
+	\frametitle{Bibliometrix package}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item R package for bibliometric analysis~\cite{aria2017}.
+				\item It allows quantitative research in bibliometrics and
+				      scientometrics.
+				\item Statistical analysis of publications.
+				\item Useful for performance evaluation and policymaking.
+				\item It includes a Web Application (biblioshiny) for 
+                    non-programmers!
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.8\textwidth]{logos/bibliometrix.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Bibliographic databases}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item \href{https://www.scopus.com}{Scopus}.
+				\item \href{https://www.webofknowledge.com}{Web of science}.
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.9\textwidth]{logos/scopus.png}\newline
+				\includegraphics[width=0.9\textwidth]{logos/wos.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Scopus and Web of Science at INPE}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item To query them, use a computer at INPE and your Café 
+                    login.
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.9\textwidth]{img/inpe_cafe.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+
+
+
+\subsection{TreesLab publications}
+
+\begin{frame}
+	\frametitle{TreesLab publications}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+            What constitutes a TreesLab's publication?
+			\begin{itemize}
+                \item Any publication whose authors agree to add it to the  
+                    TreesLab's publication list.
+			\end{itemize}
+            \vspace{\baselineskip}
+            Who are the members of TreesLab?
+			\begin{itemize}
+                \item Researchers, pos\-docs, Phd \& masters students who 
+                    consent to be part of the TreesLab. 
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.7\textwidth]{logos/trees-color-h_2.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{TreesLab publication list}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item The publication list is available using Zotero, both 
+                    online (click
+                  \href{https://www.zotero.org/groups/5304570/treeslab/library}
+                    {here}) and as a desktop application.
+                \item To add a publication, send its DOI to the TreesLab' 
+                    mailing list.
+                \item Publications wihtout DOI (e.g. GeoInfo, SBSR) should be
+                    added to online document \emph{treeslab\_sem\_doi} (click 
+\href{https://docs.google.com/document/d/1pnIX_u3Si7J9OBJ1drsbBws5Fgrju_gM4Iyv_DvEw7g/edit?usp=sharing}
+                    {here}).
+                \item TreesLab's Zotero Group is called \emph{treeslab}.
+                \item The former list (Mendeley) is deprecated.
+            \end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.5\textwidth]{logos/zotero.jpg}
+                \includegraphics[width=0.9\textwidth]{img/zotero_treeslab.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{TreesLab Publications' data}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item TreesLab has a Zenodo Community (click 
+            \href{https://zenodo.org/communities/treeslab}{here}).
+                \item To become a member, go to Zenodo, click on communities, 
+                    search for \emph{treeslab}, and follow the instructions.
+                \item Upload your paper's data (no membership required). 
+                \item Make a request to the TreesLab community's administrators 
+                    to include your paper's data.
+            \end{itemize} 
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.4\textwidth]{logos/zenodo.png}
+                \includegraphics[width=0.8\textwidth]{img/zenodo_treeslab.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 
 
 \section{Method}
 
+%\subsection{Definitions}
+
 \begin{frame}
-  \frametitle{Data pre-processing}
-  \begin{enumerate}
-    \item Retrieve DOI from TreesLab publication's webpage. 
-    \item Query Scopus .
-    \item Query Web of Science.
-    \item Merge query results (Bibliometrix).
-    \item Run analysis .
-      \begin{itemize}
-        \item Bibliometrix: R coders.
-        \item Biblioshiny: Non-coders.
-      \end{itemize}
-  \end{enumerate}
+	\frametitle{Documents and references}
+	\begin{itemize}
+		\item \emph{Document (or citing document)}: Scientific document 
+            (article, review, conference proceeding, etc.) included in a 
+            bibliographic collection.
+		\item \emph{Reference (or cited reference)}: Scientific document 
+            included in at least one of the reference lists (bibliography) of 
+            the document set. Then \emph{"a reference is cited by one or more 
+            documents"}~\cite{aria2017}.
+		\item \emph{Cited document}: Scientific document included in a
+		      bibliographic collection and, at the same time, it is cited in at 
+              least one other document in the collection. Cited documents are a 
+              subset of the reference set.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Global and local citations}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			Global citations.
+			\begin{itemize}
+				\item Measures the number of citations a document has received 
+                    from documents contained in the entire database (e.g. WoS 
+                    or Scopus).
+				\item Measures the impact of a document in the whole 
+                    bibliographic database.
+				\item For many documents, a large part of global citations 
+                    could come from other disciplines!
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			Local citations.
+			\begin{itemize}
+				\item Measures the number of citations a document has received 
+                    from documents included in the analyzed collection.
+				\item Is calculated analyzing the whole reference set.
+				\item Measures the impact of a document in the analyzed 
+                    collection.
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%\subsection{Assumptions}
+
+\begin{frame}
+	\frametitle{Assumptions}
+	\begin{itemize}
+		\item We assumed that TreesLab's publications are a study subject.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Method}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{enumerate}
+				\item Get TreesLab publications' DOIs.
+				\item Query Scopus and Web of Science.
+                \item Run analysis using \textit{R}.
+			\end{enumerate}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.4\textwidth]{logos/logo_doi.png}
+                %\newline
+				%\includegraphics[width=0.6\textwidth]{logos/logo_orcid.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 
 
-\section{Data analysis}
-
-\subsection{Overview}
+\section{Results overview}
 
 \begin{frame}
-  \frametitle{Main information}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{img/main_information.png}
-    %\caption{Main information about the bibliographic collection.}
-    \label{fig:main_information}
-  \end{figure}
+	\frametitle{Overview}
+	\centering
+	\small
+	\include{./tables/summary_main_information.tex}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Annual scientific production}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{img/annual_scientific_production}
-    %\caption{Annual scientific production.}
-    \label{fig:annual_scientific_production}
-  \end{figure}
+	\frametitle{Documents by type}
+	\centering
+	\small
+	\include{./tables/summary_doc_type.tex}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Average citations per year}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{img/average_citations_per_year}
-    %\caption{Average citations per year.}
-    \label{fig:average_citations_per_year}
-  \end{figure}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\frametitle{Authors' productivity}
+			\centering
+			\small
+			\include{./tables/summary_most_prod_authors.tex}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\centering
+			\small
+			\include{./tables/summary_most_prod_authors_frac.tex}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Three fields plot}
-  This is an interactive figure (See live). Possible combinations:
-  \begin{itemize}
-    \item Top keywords, authors, and journals. 
-    \item Top authors, references they cite, and keywords they use. 
-  \end{itemize}
-\end{frame}
-
-
-\subsection{Sources}
-
-\begin{frame}
-  \frametitle{Most relevant sources}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{img/most_relevant_sources.png}
-    \caption{A \emph{source} is a journal/book/proceeding/series/etc. which published 
-    one or more documents included in the bibliographic collection.} 
-    \label{fig:most_relevant_sources}
-  \end{figure}
+	\frametitle{Most cited papers}
+	\centering
+	\small
+	\include{./tables/summary_most_cited_papers.tex}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Most local cited sources}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{img/most_local_cited_sources.png}
-    \caption{A \emph{cited source} is a journal/book/proceeding/series/etc. 
-    included in at least one of the reference list (bibliography) of the 
-    document set.}
-    \label{fig:most_local_cited_sources}
-  \end{figure}
+	\frametitle{Most relevant sources}
+	\centering
+	\scriptsize
+	\include{./tables/summary_most_rel_sources.tex}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Bradford's law}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{img/bradfords_law.png}
-    \caption{The journals particularly devoted to TreesLab's subjects.}
-    \label{fig:bradfords_law}
-  \end{figure}
-  % If the journals are arranged in descending order of the number of articles 
-  % they carried on the subject, then successive zones of periodicals containing
-  % the same number of articles on the subject from the simple geometric series
-  % $1:n_{s}:n_{s}^2:n_{s}^3$
-  % Bradford called the first zone, the nucleus of journals particularly devoted
-  % to the given subject.
+	\frametitle{Production over time - sources}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\textwidth]
+        {figures/sources_production_over_time.png}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Source's local impact}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{img/sources_local_impact.png}
-    \caption{Impact by H-Index and its generalizations.}
-    \label{fig:sources_local_impact}
-  \end{figure}
-  The Hirsh index (\emph{H-index}) is an author's (or journal's) number of 
-  published articles (\emph{h}) each of which has been cited in other papers 
-  at least \emph{h} times.
+	\frametitle{Most relevant keywords}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\centering
+			\scriptsize
+			\include{./tables/summary_most_rel_keywords.tex}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\centering
+			\scriptsize
+			\include{./tables/summary_most_rel_keywords_kwplus.tex}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Sources' production over time}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]
-    {img/sources_production_over_time.png}
-    \caption{Number of publications per year.}
-    \label{fig:production_over_time}
-  \end{figure}
-\end{frame}
-
-
-
-\subsection{Authors}
-
-\begin{frame}
-  \frametitle{Most relevant authors}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]
-    {img/most_relevant_authors.png}
-    \caption{Most relevant authors (number of documents).}
-    \label{fig:most_relevant_authors}
-  \end{figure}
+	\frametitle{Most Productive Authors}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/MostProdAuthors.png}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Most relevant authors}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]
-    {img/most_relevant_authors_fractionalized.png}
-    \caption{Most relevant authors (fractionalized).}
-    \label{fig:most_relevant_authors_fractionalized}
-  \end{figure}
-  Fractionalized authorship quantifies an individual author's contributions to 
-  a published set of papers (following the hypothesis of uniform contributions
-  of all co-authors at each document).
+	\frametitle{Most Productive Countries}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/MostProdCountries.png}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Author's production over time}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]
-    {img/authors_production_over_time.png}
-    %\caption{Authors production over time}
-    \label{fig:authors_production_over_time}
-  \end{figure}
-  A line represents an author's timeline.
-  The buble size is proportional to the number of documents. 
-  The color intensity is proportional to the total citations per year.
+	\frametitle{Annual Scientific Production}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/AnnualScientProd.png}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Author productivity through Lotka's law}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.6\textwidth]
-    {img/loktas_law.png}
-    \caption{Dashed line represents the theoretical distribution.}
-    \label{fig:loktas_law}
-  \end{figure}
-  \emph{As the number of articles published increases, authors producing that
-  many publications become less frequent.}
+	\frametitle{Average Article Citation per Year}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/AverArtCitperYear.png}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Authors' local impact}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]
-    {img/authors_local_impact.png}
-    \caption{Authors' local impact by H-index and its generalizations.}
-    \label{fig:authors_local_impact}
-  \end{figure}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Most relevant affiliations}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]
-    {img/most_relevant_affiliations.png}
-    \caption{INPE's affiliation strings need cleaning!}
-    \label{fig:most_relevant_affiliations}
-  \end{figure}
-\end{frame}
-
-% \begin{frame}
-%   \frametitle{Corresponding authors' country}
-%   NOTE: biblioshiny is throwing an error!
-% \end{frame}
-
-\begin{frame}
-  \frametitle{Countries' scientific production}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]
-    {img/countries_scientific_production.png}
-    \caption{The color intensity is proportional to the number of publications.}
-    \label{fig:countries_scientific_production}
-  \end{figure}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Most cited countries}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]
-    {img/most_cited_countries.png}
-    %\caption{Most cited countries.}
-    \label{fig:most_cited_countries}
-  \end{figure}
-\end{frame}
-
-
-
-\subsection{Documents}
-
-\begin{frame}
-  \frametitle{Documents and references}
-  \begin{itemize}
-    \item \emph{Document (or citing document)}: Scientific document (article, 
-      review, conference proceeding, etc.) included in a bibliographic 
-      collection.
-    \item \emph{Reference (or cited reference)}: Scientific document included 
-      in at least one of the reference lists (bibliography) of the document 
-      set. Then "a reference is cited by one or more documents".
-    \item \emph{Cited document}: Scientific document included in a 
-      bibliographic collection and, at the same time, it is cited in at least
-      one other document in the collection. Cited documents are a subset of the
-      reference set.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Global and local citations}
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-      Global citations.
-      \begin{itemize}
-        \item Measures the number of citations a document has received from 
-          documents contained in the entire database (e.g. WoS or Scopus).
-        \item Measures the impact of a document in the whole bibliographic 
-          database.
-        \item For many documents, a large part of global citations could come 
-          from other disciplines!
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      Local citations.
-      \begin{itemize}
-        \item Measures the number of citations a document has received from 
-          documents included in the analyzed collection. 
-        \item Is calculated analyzing the whole reference set. 
-        \item Measures the impact of a document in the analyzed collection.
-      \end{itemize}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Most global cited documents}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]
-    {img/most_global_cited_documents.png}
-    \caption{Is there an impactful paper?}
-    \label{fig:most_global_cited_documents}
-  \end{figure}
-\end{frame}
-
-% \begin{frame}
-%   \frametitle{Most local cited documents}
-%   Bibmetrix throws an error!
-% \end{frame}
-
-\begin{frame}
-  \frametitle{Reference publication year spectroscopy}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]
-    {img/references_spectroscopy.png}
-    \caption{Number of cited references per year and deviation from the 5-year
-    mean.}
-    \label{fig:references_spectroscopy}
-  \end{figure}
-  %Identify the historical origins of a research field.
-\end{frame}
-
-\begin{frame}
-  \frametitle{Most frequent words (Keywords Plus)}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]
-    {img/most_frequent_words_keywords_plus.png}
-    %\caption{Most frequent words (Keywords Plus).}
-    \label{fig:most_frequent_words_keywords_plus}
-  \end{figure}
-  \emph{Keywords Plus} are words or phrases that appear frequently in the 
-  titles of an article's references and not necessarily in the title of the 
-  article or as Author Keywords.
-\end{frame}
-
-\begin{frame}
-  \frametitle{Most frequent words (Author's keywords)}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]
-    {img/most_frequent_words_authors_keywords.png}
-    %\caption{Most frequent words (Author's keywords).}
-    \label{fig:most_frequent_words_authors_keywords}
-  \end{figure}
-  \emph{Authors' Keywords} are the terms the authors believe best represent
-  the content of their papers. Beware of plurals and conjugations.
-\end{frame}
-
-\begin{frame}
-  \frametitle{Most frequent words (titles' words)}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]
-    {img/most_frequent_words_titles_words.png}
-    %\caption{Most frequent words (titles' words).}
-    \label{fig:most_frequent_words_titles_words}
-  \end{figure}
-  Words extracted from titles (or abstracts) removing "stop words" and 
-  punctuation.
-\end{frame}
-
-\begin{frame}
-  \frametitle{Most frequent words (abstracts' words)}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]
-    {img/most_frequent_words_abstracts_words.png}
-    %\caption{Most frequent words (abstracts' words).}
-    \label{fig:most_frequent_words_abstracts_words}
-  \end{figure}
-  Abstract words need to be cleaned to avoid trivial terms such as "paper", 
-  "study", "work", "data", etc.
-\end{frame}
-
-\begin{frame}
-  \frametitle{Wordclouds}
-  \begin{figure}
-    \centering
-    \begin{subfigure}{0.4\textwidth}
-      \includegraphics[width=0.8\textwidth]
-      {img/wordcloud_keywords_plus.png}
-      \caption{Keywords Plus}
-      \label{fig:wordcloud_keywords_plus} 
-    \end{subfigure}
-    \begin{subfigure}{0.4\textwidth}
-      \includegraphics[width=0.8\textwidth]
-      {img/wordcloud_authors_keywords.png}
-      \caption{Authors' Keywords}
-      \label{fig:wordcloud_authors_keywords} 
-    \end{subfigure}
-    \begin{subfigure}{0.4\textwidth}
-      \includegraphics[width=0.8\textwidth]
-      {img/wordcloud_titles_words.png}
-      \caption{Titles' words.}
-      \label{fig:wordcloud_titles_words} 
-    \end{subfigure}
-    \begin{subfigure}{0.4\textwidth}
-      \includegraphics[width=0.8\textwidth]
-      {img/wordcloud_abstracts_words.png}
-      \caption{Abstracts' words.}
-      \label{fig:wordcloud_abstract_words} 
-    \end{subfigure}
-  \end{figure}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Treemaps}
-  \begin{figure}
-    \centering
-    \begin{subfigure}{0.45\textwidth}
-      \includegraphics[width=0.99\textwidth]
-      {img/treemap_keywords_plus.png}
-      \caption{Keywords Plus}
-      \label{fig:treemap_keywords_plus} 
-    \end{subfigure}
-    \begin{subfigure}{0.45\textwidth}
-      \includegraphics[width=0.99\textwidth]
-      {img/treemap_authors_keywords.png}
-      \caption{Authors' Keywords}
-      \label{fig:treemap_authors_keywords} 
-    \end{subfigure}
-    \begin{subfigure}{0.45\linewidth}
-      \includegraphics[width=0.99\textwidth]
-      {img/treemap_titles_words.png}
-      \caption{Titles' words.}
-      \label{fig:treemap_titles_words} 
-    \end{subfigure}
-    \begin{subfigure}{0.45\linewidth}
-      \includegraphics[width=0.99\textwidth]
-      {img/treemap_abstracts_words.png}
-      \caption{Abstracts' words.}
-      \label{fig:treemap_abstract_words} 
-    \end{subfigure}
-  \end{figure}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Words' frequency over time}
-  \begin{figure}
-    \centering
-    \begin{subfigure}{0.4\textwidth}
-      \includegraphics[width=0.8\textwidth]
-      {img/words_frequency_over_time_keywords_plus.png}
-      \caption{Keywords Plus}
-      \label{fig:wordcloud_keywords_plus} 
-    \end{subfigure}
-    \begin{subfigure}{0.4\textwidth}
-      \includegraphics[width=0.8\textwidth]
-      {img/words_frequency_over_time_authors_keywords.png}
-      \caption{Authors' Keywords}
-      \label{fig:wordcloud_authors_keywords} 
-    \end{subfigure}
-    \begin{subfigure}{0.4\textwidth}
-      \includegraphics[width=0.8\textwidth]
-      {img/words_frequency_over_time_titles_words.png}
-      \caption{Titles' words.}
-      \label{fig:wordcloud_titles_words} 
-    \end{subfigure}
-    \begin{subfigure}{0.4\textwidth}
-      \includegraphics[width=0.8\textwidth]
-      {img/words_frequency_over_time_abstracts_words.png}
-      \caption{Abstracts' words.}
-      \label{fig:wordcloud_abstract_words} 
-    \end{subfigure}
-  \end{figure}
+	\frametitle{Average Total Citation per Year}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/AverTotCitperYear.png}
+	\end{figure}
 \end{frame}
 
 
@@ -556,56 +437,336 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 \section{Knowledge synthesis}
 
 \begin{frame}
-  \frametitle{Structures of knowledge}
-  \begin{itemize}
-    \item \emph{Conceptual}: What science talks about. 
-    \item \emph{Intellectual}: How the work of an author influences a given 
-      scientific community. 
-    \item \emph{Social}: How authors, institutions, and countries interact each
-      other.
-  \end{itemize}
-  \emph{Science mapping} allows investigating scientific knowledge from a 
-  statistical point of view.
+	\frametitle{Structures of knowledge}
+	\begin{itemize}
+		\item Science mapping aims at displaying the structural and dynamic aspects of
+		      scientific research~\cite{borner2003}.
+		\item \emph{Science mapping} allows investigating scientific knowledge from a
+		      statistical point of view:
+		      \begin{itemize}
+			      \item \emph{Conceptual}: What science talks about; themes and 
+                      trends.
+			      \item \emph{Intellectual}: How the work of an author 
+                      influences a given scientific community.
+			      \item \emph{Social}: How authors, institutions, and countries 
+                      interact with each other.
+		      \end{itemize}
+	\end{itemize}
 \end{frame}
 
-% TODO: https://bibliometrix.org/biblioshiny/assets/player/KeynoteDHTMLPlayer.html#93
 
-\subsection{Conceptual structure}
-\subsection{Intellectual structure}
-\subsection{Social structure}
 
+\section{Conceptual structure}
+
+\begin{frame}
+	\frametitle{Conceptual structure}
+	Represent relations among concepts or words in a set of publications.
+    \begin{itemize}
+        \item Words whih appear together in a document would be related in a 
+            network (co-words network). 
+        \item Factorial analysis helps to identify subfields by means of data
+            reduction techniques.
+        \item Mixed approach.
+    \end{itemize}
+\end{frame}
+
+
+
+\subsection{Thematic map}
+
+\begin{frame}
+	\frametitle{The strategic diagram}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item Upper-right: Themes are related externally to concepts applicable
+				      to other themes that are conceptually closely related.
+				\item Upper-left: Well-developed internal ties but unimportant external
+				      ties; marginal importance for the field.
+				\item Lower-left: Mainly represents emerging or disappearing themes.
+				\item Lower-right: Important for a research field but are not
+				      developed.
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.8\textwidth]
+				{./img/strategic_diagram_cobo2011.png}
+				\label{fig:strategic_diagram}
+				\caption{The strategic diagram. Source~\cite{cobo2011}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Thematic map (keyword plus)}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/thematic_map_keyword_plus.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Thematic map (authors' keywords)}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/thematic_map_keyword_authors.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Thematic map (titles)}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/thematic_map_titles.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Thematic map (abstracts)}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]
+        {figures/thematic_map_abstracts.png}
+	\end{figure}
+\end{frame}
+
+
+\subsection{Thematic evolution}
+
+\begin{frame}
+	\frametitle{Thematic evolution - 1}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{figures/thematic_evolution_1.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Thematic evolution - 2}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{figures/thematic_evolution_2.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Thematic evolution - 3}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{figures/thematic_evolution_3.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Thematic evolution - 4}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{figures/thematic_evolution_4.png}
+    \end{figure}
+\end{frame}
+
+
+
+\subsection{Factorial analysis}
+
+\begin{frame}
+	\frametitle{Factorial Map - Most contributing documents}
+	\begin{itemize}
+		\item Identify the link between topic and documents.
+		\item Plot the document associated to the highest absolute contribution.
+		\item Absolute contributions measure the weight of each document in
+		      the information summarized by the two axes.
+		\item The colors represent the clusters.
+	\end{itemize}
+\end{frame}
+
+%\begin{frame}
+%	\frametitle{Factorial Map - Most contributing documents}
+%	\begin{itemize}
+%		\item Identify the link between topic and most cited documents.
+%		\item Plot documents associated to the highest global citations.
+%		\item The colors represent the clusters.
+%	\end{itemize}
+%\end{frame}
+
+\begin{frame}
+	\frametitle{Factorial Map - Most contributing documents}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/con_stru_map_contrib.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Factorial Map - Most cited documents}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/con_stru_map_cited.png}
+	\end{figure}
+\end{frame}
+
+
+\subsection{Map of words}
+
+\begin{frame}
+	\frametitle{Map of words}
+	\begin{itemize}
+		\item Clusters are identified by hierarchical clustering.
+		\item Each color corresponds to a topic.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Map of words}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/con_stru_map.png}
+	\end{figure}
+\end{frame}
+
+
+
+\section{Intellectual structure}
+
+
+
+\subsection{Network analysis}
+
+\begin{frame}
+	\frametitle{Network analysis}
+	\begin{itemize}
+		\item A network is a representation of the co-occurrence matrix.
+		\item Diagonal elements are the occurrences of each item in the collection.
+		\item Non-diagonal elements are the co-occurrence of two item in a
+		      collection.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Network - Co-occurrences Authors-Keywords}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]
+		{figures/bnet_author_keywords_co-occurrences.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Network - Authors collaboration}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]
+		{figures/bnet_authors_collaboration.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Network - Authors co-occurrences}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]
+		{figures/bnet_authors_co-occurrences.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Network - Authors coupling}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]
+		{figures/bnet_authors_coupling.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Network - Keyword co-occurrences}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]
+		{figures/bnet_keywords_co-occurrences.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Network - References co-citation}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]
+		{figures/bnet_references_co-citation.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Network - Sources coupling}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]
+		{figures/bnet_sources_coupling.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Network - Universities collaboration}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]
+		{figures/bnet_universities_collaboration.png}
+	\end{figure}
+\end{frame}
+
+
+
+\section{Social structure}
+
+
+
+
+% Coupling network analysis plotted on a bi-dimensional map.
+
+\begin{frame}
+    \frametitle{Coupling network analysis (authors)}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]
+        {figures/couplingmap_w_authors.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Coupling network analysis (documents)}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]
+        {figures/couplingmap_w_documents.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Coupling network analysis (sources)}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]
+        {figures/couplingmap_w_sources.png}
+    \end{figure}
+\end{frame}
 
 
 
 \section{Summary}
 
 \begin{frame}
-  \frametitle{Take home message}
-  \begin{itemize}
-    \item TODO.
-  \end{itemize}
+	\frametitle{Take home message}
+	\begin{itemize}
+		\item TODO.
+	\end{itemize}
 \end{frame}
 
 \begin{frame}[allowframebreaks]
-  \frametitle{References}
-  %\bibliographystyle{amsalpha}
-  \bibliographystyle{plainnat}
-  \bibliography{slides.bib}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Queries}
-  Queries for TreesLab's papers.
-\end{frame}
-
-\begin{frame}[allowframebreaks]
-  \frametitle{Query Scopus}
-  \inputsql{code/query_scopus.txt}
-\end{frame}
-
-\begin{frame}[allowframebreaks]
-  \frametitle{Query WoS}
-  \inputsql{code/query_wos.txt}
+	\frametitle{References}
+	\printbibliography
 \end{frame}
 
 \end{document}
