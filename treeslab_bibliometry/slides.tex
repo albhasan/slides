@@ -30,8 +30,8 @@
 
 \author{Alber S\'{a}nchez \href{mailto:alber.ipia@inpe.br}
 {alber.ipia@inpe.br}\newline
-Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
-{guilherme.mataveli@inpe.br}}
+Guilherme Mataveli\newline
+Debora Dutra}
 \institute{
   \includegraphics[width=4cm,keepaspectratio]{logos/trees-color-h_2.png}
   \includegraphics[width=1.8cm,keepaspectratio]
@@ -41,14 +41,18 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 }
 \date{\today}
 
+
+
 \begin{document}
+
+
 
 \frame{\titlepage}
 
-\begin{frame}
-	\frametitle{Overview}
-	\tableofcontents
-\end{frame}
+%\begin{frame}[allowframebreaks]
+%	\frametitle{Overview}
+%	\tableofcontents
+%\end{frame}
 
 
 
@@ -56,7 +60,13 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 
 
 
+\begin{frame}
+    Introduction.
+\end{frame}
+
+
 \subsection{The research cycle}
+
 
 \begin{frame}
 	\frametitle{The research cycle}
@@ -78,8 +88,8 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 \end{frame}
 
 
-
 \subsection{Bibliometrics}
+
 
 \begin{frame}
 	\frametitle{What is bibliometric analysis?}
@@ -92,29 +102,6 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
               citation analysis) on bibliometric data (e.g., units of 
               publication and citation)~\cite{donthu2021}.
 	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Bibliometrix package}
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			\begin{itemize}
-				\item R package for bibliometric analysis~\cite{aria2017}.
-				\item It allows quantitative research in bibliometrics and
-				      scientometrics.
-				\item Statistical analysis of publications.
-				\item Useful for performance evaluation and policymaking.
-				\item It includes a Web Application (biblioshiny) for 
-                    non-programmers!
-			\end{itemize}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[width=0.8\textwidth]{logos/bibliometrix.png}
-			\end{figure}
-		\end{column}
-	\end{columns}
 \end{frame}
 
 \begin{frame}
@@ -137,102 +124,24 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Scopus and Web of Science at INPE}
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			\begin{itemize}
-				\item To query them, use a computer at INPE and your Café 
-                    login.
-			\end{itemize}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[width=0.9\textwidth]{img/inpe_cafe.png}
-			\end{figure}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-
-
-
-
-\subsection{TreesLab publications}
-
-\begin{frame}
-	\frametitle{TreesLab publications}
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-            What constitutes a TreesLab's publication?
-			\begin{itemize}
-                \item Any publication whose authors agree to add it to the  
-                    TreesLab's publication list.
-			\end{itemize}
-            \vspace{\baselineskip}
-            Who are the members of TreesLab?
-			\begin{itemize}
-                \item Researchers, pos\-docs, Phd \& masters students who 
-                    consent to be part of the TreesLab. 
-			\end{itemize}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[width=0.7\textwidth]{logos/trees-color-h_2.png}
-			\end{figure}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-\begin{frame}
-	\frametitle{TreesLab publication list}
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-            \begin{itemize}
-                \item The publication list is available using Zotero, both 
-                    online (click
-                  \href{https://www.zotero.org/groups/5304570/treeslab/library}
-                    {here}) and as a desktop application.
-                \item To add a publication, send its DOI to the TreesLab' 
-                    mailing list.
-                \item Publications wihtout DOI (e.g. GeoInfo, SBSR) should be
-                    added to online document \emph{treeslab\_sem\_doi} (click 
-\href{https://docs.google.com/document/d/1pnIX_u3Si7J9OBJ1drsbBws5Fgrju_gM4Iyv_DvEw7g/edit?usp=sharing}
-                    {here}).
-                \item TreesLab's Zotero Group is called \emph{treeslab}.
-                \item The former list (Mendeley) is deprecated.
-            \end{itemize}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[width=0.5\textwidth]{logos/zotero.jpg}
-                \includegraphics[width=0.9\textwidth]{img/zotero_treeslab.png}
-			\end{figure}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-\begin{frame}
-    \frametitle{TreesLab Publications' data}
+    \frametitle{Bibliometrics and LLMs}
     \begin{columns}
-        \begin{column}{0.5\textwidth}
+		\begin{column}{0.5\textwidth}
             \begin{itemize}
-                \item TreesLab has a Zenodo Community (click 
-            \href{https://zenodo.org/communities/treeslab}{here}).
-                \item To become a member, go to Zenodo, click on communities, 
-                    search for \emph{treeslab}, and follow the instructions.
-                \item Upload your paper's data (no membership required). 
-                \item Make a request to the TreesLab community's administrators 
-                    to include your paper's data.
-            \end{itemize} 
+                \item \emph{Large language models reveal big disparities in 
+                    current wildfire research}~\cite{lin2024}.
+                \item This is a potential new trend in bibliometric analysis.
+                \item Feed database data into LLM (ChatGPT).
+                \item Extract, besides bibliometric information, localization
+                    of AOI.
+            \end{itemize}
         \end{column}
-        \begin{column}{0.5\textwidth}
+		\begin{column}{0.5\textwidth}
             \begin{figure}
                 \centering
-                \includegraphics[width=0.4\textwidth]{logos/zenodo.png}
-                \includegraphics[width=0.8\textwidth]{img/zenodo_treeslab.png}
+                \includegraphics[width=0.8\textwidth]
+                {img/lin2024_workflow.png}
+                \caption{Source:~\cite{lin2024}.}
             \end{figure}
         \end{column}
     \end{columns}
@@ -242,7 +151,15 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 
 \section{Method}
 
-%\subsection{Definitions}
+
+
+\begin{frame}
+    Method.
+\end{frame}
+
+
+\subsection{Definitions}
+
 
 \begin{frame}
 	\frametitle{Documents and references}
@@ -289,13 +206,20 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 	\end{columns}
 \end{frame}
 
-%\subsection{Assumptions}
+\subsection{Assumptions}
 
 \begin{frame}
 	\frametitle{Assumptions}
-	\begin{itemize}
-		\item We assumed that TreesLab's publications are a study subject.
-	\end{itemize}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+        \begin{itemize}
+            \item We assumed that TreesLab's publications are a study subject.
+        \end{itemize}
+        \end{column}
+		\begin{column}{0.5\textwidth}
+            \includegraphics[width=0.8\textwidth]{logos/trees-color-h_2.png}
+        \end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}
@@ -304,24 +228,222 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 		\begin{column}{0.5\textwidth}
 			\begin{enumerate}
 				\item Get TreesLab publications' DOIs.
-				\item Query Scopus and Web of Science.
-                \item Run analysis using \textit{R}.
+				\item Query databases.
+                \item Run analysis.
 			\end{enumerate}
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\begin{figure}
 				\centering
-				\includegraphics[width=0.4\textwidth]{logos/logo_doi.png}
-                %\newline
-				%\includegraphics[width=0.6\textwidth]{logos/logo_orcid.png}
+				\includegraphics[width=0.2\textwidth]{logos/logo_doi.png}
+                \includegraphics[width=0.4\textwidth]{logos/logo_orcid.png}
+                \includegraphics[width=0.35\textwidth]{logos/zotero.jpg}\newline
+				\includegraphics[width=0.45\textwidth]{logos/scopus.png}
+				\includegraphics[width=0.45\textwidth]{logos/wos.png}\newline
+                \includegraphics[width=0.27\textwidth]{logos/Rlogo.png}
+				\includegraphics[width=0.25\textwidth]{logos/bibliometrix.png}
 			\end{figure}
 		\end{column}
 	\end{columns}
 \end{frame}
 
 
+\subsection{Get TREES Lab publications' DOIs}
 
-\section{Results overview}
+
+\subsubsection{TreesLab publications}
+
+\begin{frame}
+	\frametitle{TreesLab publications}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+            What constitutes a TreesLab's publication?
+			\begin{itemize}
+                \item Any publication whose authors agree to add it to the  
+                    TreesLab's publication list.
+			\end{itemize}
+            \vspace{\baselineskip}
+            Who are the members of TreesLab?
+			\begin{itemize}
+                \item Researchers, pos\-docs, Phd \& masters students who 
+                    consent on being part of the TreesLab. 
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.7\textwidth]{logos/trees-color-h_2.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{TreesLab publication list}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item The publication list is available using Zotero, both 
+                    online (click
+                  \href{https://www.zotero.org/groups/5304570/treeslab/library}
+                    {here}) and as a desktop application.
+                \item Currently, it has 306 items (2024-04-17).
+                \item To add a publication, send its DOI to the TreesLab' 
+                    mailing list.
+                \item Publications wihtout DOI (e.g. GeoInfo, SBSR) should be
+                    added to online document \emph{treeslab\_sem\_doi} (click 
+\href{https://docs.google.com/document/d/1pnIX_u3Si7J9OBJ1drsbBws5Fgrju_gM4Iyv_DvEw7g/edit?usp=sharing}
+                    {here}).
+                \item TreesLab's Zotero Group is called \emph{treeslab}.
+                \item The former list (Mendeley) is deprecated.
+            \end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.5\textwidth]{logos/zotero.jpg}
+                \includegraphics[width=0.9\textwidth]{img/zotero_treeslab.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{TreesLab Publications' data}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item TreesLab has a Zenodo Community (click 
+            \href{https://zenodo.org/communities/treeslab}{here}).
+        \item Currently, it has 16 open and 2 restricted datasets 
+            (2024-04-017).
+                \item To become a member, go to Zenodo, click on communities, 
+                    search for \emph{treeslab}, and follow the instructions.
+                \item Upload your paper's data (no membership required). 
+                \item Make a request to the TreesLab community's administrators 
+                    to include your paper's data.
+            \end{itemize} 
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.4\textwidth]{logos/zenodo.png}
+                \includegraphics[width=0.8\textwidth]{img/zenodo_treeslab.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\subsection{Query Scopus and Web of Science}
+
+
+\begin{frame}
+    \frametitle{From publication list to DOIs}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{enumerate}
+                \item Use Zotero to export publication list to BibTex format.
+                \item Use Bash script to extract DOIs to a text file.
+                \item Use a text editor to build queries for both Scopus and 
+                    Web Of Science databases.
+            \end{enumerate}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.5\textwidth]{logos/zotero.jpg}
+                \includegraphics[width=0.5\textwidth]{logos/bash.png}
+                \includegraphics[width=0.6\textwidth]{logos/neovim-logo.png}
+			\end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Scopus and Web of Science at INPE}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item To run the queries, use a computer at INPE and your Café 
+                    login.
+                \item The database interface offers advanced options, where you
+                    can type complex queries.
+                \item Store the resutla as either CSV or Plain Text for 
+                    further processing.
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.9\textwidth]{img/inpe_cafe.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\subsection{Run analysis using \textit{R}}
+
+\begin{frame}
+	\frametitle{Bibliometrix}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item R package for bibliometric analysis~\cite{aria2017}.
+				\item It allows quantitative research in bibliometrics and
+				      scientometrics.
+				\item Statistical analysis of publications.
+				\item Useful for performance evaluation and policymaking.
+				\item It includes a Web Application (biblioshiny) for 
+                    non-programmers!
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.8\textwidth]{logos/bibliometrix.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Bibliometrix field tags}
+    \begin{columns}
+		\begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item Some of the column names used by Bibliometrix.
+                \item Find the complete list clicking 
+     \href{https://www.bibliometrix.org/documents/Field_Tags_bibliometrix.pdf}
+                    {here}.
+            \end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.7\textwidth]
+                {img/bibliometrix_field_tags.png}
+                \caption{Source: 
+\href{https://www.bibliometrix.org/vignettes/Data-Importing-and-Converting.html}
+                {Bibliometrix - Data Importing and Converting}.}
+            \end{figure}
+		\end{column}
+    \end{columns}
+\end{frame}
+
+
+
+\section{Results} 
+
+
+
+\begin{frame}
+    Results.
+\end{frame}
+
+
+\subsection{Results overview}
+
 
 \begin{frame}
 	\frametitle{Overview}
@@ -433,8 +555,8 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 \end{frame}
 
 
+\subsection{Knowledge synthesis}
 
-\section{Knowledge synthesis}
 
 \begin{frame}
 	\frametitle{Structures of knowledge}
@@ -455,8 +577,8 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 \end{frame}
 
 
+\subsection{Conceptual structure}
 
-\section{Conceptual structure}
 
 \begin{frame}
 	\frametitle{Conceptual structure}
@@ -471,8 +593,8 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 \end{frame}
 
 
-
 \subsection{Thematic map}
+
 
 \begin{frame}
 	\frametitle{The strategic diagram}
@@ -536,8 +658,9 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 
 \subsection{Thematic evolution}
 
+
 \begin{frame}
-	\frametitle{Thematic evolution - 1}
+	\frametitle{Thematic evolution - 2003:2007}
     \begin{figure}
         \centering
         \includegraphics[width=0.7\textwidth]{figures/thematic_evolution_1.png}
@@ -545,7 +668,7 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Thematic evolution - 2}
+	\frametitle{Thematic evolution - 2008:2012}
     \begin{figure}
         \centering
         \includegraphics[width=0.7\textwidth]{figures/thematic_evolution_2.png}
@@ -553,7 +676,7 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Thematic evolution - 3}
+	\frametitle{Thematic evolution - 2013:2017}
     \begin{figure}
         \centering
         \includegraphics[width=0.7\textwidth]{figures/thematic_evolution_3.png}
@@ -561,7 +684,7 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Thematic evolution - 4}
+	\frametitle{Thematic evolution - 2018:2022}
     \begin{figure}
         \centering
         \includegraphics[width=0.7\textwidth]{figures/thematic_evolution_4.png}
@@ -569,8 +692,8 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 \end{frame}
 
 
-
 \subsection{Factorial analysis}
+
 
 \begin{frame}
 	\frametitle{Factorial Map - Most contributing documents}
@@ -583,14 +706,14 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 	\end{itemize}
 \end{frame}
 
-%\begin{frame}
-%	\frametitle{Factorial Map - Most contributing documents}
-%	\begin{itemize}
-%		\item Identify the link between topic and most cited documents.
-%		\item Plot documents associated to the highest global citations.
-%		\item The colors represent the clusters.
-%	\end{itemize}
-%\end{frame}
+\begin{frame}
+	\frametitle{Factorial Map - Most contributing documents}
+	\begin{itemize}
+		\item Identify the link between topic and most cited documents.
+		\item Plot documents associated to the highest global citations.
+		\item The colors represent the clusters.
+	\end{itemize}
+\end{frame}
 
 \begin{frame}
 	\frametitle{Factorial Map - Most contributing documents}
@@ -611,6 +734,7 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 
 \subsection{Map of words}
 
+
 \begin{frame}
 	\frametitle{Map of words}
 	\begin{itemize}
@@ -628,12 +752,10 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 \end{frame}
 
 
-
-\section{Intellectual structure}
-
+\subsection{Intellectual structure}
 
 
-\subsection{Network analysis}
+\subsubsection{Network analysis}
 
 \begin{frame}
 	\frametitle{Network analysis}
@@ -718,10 +840,7 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 \end{frame}
 
 
-
-\section{Social structure}
-
-
+\subsection{Social structure}
 
 
 % Coupling network analysis plotted on a bi-dimensional map.
@@ -757,10 +876,18 @@ Guilherme Mataveli \href{mailto:guilherme.mataveli@inpe.br}
 
 \section{Summary}
 
+
 \begin{frame}
 	\frametitle{Take home message}
 	\begin{itemize}
-		\item TODO.
+		\item It's healthy for TreesLab to look at itself once in a while. 
+        \item An introspection excercise reveals trends and patterns along 20 
+            years of research, spotting ways to move forward.
+        \item The tools and services presented here, can be chained for 
+            regular reporting and monitoring. 
+        \item Besides, these tools allow exploring new or converging 
+            knowledge areas, easing the TreesLab path into potential 
+            opportunities in interdisciplinar research.
 	\end{itemize}
 \end{frame}
 
