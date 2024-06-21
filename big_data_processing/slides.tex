@@ -1,0 +1,165 @@
+% NOTE:
+% latexmk -shell-escape -pvc slides.tex # Watches and compiles on each change.
+% latexmk -c slides.tex   # Clean the temporal files.
+
+% NOTE: 
+% the minted package doesn't play well with the bibliography!
+
+\documentclass[aspectratio=169]{beamer}
+
+\setbeamertemplate{footline}[frame number]
+\beamertemplatenavigationsymbolsempty
+
+% NOTE: Only use numeric for references' style!
+\usepackage[backend=biber,style=numeric]{biblatex}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{siunitx}
+\usepackage{subcaption}
+
+\addbibresource{slides.bib}  
+
+\captionsetup[figure]{labelformat=empty}
+
+\title{Notes on processing large amounts of Earth Observation data}
+
+\author{Alber S\'{a}nchez \href{mailto:alber.ipia@inpe.br}
+{alber.ipia@inpe.br}\newline
+Guilherme Mataveli}
+\institute{
+  \includegraphics[width=4cm,keepaspectratio]{logos/trees-color-h_2.png}
+  \includegraphics[width=1.8cm,keepaspectratio]
+  {logos/logoinpe-azul-menor.png} \\
+  Research assistant - TreesLab\\National Institute for Space Research - INPE\\
+  Brazil
+}
+\date{\today}
+
+
+
+\begin{document}
+
+
+
+\frame{\titlepage}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{Overview}
+    \tableofcontents
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}
+    Introduction.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Two stages: develping and processing}
+\end{frame}
+
+
+
+\section{Computing concepts}
+
+
+
+\begin{frame}
+    \frametitle{Hardware}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Software}
+\end{frame}
+
+
+
+\section{Linux}
+
+
+
+\section{Scripting}
+
+
+
+\subsection{Bash}
+
+\subsection{R}
+
+\begin{frame}
+    \frametitle{R good practices}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Make script take parameters}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Parallelize code}
+\end{frame}
+
+
+
+\subsection{Python}
+
+
+\section{Virtualization and containerization}
+
+\begin{frame}
+    \frametitle{Reproducible development environments}
+    \begin{itemize}
+        \item How do I get the same environment during developing and 
+            processing?
+    \end{itemize}
+\end{frame}
+
+
+
+\section{Platforms}
+
+
+
+\subsection{sepal.io}
+
+\begin{frame}
+    \frametitle{Open an account}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Start a machine}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Get data}
+\end{frame}
+
+\begin{frame}
+   \frametitle{Start an R-spatial container} 
+\end{frame}
+
+\begin{frame}
+   \frametitle{Get root password} 
+\end{frame}
+
+
+\subsection{Google Earth Engine}
+
+
+
+\section{Test case: sepal.io}
+
+
+
+
+
+
+
+\begin{frame}[allowframebreaks]
+	\frametitle{References}
+	\printbibliography
+\end{frame}
+
+\end{document}
+
