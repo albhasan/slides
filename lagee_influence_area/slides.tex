@@ -1,0 +1,374 @@
+% NOTE:
+% latexmk -shell-escape -pvc slides.tex # Watches and compiles on each change.
+% latexmk -c slides.tex   # Clean the temporal files.
+
+% NOTE: 
+% the minted package doesn't play well with the bibliography!
+
+\documentclass[aspectratio=169]{beamer}
+
+\setbeamertemplate{footline}[frame number]
+\beamertemplatenavigationsymbolsempty
+
+% NOTE: Only use numeric for references' style!
+\usepackage[backend=biber,style=numeric]{biblatex}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{siunitx}
+\usepackage{subcaption}
+
+\addbibresource{slides.bib}  
+
+\captionsetup[figure]{labelformat=empty}
+
+\title{How does LAGEE estimates areas of influence?}
+
+\author{Alber S\'{a}nchez \href{mailto:alber.ipia@inpe.br}\newline
+{alber.ipia@inpe.br}}
+\institute{
+  \includegraphics[width=1.8cm,keepaspectratio]
+  {logos/logoinpe-azul-menor.png} \\
+  Research assistant - TreesLab\\National Institute for Space Research - INPE\\
+  Brazil
+}
+\date{\today}
+
+
+
+\begin{document}
+
+
+
+\frame{\titlepage}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{Overview}
+    \tableofcontents
+\end{frame}
+
+
+
+\section{Introduction}
+
+
+
+ \begin{frame}
+     Introduction.
+ \end{frame}
+
+ \begin{frame}
+     \frametitle{About LaGEE}
+     \begin{columns}
+         \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item Greenhouse Gas Laboratory (LaGEE) 
+                    \url{https://www.ccst.inpe.br/lagee}
+                \item Established in 2003.
+                \item Part of the Earth System Science Center (CCST) at the 
+                    National Institute for Space Research in Brazil (INPE).
+                \item Principal Investigator: Dr. Luciana Gatti.
+            \end{itemize}
+         \end{column}
+         \begin{column}{0.5\textwidth}
+             \begin{figure}
+                 \centering
+                 \includegraphics[scale=.15]
+                 {logos/logo-lagee-maiorzin.png}\newline
+                 \includegraphics[scale=.17]
+                 {logos/ccst.jpg}
+                 \includegraphics[scale=.8]
+                 {logos/logoinpe-azul-menor.png}
+             \end{figure}
+         \end{column}
+     \end{columns}
+ \end{frame}
+
+\begin{frame}
+    \frametitle{What are the LaGEE's Areas of Influcence?}
+    Areas (or regions) of Influece (AI) are...
+    \begin{itemize}
+        \item Areas covered by the set of back-trajectories staring at 
+            of the vertical profiles' sampling points over a time period.
+        \item Derived from backtrajectory models forced by metereological input
+            (mainly horizontal wind fields).
+        \item AI are calculated from single back trajectories released from 
+            each measurement point.
+        \item Trajectories are binned to create an ensemble which is used to
+            define an AI over most of the depth of the atmospheric profile over
+            three months~\cite{cassol2020}.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Uses of Areas of Influence}
+    \begin{itemize}
+        \item Combine and compare GHG flux estimates from upwind areas 
+            to sample sampling sites of vertical atmospheric profiles.
+        \item Determine the average value of metereological variables
+            such as temperature and precipitation in the upwind area
+            of a sampling sites of vertical profiles.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Areas of influcence are NOT...}
+    \begin{itemize}
+        \item AI aren't intended to be used to calculate GHG fluxes.
+        \item Areas of Influece are not Footprints:
+        \begin{itemize}
+            \item Footprints are determined from an ensemble of randomly 
+                perturbated back-trajectories released at each measurement 
+                point.
+            \item Footprints are tipically used as sensitibily matrices in 
+                Bayesian estimates of GHG fluxes in inversions.
+            \item Footprints project fluxes into mole fraction 
+                deviations ~\cite{cassol2020}.
+            \item Footprints are defined in~\cite{gerbig2003,hu2019}.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{What is a trajectory?}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item A organized set of positions in space and time of a 
+                    particule or an air parcel produce by an atmospheric model.
+                \item A back-trajectory is a trajectory running on reverse, 
+                    from the destination to the source.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.25]{img/example_trajectories.png}
+                \caption{Trajectories ending at sampling site TAB on April 20th 
+                2011. Source:~\cite{cassol2020}. }
+            \end{figure}
+        \end{column}
+     \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Hysplit}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item Atmospheric transport and dispersion model.
+                \item Compute simple air parcel trajectories.
+                \item Complex transport, dispersion, chemical transformation,
+                    and deposition simulations.
+                \item Back trajectory analisys to determine the origin of air 
+                    masses.
+                \item Computation is an Lagrangian-Eulerian hybrid.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.15]
+                {logos/noaa_air_resources_laboratory.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Area of Influence - Method}
+    \begin{itemize}
+        \item Get trajectories from HySplit.
+        \item Compute trajectory density using a one-degree grid covering 
+            Brazil.
+        \item Bin trajectories into 3-month intervals.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Publication}
+    \href{https://www.mdpi.com/2073-4433/11/10/1073}
+    {DOI:10.3390/atmos11101073}~\cite{cassol2020}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.4]{img/cassol2020.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Areas of Influence - Results}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.07]{img/areas_of_influence.png}
+        \caption{Areas of incluence. Source:~\cite{cassol2020}.}
+    \end{figure}
+\end{frame}
+
+
+
+\section{How are IAs currently estimated?}
+
+
+
+\begin{frame}
+    How are the Areas of Influece currently estimated at LaGEE?
+\end{frame}
+
+\begin{frame}
+    \frametitle{About LaGEE's code}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item LaGEE has an online repository of code (click
+                    ~\href{https://github.com/INPE-LAGEE}{here}).
+                \item The code to process LaGEE's AIs is written as an 
+                    \textit{R} package called \textit{cqmaTools}.
+                \item \textit{cqmaTools} contains a directory for scripts, 
+                    including the script for estimating the Areas of Influence.
+                \item \textit{cqmaTools} depends on outdated packages 
+                    (e.g. \textit{sp}), difficulting its installation.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.25]{img/github_lagee.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Script Areas of Influence}
+    \begin{itemize}
+        \item The actual script used for the AIs in LaGEE is different 
+            from the one at GitHub.
+        \item \citeauthor{cassol2020} states that ther are some IDL code
+            involved during AI estimation. That code is missing from LaGEE's 
+            code repository.
+        \item The script analyzed here is called 
+            \verb|influence_area_simuladas.R| and it was provided by Luciano 
+            Marani on 2024/06/27.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Script \textit{influence\_area\_simuladas.R}}
+    \begin{itemize}
+        \item Dependencies:
+            \begin{itemize}
+                \item The development version of \textit{cqmaTools}.
+                \item The deprecated \textit{raster} package.
+            \end{itemize}
+        \item Inputs:
+            \begin{itemize}
+                \item A path to a directory with trajectoy files.
+                \item A path to a directory with station data. 
+            \end{itemize}
+        \item Outputs:
+            \begin{itemize}
+                \item Raster plot by site, by year, by trimester.
+                \item A text with the data used for the plot.
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]
+    \frametitle{Processing in \textit{influence\_area\_simuladas.R}}
+    \begin{itemize}
+        \item Allow trajectories under 3500 m.
+        \item Allow up to 4 missing neighbors for each center cell
+            in a 3x3 window.
+        \item Allow longitudes from -80 to -30.
+        \item Allow latitudes from -40 to 10.
+        \item Plot total:
+            \begin{itemize}
+                \item \verb|mean_trajectory|is the number of vertices in a site 
+                    divided by the number of vertices in a year for that site.
+                \item The threshold is 0.025
+            \end{itemize}
+        \item Plot by year:
+            \begin{itemize}
+                \item \verb|mean_trajectory| is the number of vertices in a 
+                    year.
+                \item The threshold is the maximum value of 
+                    \verb|mean_trajectory| times the threshold (0.025).
+            \end{itemize}
+        \item Plot by trimester:
+            \begin{itemize}
+                \item \verb|mean_trajectory| is the number of vertices in a 
+                    trimester.
+                \item The threshold is the maximum value of 
+                    \verb|mean_trajectory| times the threshold (0.025).
+            \end{itemize}
+        \item Plot by trimester (total):
+            \begin{itemize}
+                \item \verb|mean_trajectory| is the number of vertices in a 
+                    trimester divided by the number of vertices in a trimester 
+                    for that site.
+                \item The threshold is the maximum value of 
+                    \verb|mean_trajectory| times the threshold (0.025).
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+
+\section{New proposal for estimating Areas of Influence}
+
+
+
+\begin{frame}
+    New proposal for estimating Areas of Influence.
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{New proposal for estimating Areas of Influence}
+    \begin{itemize}
+        \item No smoothing.
+        \item No fill in AI holes.
+        \item Only consider trajectories that don't go below 100 or above 3500 
+            meters.
+        \item Just comptute trajectories' vertex frequency over the grid.
+        \item New script \verb|compute_frequency_grid.R|.
+    \end{itemize}
+\end{frame}
+
+
+
+\section{Final remarks}
+
+
+
+\begin{frame}
+    Final remarks.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Take home message}
+    \begin{columns}
+        \begin{column}{0.7\textwidth}
+            \begin{itemize}
+                \item The LaGEE's R code is availabe at 
+                    \url{https://github.com/INPE-LAGEE}.
+                \item Get these slides at 
+\footnotesize{\url{https://github.com/albhasan/slides/lagee_influence_area}}.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \begin{figure}
+                 \includegraphics[scale=2]
+                 {logos/github-mark.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+	\frametitle{References}
+	\printbibliography
+\end{frame}
+
+\end{document}
+
