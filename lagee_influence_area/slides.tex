@@ -328,10 +328,17 @@
     \begin{itemize}
         \item No smoothing.
         \item No fill in AI holes.
-        \item Only consider trajectories that don't go below 100 or above 3500 
-            meters.
         \item Just comptute trajectories' vertex frequency over the grid.
         \item New script \verb|compute_frequency_grid.R|.
+        % \item DEPRECATED: Only consider trajectories that don't go below 100 or above 1300 
+        %     meters.
+        % \item DEPRECATED: Keep trajectories that start in rnage 100 - 1300. 
+        % \item DEPRECATED: Keep trajectories that remain 40\% in range 100 - 1300.
+        % \item DEPRECATED: Consider the trajectory's segments in range 80 - 1300.
+        % \item DEPRECATED: Do not consider trajectory's vertices below 250 meters. 
+        \item Only consider points that don't go above 1300.
+        \item Use trajectories' vertex count for each cell. Don't use the mean.
+        \item Compute area of influence of each site for amazonia.
     \end{itemize}
 \end{frame}
 
