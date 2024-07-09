@@ -22,6 +22,9 @@
 \usepackage{siunitx}
 \usepackage{subcaption}
 
+
+\setcounter{tocdepth}{2}
+
 \addbibresource{slides.bib}  
 
 \captionsetup[figure]{labelformat=empty}
@@ -49,10 +52,10 @@ Debora Dutra}
 
 \frame{\titlepage}
 
-%\begin{frame}[allowframebreaks]
-%	\frametitle{Overview}
-%	\tableofcontents
-%\end{frame}
+\begin{frame}[allowframebreaks]
+	\frametitle{Overview}
+	\tableofcontents
+\end{frame}
 
 
 
@@ -385,6 +388,33 @@ Debora Dutra}
 \subsection{Run analysis using \textit{R}}
 
 \begin{frame}
+    \frametitle{bib2df}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item \textit{bib2df}: Parse a BibTex file to a 
+                    tibble~\cite{ottolinger2024}.
+                \item Most \text{R} analysis is done using data frames or 
+                    tibbles.
+                \item BibTex is \textit{de facto} standard for managing 
+                    bibliographic references.
+                \item \textit{bib2df} is part of 
+                    \href{https://ropensci.org/}{rOpenSci}.
+                \item \href{https://ropensci.org/}{rOpenSci} is a initiative 
+                    that foster \textit{R} software tools that lower barriers 
+                    to working with local and remote scientific datasets.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.9\textwidth]{logos/ropensci.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
 	\frametitle{Bibliometrix}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
@@ -442,7 +472,40 @@ Debora Dutra}
 \end{frame}
 
 
-\subsection{Results overview}
+
+\subsection{TREES Lab publication list (complete)}
+
+
+
+\begin{frame}
+    TREES Lab publication list (complete).
+\end{frame}
+
+\begin{frame}
+    \frametitle{Documents by type (complete)}
+	\centering
+	\small
+	\include{./tables/summary_doc_type_total.tex}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Annual Scientific Production (complete)}
+    \begin{figure}
+        \centering
+		\includegraphics[width=0.7\textwidth]{figures/AnnualScientProd_total.png}
+    \end{figure}
+\end{frame}
+
+
+\subsection{TREES Lab publications with DOI}
+
+
+\begin{frame}
+    TREES Lab publications with DOI.
+\end{frame}
+
+
+\subsubsection{Results overview}
 
 
 \begin{frame}
@@ -456,7 +519,7 @@ Debora Dutra}
 	\frametitle{Documents by type}
 	\centering
 	\small
-	\include{./tables/summary_doc_type.tex}
+	\include{./tables/summary_doc_type_doi.tex}
 \end{frame}
 
 \begin{frame}
@@ -555,7 +618,7 @@ Debora Dutra}
 \end{frame}
 
 
-\subsection{Knowledge synthesis}
+\subsubsection{Knowledge synthesis}
 
 
 \begin{frame}
@@ -577,7 +640,7 @@ Debora Dutra}
 \end{frame}
 
 
-\subsection{Conceptual structure}
+\subsubsection{Conceptual structure}
 
 
 \begin{frame}
@@ -593,7 +656,7 @@ Debora Dutra}
 \end{frame}
 
 
-\subsection{Thematic map}
+\subsubsection{Thematic map}
 
 
 \begin{frame}
@@ -656,7 +719,7 @@ Debora Dutra}
 \end{frame}
 
 
-\subsection{Thematic evolution}
+\subsubsection{Thematic evolution}
 
 
 \begin{frame}
@@ -692,7 +755,7 @@ Debora Dutra}
 \end{frame}
 
 
-\subsection{Factorial analysis}
+\subsubsection{Factorial analysis}
 
 
 \begin{frame}
@@ -732,7 +795,7 @@ Debora Dutra}
 \end{frame}
 
 
-\subsection{Map of words}
+\subsubsection{Map of words}
 
 
 \begin{frame}
@@ -752,10 +815,8 @@ Debora Dutra}
 \end{frame}
 
 
-\subsection{Intellectual structure}
 
-
-\subsubsection{Network analysis}
+\subsubsection{Intellectual structure - Network analysis}
 
 \begin{frame}
 	\frametitle{Network analysis}
@@ -840,7 +901,7 @@ Debora Dutra}
 \end{frame}
 
 
-\subsection{Social structure}
+\subsubsection{Intellectual structure - Social structure}
 
 
 % Coupling network analysis plotted on a bi-dimensional map.
