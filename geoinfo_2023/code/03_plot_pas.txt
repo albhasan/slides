@@ -1,0 +1,11 @@
+library(prioritizedeforestationhotspots)
+library(tidyverse); library(sf)
+
+deforestation_grid %>% 
+    right_join(deforestation_data, by = "id") %>%
+    ggplot() +
+    geom_sf(aes(fill = area_PA), lwd = 0) +
+    scale_fill_gradient(name = "Area (km2)", trans = "log",
+                        breaks = c(1, 10, 100, 600),
+                        low = "green", high = "red") +
+    theme(axis.text.x = element_text(angle = 90))

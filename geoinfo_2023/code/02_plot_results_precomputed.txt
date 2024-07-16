@@ -1,0 +1,28 @@
+library(prioritizedeforestationhotspots)
+library(tidyverse); library(sf)
+
+# Read the result data from the package.
+priority_sf<-system.file("extdata", "results", "priority_classes.shp", 
+                     package = "prioritizedeforestationhotspots") %>%
+    read_sf()
+
+# Format the data.
+priority_tb <- priority_sf %>%
+    st_drop_geometry() %>%
+    pivot_longer(cols = starts_with("pri"),  names_prefix = "pri",
+                 names_to = "ref_year",  values_to = "priority") 
+
+# Arrange data into a sf object.
+priority_sf <-  priority_sf %>%
+    select(id) %>%
+    right_join(priority_tb, by = "id", multiple = "all") %>%
+    mutate(priority = factor(priority, ordered = TRUE),
+                             labels = c("High", "Average", "Low"))
+
+# Plot. 
+priority_sf %>%
+    ggplot() +
+    geom_sf(aes(fill = priority), lwd = 0) +
+    facet_wrap(~ref_year) +
+    theme(axis.text.x = element_text(angle = 90)) +
+    theme(legend.title=element_blank())

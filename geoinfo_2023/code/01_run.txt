@@ -1,0 +1,5 @@
+library(sf); library(prioritizedeforestationhotspots)
+out_dir <- "~/Documents/prioritize_res"
+estimate_accuracy(out_dir)# NOTE: This takes long to run!
+fit_model(out_dir)
+results_to_shp(out_dir)
