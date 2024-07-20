@@ -17,6 +17,7 @@
 \usepackage{caption}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{longtable}
 \usepackage{siunitx}
 \usepackage{subcaption}
 
@@ -96,6 +97,10 @@ Guilherme Mataveli}
 \end{frame}
 
 \begin{frame}
+    \frametitle{Map - Reduce}
+\end{frame}
+
+\begin{frame}
     \frametitle{Resources}
     \begin{columns}
         \begin{column}{0.5\textwidth}
@@ -122,6 +127,11 @@ Guilherme Mataveli}
 
 \begin{frame}
     Linux.
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{Basic Bash commands}
+    \input{tables/linux_commands.tex}
 \end{frame}
 
 \begin{frame}
@@ -244,11 +254,94 @@ Guilherme Mataveli}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Docker}
+    \frametitle{Virtualization}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item A host is a piece of hardware.
+                \item A virtual machine takes pieces of host's CPU, memory, and
+                    disc and simulates new hardware.
+                \item A software called Hypervisor takes care of virtual
+                    machines in a host.
+                \item VirtualBox and VMware are popular virtualization 
+                    software.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.2]{logos/virtualbox.png}
+                \includegraphics[scale=0.2]{logos/vmware.jpg}
+            \end{figure}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Rocker}
+    \frametitle{Containerization}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item A host is a piece of hardware.
+                \item A virtual machine takes pieces of host's CPU, memory, and
+                    disc and simulates new hardware but it's able to share them
+                    with other host's processes.
+                \item Reproducible, lightweight environments for processes to
+                    run.
+                \item You're probably using them without knowing it.
+                \item Docker and Podman are software for containerization.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.25]{logos/docker-logo.jpg}
+                \includegraphics[scale=0.3]{logos/podman-logo.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Docker}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item An image is a template for creating containers.
+                \item Images are immutable. Once created, they can't be
+                    changed.
+                \item A container is an instance of an image.
+                \item Docker has a repository of images called 
+                    \href{https://hub.docker.com/}{dockerhub}.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.5]{logos/docker-logo.jpg}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Rocker project}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item Docker containers for the R Environment.
+                \item Docker images of r-base, rstudio, shiny, CUDA,
+                    geospatial.
+                \item Rocker project web page \url{https://rocker-project.org}.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.25]{logos/rocker.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}
