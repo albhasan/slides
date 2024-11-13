@@ -176,7 +176,7 @@ Guilherme Mataveli}
     \begin{columns}
         \begin{column}{0.5\linewidth}
             \begin{itemize}
-                \item Originally proposed by Guilherme Mataveli.
+                \item Proposed by Guilherme Mataveli.
                 \item A season is a subset of contiguous months that host the
                     peak and at least 60\% of the total intensity
                     (observations) of a phenomenon.
@@ -216,6 +216,13 @@ Guilherme Mataveli}
             \end{tabular}
         \end{column}
         \begin{column}{0.8\linewidth}
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=0.89\linewidth]
+                {./images/peak_thres_example.png}
+            \end{figure}
+            \begin{table}
+                \centering
             \begin{tabular}{ccccr}
                 \toprule
                 \bfseries Iteration & \bfseries Test Months & \bfseries Chosen & \bfseries Season & \bfseries Cum. Sum
@@ -224,6 +231,7 @@ Guilherme Mataveli}
                 { \\\Iteration & \TestMonths & \Chosen & \Season & \CumSum}
                 \\\bottomrule
             \end{tabular}
+            \end{table}
         \end{column}
     \end{columns}
 \end{frame}
@@ -290,6 +298,9 @@ Guilherme Mataveli}
     \begin{itemize}
         \item Source code available at
                 \url{https://github.com/albhasan/seasonmetrics}.
+            \item Both peak \& threshold and double sigmoid methods can be
+                employed to estimate season of Earth Observation phenomena 
+                besides fire.
     \end{itemize}
 \end{frame}
 
