@@ -295,14 +295,25 @@ Guilherme Mataveli}
 
 \begin{frame}
     \frametitle{Final remarks}
-    \begin{itemize}
-        \item Source code available at
-                \url{https://github.com/albhasan/seasonmetrics}.
-            \item Both peak \& threshold and double sigmoid methods can be
-                employed to estimate season of Earth Observation phenomena 
-                besides fire.
-            \item We ran both methods for the world.
-    \end{itemize}
+    \begin{columns}
+        \begin{column}{0.5\linewidth}
+            \begin{itemize}
+                \item We ran both methods for the world.
+                \item Both peak \& threshold and double sigmoid methods can be
+                    employed to estimate season of Earth Observation phenomena 
+                    besides fire.
+                \item Source code available at
+                    \url{https://github.com/albhasan/seasonmetrics}.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\linewidth}
+            \begin{figure}[h]
+                \includegraphics[width=0.99\linewidth]
+                {./images/pthres_world.png}
+                \caption{Length of the fire season using Peak \& Threshold.}
+            \end{figure}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}[allowframebreaks]
