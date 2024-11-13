@@ -1,0 +1,4 @@
+Iteration, TestMonths, Chosen, Season,  CumSum
+1,         Peak,        11,     11,      500 (25\%)
+2,         10 or 12,    12,     11-12,   950 (47\%)
+3,         10 or 1,     1,      11-12-1, 1330 (65\%)

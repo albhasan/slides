@@ -13,6 +13,9 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 
+\usepackage{csvsimple}
+\usepackage{booktabs}
+
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -62,15 +65,22 @@ Guilherme Mataveli}
     \begin{columns}
         \begin{column}{0.5\linewidth}
             \begin{itemize}
-                \item Establishing and monitoring the intensity and duration of the
-                    peak season of phenomenal is useful for certain Earth Observation
-                    applications.
-                \item For example, a precise estimation of the fire season in the
-                    Amazon forest could improve resource allocation for fire brigades, 
-                    better town planing in response to smoke, accurate estimations of
-                    greenhouse gasses emissions.
-                \item It is common to assume a fixed fire season for the Amazon
-                    forest~\cite{carvalho2021}.
+                    %What's known.
+                \item Better estimations of the fire season in the Amazon
+                    forest could foster better town planing and improve
+                    responses to excessive fire smoke.
+                    %What's unknown. Limitations and gaps in previous studies.
+                \item Previous studies focused on the dry rather than the fire 
+                    season and its regional patterns.
+                \item Besides, it is common practice to assume a fixed fire
+                    season.
+                    %Burning question/hypothesis/aim.
+                \item We present pixel-wise estimation of the fire season in
+                    the Amazon based on fire spot detected by VIIRS.
+                    %Why your experimental approach is new and different and important (fills in the gaps).
+                    %Experimental approach.
+                \item We developed a new method for estimating peak-seasons
+                    given intensity data over time.
             \end{itemize}
         \end{column}
         \begin{column}{0.5\linewidth}
@@ -144,10 +154,19 @@ Guilherme Mataveli}
 
 \begin{frame}
     \frametitle{Data}
-    \begin{itemize}
-        \item We used fire data from VIIRS available at the INPE's "Queimadas"
-            project.
-    \end{itemize}
+    \begin{columns}
+        \begin{column}{0.5\linewidth}
+            \begin{itemize}
+                \item We used fire data from VIIRS NPP.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\linewidth}
+            \begin{figure}
+                %TODO: Add statistics: first and last fire, total number of fires.
+                \includegraphics[width=0.9\linewidth]{./logos/viirs.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \subsection{Method 1: Peak and threshold}
@@ -168,6 +187,43 @@ Guilherme Mataveli}
                 \includegraphics[width=0.99\linewidth]
                 {./images/peak_thres_hist.png}
             \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+%\begin{frame}
+%    \frametitle{Peak and threshold example}
+%    \begin{tabular}{|c|r|}\hline
+%        \bfseries Month & \bfseries GC
+%        \csvreader[head to column names]
+%        {./tables/monthly_counts.csv}{}
+%        { \\\Month & \GC }
+%        \\\hline
+%    \end{tabular}
+%\end{frame}
+
+\begin{frame}
+    \frametitle{Peak and threshold example}
+    \begin{columns}
+        \begin{column}{0.2\linewidth}
+            \begin{tabular}{cr}
+                \toprule
+                \bfseries Month & \bfseries GC
+                \csvreader[head to column names]
+                {./tables/monthly_counts.csv}{}
+                { \\\Month & \GC }
+                \\\bottomrule
+            \end{tabular}
+        \end{column}
+        \begin{column}{0.8\linewidth}
+            \begin{tabular}{ccccr}
+                \toprule
+                \bfseries Iteration & \bfseries Test Months & \bfseries Chosen & \bfseries Season & \bfseries Cum. Sum
+                \csvreader[head to column names]
+                {./tables/iteration.csv}{}
+                { \\\Iteration & \TestMonths & \Chosen & \Season & \CumSum}
+                \\\bottomrule
+            \end{tabular}
         \end{column}
     \end{columns}
 \end{frame}
