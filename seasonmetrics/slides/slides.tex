@@ -95,20 +95,21 @@ Guilherme Mataveli}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Amazon fire calendar}
+    \frametitle{Amazonian fire calendar}
     \begin{columns}
         \begin{column}{0.5\linewidth}
             \begin{itemize}
-                \item Stratification of the Amazon basin according to the dry
-                    season start and \/end.
-                \item It uses the mean monthly rainfall (CHIRPS) from 1989 to
-                    2019 over a 10 km grid.
-                \item The dry season is made of the consecutive months with 
-                    rainfall below 100 mm.
-                \item Regions are neighborhoods of pixels with the same start
-                    and end.
-                \item Their results are available online
-                    \href{https://zenodo.org/records/5706455}{online}.
+                \item Start, end, \& length of the dry season in the Amazon.
+                \item Rain data (CHIRPS 1989-2019) on a 10Km grid.
+                \item The dry season are the consecutive months with rainfall
+                    below 100 mm.
+                \item Regions are neighborhoods with the same season start \&
+                    end.
+                \item Critical fire periods are regions of similar dry season
+                    determined by k-means clustering.
+                \item Their results area available online for 
+                    \href{https://zenodo.org/records/5706455}{download} and
+                    \href{https://amazonianfirecalendar.shinyapps.io/fire_amazon}{visualization}.
             \end{itemize}
         \end{column}
         \begin{column}{0.5\linewidth}
@@ -157,12 +158,13 @@ Guilherme Mataveli}
     \begin{columns}
         \begin{column}{0.5\linewidth}
             \begin{itemize}
-                \item We used fire data from VIIRS NPP.
+                \item We used 5 years of world fire data from VIIRS NPP (from
+                    2019 to 2023, 10.213.4267 registries).
+                \item We aggregated these data by month into a grid of 0.25$^{\circ}$.
             \end{itemize}
         \end{column}
         \begin{column}{0.5\linewidth}
             \begin{figure}
-                %TODO: Add statistics: first and last fire, total number of fires.
                 \includegraphics[width=0.9\linewidth]{./logos/viirs.png}
             \end{figure}
         \end{column}
@@ -190,17 +192,6 @@ Guilherme Mataveli}
         \end{column}
     \end{columns}
 \end{frame}
-
-%\begin{frame}
-%    \frametitle{Peak and threshold example}
-%    \begin{tabular}{|c|r|}\hline
-%        \bfseries Month & \bfseries GC
-%        \csvreader[head to column names]
-%        {./tables/monthly_counts.csv}{}
-%        { \\\Month & \GC }
-%        \\\hline
-%    \end{tabular}
-%\end{frame}
 
 \begin{frame}
     \frametitle{Peak and threshold example}
@@ -267,16 +258,16 @@ Guilherme Mataveli}
 \begin{frame}
     \frametitle{Results}
     \begin{figure}[h]
-        \includegraphics[width=0.75\linewidth]
+        \includegraphics[width=0.80\linewidth]
         {./images/pthres_vs_dsig.png}
     \end{figure}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Result comparison}
+    \frametitle{Fire \& dry seasons}
     \begin{itemize}
         \item Carvalho et al., ~\cite{carvalho2021} is actually about the
-            establishing the dry and rainy seasons rather than the fire season.
+            establishing the dry season rather than the fire season.
         \item They use the fire spots to validate their results.
         \item Instead, we're using the fire spots to estimate the fire season
             and use ~\cite{carvalho2021}, to validate them.
@@ -284,9 +275,9 @@ Guilherme Mataveli}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Result comparison}
+    \frametitle{Fire \& dry seasons}
     \begin{figure}[h]
-        \includegraphics[width=0.75\linewidth]
+        \includegraphics[width=0.80\linewidth]
         {./images/pthres_vs_carvalho2021.png}
     \end{figure}
 \end{frame}
@@ -308,7 +299,7 @@ Guilherme Mataveli}
         \end{column}
         \begin{column}{0.5\linewidth}
             \begin{figure}[h]
-                \includegraphics[width=0.99\linewidth]
+                \includegraphics[width=0.77\linewidth]
                 {./images/pthres_world.png}
                 \caption{Length of the fire season using Peak \& Threshold.}
             \end{figure}
