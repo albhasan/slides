@@ -12,9 +12,10 @@
 \usepackage{caption}
 \usepackage{graphicx}
 \usepackage{hyperref}
-
 \usepackage{csvsimple}
 \usepackage{booktabs}
+
+\usefonttheme[onlymath]{serif}
 
 \hypersetup{
     colorlinks=true,
@@ -124,6 +125,28 @@ Guilherme Mataveli}
     \end{columns}
 \end{frame}
 
+
+\begin{frame}
+    \frametitle{Justification}
+    \begin{itemize}
+        \item Fire in the Amazon is anthropogenic, not endemic.
+        \item Fire is a cause and a tool in the deforestation and forest 
+            degradation processes.
+        \item An accurate fire calendar could improve decision-making and
+            public policy design.
+        \item A fire calendar could provide some required data for fire
+            prevention and control.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Research objective}
+    \begin{itemize}
+        \item Establish the beginning and end of the fire season in the Amazon
+            rainforest with as much detail as available data allows.
+    \end{itemize}
+\end{frame}
+
 \section{Materials \& methods}
 
 \begin{frame}
@@ -135,7 +158,7 @@ Guilherme Mataveli}
                 \item R packages \textit{dplyr} and \textit{ggplot2}.
                 \item R packages for vector (\textit{sf}~\cite{pebesma2018})
                     and raster (\textit{terra}~\cite{hijmans2020}) data.
-                \item R package \textit{sicegar} for double sigmoid
+                \item R package \textit{sicegar} for double-sigmoidal
                     regression~\cite{caglar2018}.
                 \item Analysis code available on
                     \href{https://github.com/albhasan/seasonmetrics}{GitHub}.
@@ -227,18 +250,18 @@ Guilherme Mataveli}
     \end{columns}
 \end{frame}
 
-\subsection{Method 2: Double sigmoidal}
+\subsection{Method 2: Double-sigmoidal}
 
 \begin{frame}
-    \frametitle{Double sigmoidal fitting}
+    \frametitle{Double-sigmoidal fitting}
     \begin{columns}
         \begin{column}{0.5\linewidth}
             \begin{itemize}
                 \item Input data represents intensity measured over time.
                 \item Growth happens in two phases: exponential intensity
                     increase until level off at a maximum level (first
-                    sigmoid function); decay to a lower intensity or even zero
-                    (second sigmoid).
+                    sigmoidal function); decay to a lower intensity or even zero
+                    (second sigmoidal).
                 \item The midpoints are assumed as the start and end of the
                     season.
             \end{itemize}
@@ -252,6 +275,54 @@ Guilherme Mataveli}
         \end{column}
     \end{columns}
 \end{frame}
+
+\begin{frame}
+    \frametitle{Logistic function}
+    \begin{columns}
+        \begin{column}{0.6\linewidth}
+            \begin{equation}
+                I(t) = f_{sig}(t) = \frac{I_{max}}
+                { 1 + exp(-a_{1}(t - t_{mid}))}
+            \end{equation}
+        \end{column}
+        \begin{column}{0.4\linewidth}
+            Where~\cite{caglar2018}:
+            \begin{itemize}
+                \item $I(t)$ is the intensity as a function of time $t$.
+                \item The parameters to fit are $I_{max}$, $t_{mid}$, and $a_{1}$.
+                \item $I_{max}$ is the maximum intensity observed.
+                \item $t_{mid}$ is the time at which intensity has reached half of its
+                    maximum.
+                \item $a_{1}$ is related to the slope of $I_{t}$ at $t = t_{mid}$ via 
+                    $\frac{d}{dt} I(t)t = t_{mid} = a_{1}I_{max}/4$.
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Double-sigmoidal function}
+    Multipy two sigmoidal functions~\cite{caglar2018}:
+    \begin{equation}
+        f_{dsig-base}(t) = \frac{1}{1 + exp(-a'_{1}(t -t'_{mid1}))}
+        \frac{1}{1 + exp(-a'_{2}(t -t'_{mid2}))}
+    \end{equation}
+    \begin{itemize}
+        \item Let $t^*$ be the time at which $f_{dsig-base}(t)$ is maximal.
+        \item Let $f_{max} = f_{dsig-base}(t^*)$.
+        \item \begin{equation*}
+                I(t) = f_{dsig}(t) = 
+                \left\{
+                    \begin{array}{rl}
+                        c_{1}  f_{dsig-base}(t) \text{ for } t <= t^* \text{(growth phase)} \\
+                        c_{2}  f_{dsig-base}(t) + I_{final} \text{ for } t > t^* \text{(decay phase)}
+                    \end{array} \right.
+        \end{equation*}
+    \item $c_{1} = \frac{I_{max}}{f_{max}}$
+    \item $c_{2} = \frac{(I_{max} - I_{final})}{f_{max}}$
+    \end{itemize}
+\end{frame}
+
 
 \section{Results}
 
@@ -290,9 +361,9 @@ Guilherme Mataveli}
         \begin{column}{0.5\linewidth}
             \begin{itemize}
                 \item We ran both methods for the world.
-                \item Both peak \& threshold and double sigmoid methods can be
-                    employed to estimate season of Earth Observation phenomena 
-                    besides fire.
+                \item Both peak \& threshold and double-sigmoidal methods can
+                    be employed to estimate season of Earth Observation
+                    phenomena besides fire.
                 \item Source code available at
                     \url{https://github.com/albhasan/seasonmetrics}.
             \end{itemize}
