@@ -1,0 +1,26 @@
+\section{Material e methods}
+
+For our analysis, we employed DETER data from August 2016 to July 2021. 
+DETER is a real-time deforestation detection system developed by the National Institute of Space Research that is at the forefront of Brazil's efforts to control deforestation.
+DETER has produced fast assessments of forest degradation and deforestation in the Brazilian Amazon since 2004~\cite{shimabukuro2006}. 
+%TODO: Add statistics about DETER's dataset.
+
+DETER mainly uses remote sensing imagery from the WFI camera on board of the CBERS satellites, producing alerts  of at least 3 ha which are tagged as wildfire scar, mining, deforestation with either exposed soil or vegetation, degradation, and selective cut with either disordered or geometric pattern~\cite{diniz2015a,f.g.assis2019}. 
+
+Degradation and deforestation spots are identified by human experts on images enhanced with a color composition (red, near-infrared, and green) and a Linear Mixture Model~\cite{shimabukuro1991} (soil fraction) and the criteria of tone, color, shape, texture, and context. 
+These experts draw DETER warnings (polygons) on top of a computer screen fix on a scale 1:100,000 using as background the latest primary forest polygon mask and previous DETER warnings~\cite{dealmeida2022}.
+DETER data is publicly available at the TerraBrasilis portal~\cite{f.g.assis2019}. 
+
+After downloading, we self-intersected the data (union operation) and re-projected them to the coordinate reference system UTM 22s.
+We also removed duplicated vertices and enforced the right-hand rule for polygons.
+Then we fixed geometry errors, and finally we removed alerts smaller than 3~ha.
+This processing was applied using QGIS version 3.38.0~\cite{QGIS_software}.
+We also computed the alerts' warning year using the PRODES calendar, which is the period from August to July; each PRODES year takes the year number from the last month of its period (July).
+
+DETER alerts don't spatially match over time.
+This means that it is only possible to match alert subareas consistently along the time dimension.
+This is the reason for the data self-intersection mentioned above.
+The \textit{subareas} resulting from this self-intersection correspond to polygons on which DETER alerts were issued on different dates, and are the base on which our analysis is founded.
+
+Our analyses were carried out using the GNU's R language and environment for statistical computing and graphics to estimate statistics analysis~\cite{ihaka1996}.
+Our source code is available online.~\footnote{R code available at \url{https://github.com/albhasan/treesburnareas}}
