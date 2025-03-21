@@ -68,11 +68,11 @@
 \fontsize{80pt}{96} \selectfont Estimation of the tropical fire season\\ [6mm]
 {\fontsize{48pt}{60}\selectfont 
 \underline{Alber Sanchez}${}^1$, Guilherme Mataveli${}^1$, \\
-Luiz E. O. C. Aragao${}^1$ 
+                Luiz E. O. C. Arag\~{a}o${}^1$ 
 \\}
-\vspace{10mm}
+\vspace{5mm}
 {\fontsize{38}{48}\selectfont ${}^1$National Institute for Space Research.\\} 
-%\vspace{1mm}
+\vspace{5mm}
 {\fontsize{44}{54}\selectfont alber.ipia@inpe.br}
                 }
             \end{column}
@@ -126,7 +126,7 @@ This study presents a pixel-wise estimation of the fire season in tropical fores
 \vspace{1.0cm}
 
 \begin{itemize}
-    \item The near real-time NOAA-20 Visible Infrared Imaging Radiometer Suite (VIIRS) Active Fire Detection product~\cite{nasaviirslandscienceteam2020}, processed by the University of Maryland with a three-month lag and distributed through the Fire Information for Resource Management System, provides active fire detection data at a nominal spatial resolution of 375 meters.
+    \item The near real-time Suomi-NPP Visible Infrared Imaging Radiometer Suite (VIIRS) Active Fire Detection product~\cite{nasaviirslandscienceteam2020}, processed by the University of Maryland with a three-month lag and distributed through the Fire Information for Resource Management System, provides active fire detection data at a nominal spatial resolution of 375 meters.
     \item The high resolution K\"{o}ppen-Geiger maps based on constrained CMIP6 projections~\cite{beck2023}.
     \item The R package \textit{sicegar} for fitting double-sigmoidal models to the data~\cite{caglar2018}.
 \end{itemize}
@@ -212,7 +212,7 @@ The features of this model are displayed in Figure~\ref{fig:double-sigmoidal_mod
 \vspace{1cm}
 \begin{itemize}
     \item We aggregated VIIRS Active Fire data (from 2012 to 2020) using a regular grid made of 0.25-degree-month cells over a WGS84 Coordinate Reference System.
-    \item Then we estimated the 9-year monthly mean for each pixel.
+    \item Then we estimated, for each month and pixel, the mean over 9 years of data.
     \item Then we fitted a double-sigmoidal function, assuming that their mid-points are the start and end of the fire season and their durations are the time intervals between midpoints. 
     \item Finally, our results were cropped using the K\"{o}ppen-Geiger tropical monsoon and rainforest zones for the period 1991-2020~\cite{beck2023}.
 \end{itemize}
@@ -251,7 +251,7 @@ Additionally, both the start and end of the season displays a horizontal stripin
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.9\textwidth]{figures/dsig_tropical_asia.png}
-\caption{Fire season in the Asian tropical rainforest.}
+\caption{Fire season in the tropical rainforest of Asia and Oceania.}
 \label{fig:dsig_tropical_asia}
 \end{figure}
 
@@ -288,7 +288,7 @@ This pattern has already been observed in the Amazon region using climatological
         \vspace{0.5cm}
         To ensure the reproducibility of our results, we used only publicly available data and software.
         Besides the previously introduced datasets, we used the \R{} programming language for statistical computing and data visualization~\cite{ihaka1996}.
-        We also the \R{} packages \textit{sf} and \textit{terra} for handling vector and raster data and the \textit{sicegar} for fitting double-sigmoidal models~\cite{pebesma2018,hijmans2020,caglar2018}.
+        We also used the \R{} packages \textit{sf} and \textit{terra} for handling vector and raster data and the \textit{sicegar} for fitting double-sigmoidal models~\cite{pebesma2018,hijmans2020,caglar2018}.
     \end{block}
 
     \begin{block}{Future work\vphantom{g}}
