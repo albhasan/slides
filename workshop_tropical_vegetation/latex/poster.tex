@@ -1,0 +1,349 @@
+% NOTE:
+% latexmk -shell-escape -pvc poster.tex # Watches and compiles on each change.
+% latexmk -c poster.tex   # Clean the temporal files.
+
+\documentclass[20pt]{beamer}
+
+% Adapted from;
+% How to Design a Scientific Poster using Beamer -1 (Latex Basic Tutorial-30)
+% https://youtu.be/2ZWnFFhVkdE?si=N3e1Ob8YWyTwW19e
+
+\usepackage[size=custom, width=90, height=120, orientation=portrait, scale=1.4]{beamerposter}
+\usetheme{Madrid}
+\usepackage{changepage}
+\usepackage[numbers]{natbib}
+\usepackage{listings}
+\usepackage{siunitx}
+\usepackage{hyperref}
+\usepackage[linesnumbered,algoruled,longend]{algorithm2e}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{lipsum}
+
+\usepackage{amsmath}
+\usefonttheme[onlymath]{serif}
+
+
+
+\beamertemplatenavigationsymbolsempty
+\newcommand{\R}{R}
+\renewcommand{\raggedright}{\leftskip=0pt \rightskip=0pt}
+\let\olditemize\itemize
+\renewcommand{\itemize}{\olditemize\addtolength{\itemsep}{0.4\baselineskip}}
+
+\addtobeamertemplate{block begin}{}{\vspace{5mm}\begin{adjustwidth}{5mm}{5mm}}
+\addtobeamertemplate{block end}{\end{adjustwidth}\vspace{10mm}}{\vspace{5mm}}
+
+\setbeamertemplate{caption}[numbered]
+
+\setbeamerfont{block title}{size={\centering\bfseries\fontsize{48}{60}}}
+\setbeamercolor{block body}{bg=white}
+\setbeamercolor{background canvas}{bg=white}
+%\definecolor{title-color}{RGB}{23, 80, 22}
+%\setbeamercolor{fbcolor}{fg=white, bg=cyan}
+
+\definecolor{titlebg}{RGB}{23,80,20}
+\definecolor{rulebg}{RGB}{248,230,0}
+\definecolor{titlefontcolor}{RGB}{239,222,135}
+
+\setbeamercolor{block title}{bg=titlebg,fg=titlefontcolor}
+
+\setbeamercolor{fbcolor}{fg=white, bg=titlebg}
+\setbeamertemplate{headline}{
+    \begin{beamercolorbox}[wd=\paperwidth]{fbcolor}\vskip5mm
+        \begin{columns}
+
+            \begin{column}{0.20\linewidth}
+                \vspace{5mm}
+            \centering
+            \includegraphics[scale=0.7]{logos/logo_tum.png}\\
+                \vspace{2cm}
+                \includegraphics[scale=0.6]{logos/logo_baylat.png}
+            \end{column}
+
+            \begin{column}{0.60\linewidth}
+                \vspace{5mm}
+            \centering\bfseries
+\textcolor{titlefontcolor}{
+\fontsize{80pt}{96} \selectfont Estimation of the tropical fire season\\ [6mm]
+{\fontsize{48pt}{60}\selectfont 
+\underline{Alber Sanchez}${}^1$, Guilherme Mataveli${}^1$, \\
+Luiz E. O. C. Aragao${}^1$ 
+\\}
+\vspace{10mm}
+{\fontsize{38}{48}\selectfont ${}^1$National Institute for Space Research.\\} 
+%\vspace{1mm}
+{\fontsize{44}{54}\selectfont alber.ipia@inpe.br}
+                }
+            \end{column}
+
+            \begin{column}{0.20\linewidth}
+                \vspace{5mm}
+            \centering
+            \includegraphics[scale=2.0]{logos/logoinpe-azul-menor.png} \\
+               \vspace{2cm}
+                \includegraphics[scale=2.0]{logos/logo_fapesp.png}
+               \hspace{5mm}
+            \end{column}
+
+        \end{columns}\vskip 5mm
+    \end{beamercolorbox}
+    \color{rulebg}\rule{\paperwidth}{20pt}
+}
+
+\setbeamercolor{footcolor}{fg=white, bg=black}
+\setbeamertemplate{footline}{
+    \begin{beamercolorbox}[wd=\paperwidth, center, ht=1.5em]{footcolor}
+        \small Any questions or suggestions? Write to alber.ipia@inpe.br
+    \end{beamercolorbox}
+}
+
+\begin{document}\vspace*{-2cm}
+\begin{frame}[fragile,t]
+\begin{columns}[t]
+
+
+%==== Column 1 ====
+
+\begin{column}{0.33\linewidth}
+
+    \vspace{1.0cm}
+
+    \begin{block}{Introduction\vphantom{g}}
+
+    \vspace{1.0cm}
+
+Wildfires in tropical rainforests degrade, among other essential functions, their carbon storage capacity, which plays a critical role in mitigating the effects of the ongoing climate crisis.
+Improved forecasting of the fire seasons in these forests would provide better data for decision-makers, supporting the development of adaptation policies to address issues such as excessive wildfire smoke and declining rainfall and drinking water availability.
+This study presents a pixel-wise estimation of the fire season in tropical forests, utilizing VIIRS fire hotspots and sigmoidal models.
+
+    \end{block}
+
+    \vspace{0.5cm}
+
+    \begin{block}{Data\vphantom{g}}
+
+\vspace{1.0cm}
+
+\begin{itemize}
+    \item The near real-time NOAA-20 Visible Infrared Imaging Radiometer Suite (VIIRS) Active Fire Detection product~\cite{nasaviirslandscienceteam2020}, processed by the University of Maryland with a three-month lag and distributed through the Fire Information for Resource Management System, provides active fire detection data at a nominal spatial resolution of 375 meters.
+    \item The high resolution K\"{o}ppen-Geiger maps based on constrained CMIP6 projections~\cite{beck2023}.
+    \item The R package \textit{sicegar} for fitting double-sigmoidal models to the data~\cite{caglar2018}.
+\end{itemize}
+
+    \end{block}
+
+    \vspace{0.5cm}
+
+    \begin{block}{Double Sigmoidal model\vphantom{g}}
+
+\vspace{1.0cm}
+
+It is based on the logistic function (Equation~\ref{eq:logistic_function}) where $I(t)$ is the intensity as a function of time; $I_{max}$ and $t_{mid}$ are the maximum observed intensity and the time when it is reached; $a_{1}$ is the slope of $I(t)$ at $t_{mid}$ given by the formula $\frac{d}{dt} I(t)t = t_{mid} = a_{1}I_{max}/4$.
+
+\begin{equation}
+    I(t) = f_{sig}(t) = \frac{I_{max}}{ 1 + exp(-a_{1}(t - t_{mid}))}
+    \label{eq:logistic_function}
+\end{equation}
+
+    \vspace{0.5cm}
+
+The double-sigmoidal is obtained by multiplying two sigmoidal functions (Equation~\ref{eq:two_sigmoidal}).
+
+\begin{equation}
+    {
+        \scriptstyle{
+            f_{dsig-base}(t) = \frac{1}{1 + exp(-a'_{1}(t -t'_{mid1}))}
+            \frac{1}{1 + exp(-a'_{2}(t -t'_{mid2}))}
+        }
+        \label{eq:two_sigmoidal}
+    }
+\end{equation}
+
+    \vspace{0.5cm}
+
+And then let $t^*$ be the time at which $f_{dsig-base}(t)$ is maximal and $f_{max} = f_{dsig-base}(t^*)$.
+In this way we can write:
+
+\begin{equation*}
+    {
+        \scriptstyle{
+            I(t) = f_{dsig}(t) = 
+            \left\{
+                \begin{array}{rl}
+                    c_{1}  f_{dsig-base}(t) \text{ for } t <= t^* \text{(growth phase)} \\
+                    c_{2}  f_{dsig-base}(t) + I_{final} \text{ for } t > t^* \text{(decay phase)}
+                \end{array}
+            \right.
+        }
+        }
+\end{equation*}
+
+    \vspace{0.5cm}
+
+Where $c_{1} = \frac{I_{max}}{f_{max}}$ and $c_{2} = \frac{(I_{max} - I_{final})}{f_{max}}$.
+
+    \vspace{0.5cm}
+
+The features of this model are displayed in Figure~\ref{fig:double-sigmoidal_model}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/caglar2018_double_sigmoidal_model.png}
+    \caption{Double-sigmoidal model. Their midpoints are assumed as the start and end of the fire season. Source:~\cite{caglar2018}.}
+    \label{fig:double-sigmoidal_model}
+\end{figure}
+
+    %\vspace{0.5cm}
+
+    \end{block}
+
+\end{column}
+
+
+
+%==== Column 2 ====
+
+\begin{column}{0.33\linewidth}
+
+    \vspace{1.0cm}
+
+    \begin{block}{Method\vphantom{g}}
+\vspace{1cm}
+\begin{itemize}
+    \item We aggregated VIIRS Active Fire data (from 2012 to 2020) using a regular grid made of 0.25-degree-month cells over a WGS84 Coordinate Reference System.
+    \item Then we estimated the 9-year monthly mean for each pixel.
+    \item Then we fitted a double-sigmoidal function, assuming that their mid-points are the start and end of the fire season and their durations are the time intervals between midpoints. 
+    \item Finally, our results were cropped using the K\"{o}ppen-Geiger tropical monsoon and rainforest zones for the period 1991-2020~\cite{beck2023}.
+\end{itemize}
+
+    \end{block}
+
+    \vspace{0.5cm}
+
+    \begin{block}{Results\vphantom{g}}
+
+    \vspace{0.5cm}
+
+Our results show that the fire season in the tropical forests lasts between one and three months.
+Additionally, both the start and end of the season displays a horizontal striping pattern, depending on the latitude and relative position to the equatorial line (Figures~\ref{fig:dsig_tropical_africa}, \ref{fig:dsig_tropical_america}, and \ref{fig:dsig_tropical_asia}).
+
+    \vspace{0.5cm}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/dsig_tropical_africa.png}
+\caption{Fire season in the African tropical rainforest.}
+\label{fig:dsig_tropical_africa}
+\end{figure}
+
+    \vspace{0.5cm}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/dsig_tropical_america.png}
+\caption{Fire season in the American tropical rainforest.}
+\label{fig:dsig_tropical_america}
+\end{figure}
+
+    \vspace{0.5cm}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/dsig_tropical_asia.png}
+\caption{Fire season in the Asian tropical rainforest.}
+\label{fig:dsig_tropical_asia}
+\end{figure}
+
+    \vspace{0.5cm}
+
+Figure~\ref{fig:plot_latitude} (left) clearly shows the differences between the Northern and Southern Hemispheres regarding the fire season start.
+This pattern has already been observed in the Amazon region using climatological variables rather than Active Fire data~\cite{carvalho2021a}.
+
+    \vspace{0.5cm}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.45\textwidth]{figures/plot_latitude_pos_from.png}
+\includegraphics[width=0.45\textwidth]{figures/plot_latitude_val_len.png}
+\caption{Start and duration of the fire season aggregated by latitude.}
+\label{fig:plot_latitude}
+\end{figure}
+
+    %\vspace{0.5cm}
+
+    \end{block}
+
+\end{column}
+
+
+
+%==== Column 3 ====
+
+\begin{column}{0.33\linewidth}
+
+    \vspace{1cm}
+
+    \begin{block}{Reproducibility\vphantom{g}}
+        \vspace{0.5cm}
+        To ensure the reproducibility of our results, we used only publicly available data and software.
+        Besides the previously introduced datasets, we used the \R{} programming language for statistical computing and data visualization~\cite{ihaka1996}.
+        We also the \R{} packages \textit{sf} and \textit{terra} for handling vector and raster data and the \textit{sicegar} for fitting double-sigmoidal models~\cite{pebesma2018,hijmans2020,caglar2018}.
+    \end{block}
+
+    \begin{block}{Future work\vphantom{g}}
+
+        \vspace{0.5cm}
+
+We view our results as a starting point to addressing the question: \textit{Is the fire season changing?}
+To find an answer, we will:
+\begin{itemize}
+    \item Switch from VIIRS to MODIS active fire data to get longer time series.
+    \item Run the analysis presented here on a time series longer than 20 years and use it as a baseline.
+    \item Compute yearly deviations from the baseline.
+    \item Test for patterns in the deviations, particularly changes in the start and duration of the fire season.
+    \item Compare our estimation of the fire season to the dry season. This could point to human-behavior changes since most of the rainforest fires are anthropogenic.
+\end{itemize}
+    \end{block}
+
+\vspace{0.5cm}
+
+    \begin{block}{References\vphantom{g}}
+
+\vspace{0.5cm}    
+
+\bibliography{workshop_tropical_vegetation}
+\bibliographystyle{sbc}
+    \end{block}
+
+\vspace{0.5cm}
+
+    \begin{block}{Links}
+
+\vspace{0.5cm}
+
+\begin{figure}
+    \begin{subfigure}[b]{0.2\textwidth}
+\centering
+\includegraphics[width=0.90\textwidth]{images/qrcode_email_alber_ipia_at_inpe.png}\\
+{Email.}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.2\textwidth}
+\centering
+        \includegraphics[width=0.88\textwidth]{images/qrcode_seasonmetrics.png}
+{Code.}
+    \end{subfigure}
+\end{figure}
+
+% \begin{itemize}
+% \item Email: \href{mailto:alber.ipia@inpe.br}{alber.ipia@inpe.br} 
+% \item Code: {\scriptsize\url{https://github.com/albhasan/seasonmetrics}}
+% \end{itemize}
+
+    \end{block}
+\end{column}
+
+\end{columns}
+\end{frame}
+\end{document}
