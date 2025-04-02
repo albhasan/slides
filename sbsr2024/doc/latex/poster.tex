@@ -118,7 +118,7 @@
 \vspace{0.5cm}
 
     \begin{block}{Introduction\vphantom{g}}
-        We believe that DETER, the real-time forest monitoring systems that continuously issues deforestation alerts in the Brazilian Amazon since 2004~\cite{shimabukuro2006}, inadvertently captures forest degradation processes.
+        We believe that DETER, the real-time forest monitoring system that continuously issues deforestation alerts in the Brazilian Amazon since 2015~\cite{diniz2015a}, inadvertently captures forest degradation processes.
         Here we present some of our findings after processing 5 years of DETER alerts.
         This poster extends the results introduced in ~\cite{sanchez2023}.
     \end{block}
@@ -127,13 +127,13 @@
 
     \begin{block}{Data}
         We analyzed DETER data (polygons) from August 2016 to July 2021.
-        The total area of DETER alerts has been increasing since 2019, and the area of the largest alerts reached its top in 2017 (Figure~\ref{fig:deter_warnings_area_size}).
-        It must be noted that DETER data is not meant for estimating neither deforestation nor degradation but for monitoring and also that it captures only the final stages of the degradation process~\cite{dealmeida2022}.
+        The total area of DETER alerts has been increasing since 2019, and the deforestation alerts peaked in 2021 (Figure~\ref{fig:deter_warnings_area_size}).
+        It must be noted that DETER data is not meant for estimating neither deforestation nor degradation but for monitoring trends and also that it captures only the final stages of the degradation process~\cite{dealmeida2022}.
 
 \begin{figure}[h] 
     \begin{center}
     \includegraphics[width=\linewidth]{./figures/deter_warnings_area_size.png}
-        \caption{Area of DETER alerts by year and size.}
+        \caption{Area of DETER deforestation alerts by year and size.}
     \label{fig:deter_warnings_area_size}
     \end{center}
 \end{figure}
@@ -143,7 +143,7 @@
 \begin{figure}[h] 
     \begin{center}
     \includegraphics[width=\linewidth]{./figures/deter_warnings_size.png}
-    \caption{Number of DETER alerts by year and size.}
+    \caption{Number of DETER deforestation alerts by year and size.}
     \label{fig:deter_warnings_size}
     \end{center}
 \end{figure}
@@ -155,14 +155,14 @@
     \begin{block}{Methods}
         \vspace{0.5cm}
         \begin{enumerate}
-            \item We downloaded DETER data from the TerraBrasilis~\cite{f.g.assis2019}. 
-            \item We computed the PRODES year (August to July).
+            \item We downloaded DETER data (2016 - 2021) from TerraBrasilis~\cite{f.g.assis2019}. 
+            \item We computed the PRODES year (August to July) of each alert.
             \item Then we self-intersected the data, resulting in homogeneous polygons along time that we call subareas.
             \item We projected the data to the coordinate reference system UTM 22s.
             \item We removed duplicated vertices, enforced the right-hand rule for polygons, and fixed geometry errors.
-            \item In accordance with DETER method, we removed polygons smaller than 3~ha.
+            \item In accordance with DETER method, we ignored polygons smaller than 3~ha~\cite{dealmeida2022}.
         \end{enumerate}
-        \vspace{0.4cm}
+        \vspace{0.3cm}
     \end{block}
 
 \end{column}
@@ -200,7 +200,7 @@
     \end{center}
 \end{figure}
 
-        The map in Figure~\ref{fig:plot_area_by_warnings} shows the distribution of the recurrent deforestation warnings, that is, a surface interpolation (inverse distance weighting - IDW) of the number of DETER alerts.
+        The map in Figure~\ref{fig:nwarnings_idw_map} shows the distribution of the recurrent deforestation warnings, that is, a surface interpolation (inverse distance weighting - IDW) of the number of DETER alerts.
 
 \begin{figure}[h] 
     \begin{center}
@@ -226,10 +226,10 @@
     \begin{block}{Final remarks\vphantom{g}}
         \begin{itemize}
             \item Our results show that recurrent DETER alerts over the same area are uncommon, and proportionally inverse to the number of alerts.
-            \item They also show that the \textit{subareas} with the most recurrent alerts tend to happen along the east of Amazonia (the deforestation arc) and to the north, in \textit{Roraima} state (Figures~\ref{fig:plot_area_by_warnings} and ~\ref{fig:nwarnings_idw_map}).
+            \item They also show that the \textit{subareas} with the most recurrent alerts tend to happen along the east of Amazonia (Arc of Deforestation) and to the north, in \textit{Roraima} state (Figures~\ref{fig:plot_area_by_warnings} and ~\ref{fig:nwarnings_idw_map}).
             \item Also, most of the successive alerts in the same \textit{subarea} are at most five years apart (that is, the duration of our dataset, from 2016 to 2021), two years from the first to the second, and one year from there. 
             \item It must be taken into account that DETER data is produced for a purpose other than the analysis presented here, and that it acknowledges its underestimation of forest degradation due to its associated challenges~\cite{dealmeida2022}.
-            \item Our analyses were carried out using the GNU's R language and environment for statistical computing and graphics to estimate statistics analysis~\cite{ihaka1996} and QGIS version 3.38.0~\cite{QGIS_software}. Additionally, our source code is available online (see links below).
+            \item Our analyses were carried out using the R language~\cite{ihaka1996} and QGIS version 3.38.0~\cite{QGIS_software}. Additionally, our source code is available online (see links below).
         \end{itemize}
     \end{block}
 
@@ -265,13 +265,13 @@
 {Poster.}
     \end{subfigure}
 \end{figure}
-\vspace{0.7cm}
+\vspace{1.0cm}
     \begin{itemize}
         \item Email: alber.ipia@inpe.br
         \item Code: {\small\url{https://github.com/albhasan/treesburnareas}}
         \item Poster: {\small\url{https://github.com/albhasan/slides/blob/main/sbsr2024/doc/latex/poster.pdf}}
     \end{itemize}
-\vspace{0.3cm}
+\vspace{0.5cm}
     \end{block}
 \end{column}
 

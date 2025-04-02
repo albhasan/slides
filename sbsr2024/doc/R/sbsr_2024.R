@@ -87,7 +87,8 @@ plot_area_by_warnings <-
                      size = 3.0) +
   ggplot2::xlab("Number of wanings.") +
   #ggplot2::ylab("Area (ha)") +
-  ggplot2::ylab("Accumulated area (ha)") +
+  #ggplot2::ylab("Accumulated area (ha)") +
+  ggplot2::ylab("Deforestation alerts (ha)") +
   #ggplot2::labs(fill = "Area less than") +
   ggplot2::labs(fill = "Subarea size") +
   ggplot2::scale_y_continuous(labels = scales::comma) +
@@ -253,7 +254,8 @@ plot_deter_warnings_area_size <-
                      check_overlap = TRUE,
                      size = 3.0) +
   ggplot2::xlab("Year (PRODES)") +
-  ggplot2::ylab("Accumulated area (ha)") +
+  #ggplot2::ylab("Accumulated area (ha)") +
+  ggplot2::ylab("Deforestation alerts (ha)") +
   ggplot2::labs(fill = "Alert size") +
   ggplot2::scale_y_continuous(labels = scales::comma) +
   ggplot2::scale_fill_viridis_d()
@@ -300,7 +302,8 @@ plot_deter_warnings_size <-
                      check_overlap = TRUE,
                      size = 3.0) +
   ggplot2::xlab("Year (PRODES)") +
-  ggplot2::ylab("Number of alerts") +
+  #ggplot2::ylab("Number of alerts") +
+  ggplot2::ylab("Number of deforestation alerts") +
   ggplot2::labs(fill = "Alert size") +
   ggplot2::scale_y_continuous(labels = scales::comma) +
   ggplot2::scale_fill_viridis_d()
@@ -369,4 +372,3 @@ if (interactive()) {
 }
 
 rm(plot_deter_warnings_size_month)
-
