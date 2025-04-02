@@ -86,8 +86,10 @@ plot_area_by_warnings <-
                      check_overlap = TRUE,
                      size = 3.0) +
   ggplot2::xlab("Number of wanings.") +
-  ggplot2::ylab("Area (ha)") +
-  ggplot2::labs(fill = "Area less than") +
+  #ggplot2::ylab("Area (ha)") +
+  ggplot2::ylab("Accumulated area (ha)") +
+  #ggplot2::labs(fill = "Area less than") +
+  ggplot2::labs(fill = "Subarea size") +
   ggplot2::scale_y_continuous(labels = scales::comma) +
   ggplot2::scale_fill_viridis_d()
 
@@ -180,7 +182,8 @@ plot_tb <-
 #---- Plot days from first to last warning by area ----
 
 format_warnings <- function(x) {
-    paste(x, "warnings")
+    #paste(x, "warnings")
+    paste(x, "alerts")
 }
 
 plot_days_first_to_last <-
@@ -197,8 +200,8 @@ plot_days_first_to_last <-
   ggplot2::geom_boxplot(ggplot2::aes(x = area_type, y = days_first_last)) +
   ggplot2::facet_wrap(~n_warnings,
                       labeller = labeller(n_warnings = format_warnings)) +
-  ggplot2::xlab("Number of DETER warnings") +
-  ggplot2::ylab("Days from first to last DETER warning") +
+  ggplot2::xlab("DETER alert (subarea) size") +
+  ggplot2::ylab("Days between first-last DETER alerts") +
   ggplot2::scale_y_continuous(labels = scales::comma) +
   ggplot2::geom_hline(yintercept = 365,  linetype = 3, color = "gray50") +
   ggplot2::geom_hline(yintercept = 730,  linetype = 3, color = "gray50") +
@@ -250,8 +253,8 @@ plot_deter_warnings_area_size <-
                      check_overlap = TRUE,
                      size = 3.0) +
   ggplot2::xlab("Year (PRODES)") +
-  ggplot2::ylab("Area (ha)") +
-  ggplot2::labs(fill = "Area less than") +
+  ggplot2::ylab("Accumulated area (ha)") +
+  ggplot2::labs(fill = "Alert size") +
   ggplot2::scale_y_continuous(labels = scales::comma) +
   ggplot2::scale_fill_viridis_d()
 
@@ -297,8 +300,8 @@ plot_deter_warnings_size <-
                      check_overlap = TRUE,
                      size = 3.0) +
   ggplot2::xlab("Year (PRODES)") +
-  ggplot2::ylab("Number of DETER alerts") +
-  ggplot2::labs(fill = "Area less than") +
+  ggplot2::ylab("Number of alerts") +
+  ggplot2::labs(fill = "Alert size") +
   ggplot2::scale_y_continuous(labels = scales::comma) +
   ggplot2::scale_fill_viridis_d()
 

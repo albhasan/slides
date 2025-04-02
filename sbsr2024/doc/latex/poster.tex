@@ -59,9 +59,10 @@
                 warnings in the Brazilian Amazon\\ [6mm]
 {\fontsize{43pt}{60}
                 \selectfont 
-                Alber Sanchez (alber.ipia@inpe.br), Guilherme Mataveli,
-                Luiz E. O. C. Arag\~{a}o }
-                }
+                Alber Sánchez (alber.ipia@inpe.br), Guilherme Mataveli, Aline Pontes-Lopes,\\
+                Sulimar Munira Caparoci Nogueira, and Luiz Arag\~{a}o
+}
+}
             \end{column}
         \end{columns}
         \vskip 5mm
@@ -84,7 +85,7 @@
 \fontsize{30pt}{96} 
 \centering
                 \selectfont
-                Acesse o site do grupo:\\ [6mm]
+                %Acesse o site do grupo:\\ [6mm]
                 \vspace{10mm}
                 }
 
@@ -104,18 +105,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 \begin{document}\vspace*{-2cm}
 \begin{frame}[fragile,t]
 \begin{columns}[t]
@@ -126,183 +115,167 @@
 
 \begin{column}{0.33\linewidth}
 
-\vspace{1cm}
+\vspace{0.5cm}
 
     \begin{block}{Introduction\vphantom{g}}
-
-Current advances in Ecology, Remote Sensing, and Computer Science have enabled the development of regional, continental and global deforestation monitoring systems (e.g., DETER, MapBiomas, Global Forest Watch).
-However, detecting and monitoring forest degradation remains more challenging than detecting deforestation~\cite{Lambin:1999,Mitchell2017}.
-Given the importance of this issue, here we present the spatial distribution of recurrent forest degradation in the Brazilian Amazon, which could help address the challenges in detecting it. 
-We think that deforestation real-time forest monitoring systems, such as DETER that continuously issues deforestation alerts, inadvertently captures forest degradation processes at various stages.
-The findings presented here are the results of processing 5 years of DETER alerts.
-This paper extends the findings introduced in ~\cite{sanchez2023}.
-
+        We believe that DETER, the real-time forest monitoring systems that continuously issues deforestation alerts in the Brazilian Amazon since 2004~\cite{shimabukuro2006}, inadvertently captures forest degradation processes.
+        Here we present some of our findings after processing 5 years of DETER alerts.
+        This poster extends the results introduced in ~\cite{sanchez2023}.
     \end{block}
 
-\vspace{1cm}
+\vspace{0.5cm}
 
     \begin{block}{Data}
-In our analysis, we used DETER data from August 2016 to July 2021.
-DETER has produced fast assessments of forest degradation and deforestation in the Brazilian Amazon since 2004~\cite{shimabukuro2006}. 
-Figure~\ref{fig:deter_warnings_area_size} show an initial assesment of DETER data.
+        We analyzed DETER data (polygons) from August 2016 to July 2021.
+        The total area of DETER alerts have been increasing since 2019, and the area of the largest alerts reached its top in 2017 (Figure~\ref{fig:deter_warnings_area_size}).
+        It must be noted that DETER data is not meant for estimating neither deforestation nor degradation but for monitoring and also that it captures only the final stages of the degradation process~\cite{dealmeida2022}.
 
 \begin{figure}[h] 
     \begin{center}
     \includegraphics[width=\linewidth]{./figures/deter_warnings_area_size.png}
-        \caption{Area of DETER alerts by year and size.
-        The total area covered by alerts peaked in 2018 and 2021 while the peak of largest areas was in 2017.
-        Note the increasing trend since 2019 and how their area distribution is relatively homogeneous along in 2021.}
+        \caption{Area of DETER alerts by year and size.}
     \label{fig:deter_warnings_area_size}
     \end{center}
 \end{figure}
 
-% \begin{figure}[h] 
-%     \begin{center}
-%     \includegraphics[width=\linewidth]{./figures/deter_warnings_size_month.png}
-%     \caption{DETER warnings by month. Between August and October is when most
-%         of the warnings are issued. Note how September presents an increasing 
-%         trend along the years which peaks in 2021.}
-%     \label{fig:deter_warnings_size_month}
-%     \end{center}
-% \end{figure}
+        However, considering the number of DETER alerts, most of them are issued in on small areas (Figure~\ref{fig:deter_warnings_size}).
 
-% \begin{figure}[h] 
-%     \begin{center}
-%     \includegraphics[width=\linewidth]{./figures/deter_warnings_size.png}
-%     \caption{Number of DETER alerts by year and size. Note the increasing trend
-%         since 2017. Note how DETER issued a similar number of alert in 2020 and
-%         2021 but ~Figure~\ref{fig:deter_warnings_size} shows a larger extent of
-%         alerts in 2021.}
-%     \label{fig:deter_warnings_size}
-%     \end{center}
-% \end{figure}
+\begin{figure}[h] 
+    \begin{center}
+    \includegraphics[width=\linewidth]{./figures/deter_warnings_size.png}
+    \caption{Number of DETER alerts by year and size.}
+    \label{fig:deter_warnings_size}
+    \end{center}
+\end{figure}
+
     \end{block}
 
-\vspace{1cm}
+\vspace{0.5cm}
 
     \begin{block}{Methods}
-
-        \begin{itemize}
-            \item We downloaded DETER data from the TerraBrasilis portal~\cite{f.g.assis2019}. 
-            \item Then we self-intersected the data (union operation) and re-projected them to the coordinate reference system UTM 22s.
-            \item We removed duplicated vertices and enforced the right-hand rule for polygons, and fixed geometry errors.
-            \item We removed alerts smaller than 3~ha.
+        \begin{enumerate}
+            \item We downloaded DETER data from the TerraBrasilis~\cite{f.g.assis2019}. 
             \item We computed the PRODES year (August to July).
-            \item The results are what we call subareas.
-        \end{itemize}
-
-        %This processing was applied using QGIS version 3.38.0~\cite{QGIS_software}.
-
-%This is the reason for the data self-intersection mentioned above.
-%The \textit{subareas} resulting from this self-intersection correspond to polygons on which DETER alerts were issued on different dates, and are the base on which our analysis is founded.
-
-%Our analyses were carried out using the GNU's R language and environment for statistical computing and graphics to estimate statistics analysis~\cite{ihaka1996}.
-%Our source code is available online.~\footnote{R code available at \url{https://github.com/albhasan/treesburnareas}}
-
+            \item Then we self-intersected the data, resulting in homogeneous polygons along time that we call subareas.
+            \item We projected the data to the coordinate reference system UTM 22s.
+            \item We removed duplicated vertices and enforced the right-hand rule for polygons, and fixed geometry errors.
+            \item In accordance with DETER method, we removed polygons smaller than 3~ha.
+        \end{enumerate}
     \end{block}
-
-        \vspace{1cm}
 
 \end{column}
 
 
 
 %==== Column 2 ====
+
 \begin{column}{0.33\linewidth}
-\vspace{1cm}
+
+\vspace{0.5cm}
+
     \begin{block}{Results\vphantom{g}}
+        The \textit{subareas} resulting from self-intersecting DETER alerts, which correspond to geometrically consistent polygons at different dates, are the basis of our analysis.
 
+        We found that most of DETER subareas are issued a single alert and never more than five, following an exponential decay pattern and the \textit{subareas} size is similar when aggregated by number of alerts (see Figure~\ref{fig:plot_area_by_warnings}).
 
-Moreover, the number of DETER alerts during the same period shows a somewhat similar pattern, characterized by the fact that half of yearly DETER alerts are issued for small areas (Figure~\ref{fig:deter_warnings_size}).
+\begin{figure}[h] 
+    \begin{center}
+    \includegraphics[width=\linewidth]{./figures/plot_area_by_warnings.png}
+    \caption{DETER subareas by number of alerts. }
+    \label{fig:plot_area_by_warnings}
+    \end{center}
+\end{figure}
 
-From August to October is when most DETER alerts are issued, and September, the peak month, presents an increasing trend in area, reaching its maximum in 2021.
-This period corresponds to the fire season in most of the Brazilian Amazon~\cite{carvalho2021} (see Figure~\ref{fig:deter_warnings_size_month}). 
-
-
-Most DETER subareas are issued a single alert and never more than five, following an exponential decay pattern.
-
-% \begin{figure}[h] 
-%     \begin{center}
-%     \includegraphics[width=\linewidth]{./figures/plot_area_by_warnings.png}
-%     \caption{DETER subareas by number of warnings. Most subareas only have one
-%         DETER alert and never more than five. The total extent for each number
-%         of alerts is homogeneously distributed.}
-%     \label{fig:plot_area_by_warnings}
-%     \end{center}
-% \end{figure}
-
-
-The time period between DETER alerts in the same subarea is one year, except for subareas with two alerts, when it is two years (Figure~\ref{fig:plot_days_first_to_last}). 
+        DETER subareas with 2 warnings tend to be two years apart and then increase one year with each additional alert.
+        Also note the trend of longer tails towards longer periods of time (Figure~\ref{fig:plot_days_first_to_last}). 
+        This is consistent with DETER's policy of not reviewing the same area more than once during the same year~\cite{dealmeida2022}.
 
 \begin{figure}[h] 
     \begin{center}
         \includegraphics[width=\linewidth]{./figures/plot_days_first_to_last.png}
-    \caption{Number of days between the first and last DETER alerts. The
-        horizontal dashed black lines represent intervals of 365 days.
-        DETER subareas with 2 warnings tend to be two years apart and then
-        increase one year with each additional alert. Also note that the
-        distribution by area tend to have long tails towards longer periods
-        between the first and lat DETER alert.}
+        \caption{Number of days between the first and last DETER alerts by \textit{subarea} size. The horizontal dashed black lines represent intervals of 365 days.}
     \label{fig:plot_days_first_to_last}
     \end{center}
 \end{figure}
 
-The map in Figure~\ref{fig:plot_area_by_warnings} shows the distribution of recurrent deforestation warnings, that is, a surface interpolation of the number of DETER alerts.
+        The map in Figure~\ref{fig:plot_area_by_warnings} shows the distribution of recurrent deforestation warnings, that is, a surface interpolation (inverse distance weighting - IDW) of the number of DETER alerts.
 
 \begin{figure}[h] 
     \begin{center}
-        \includegraphics[width=\linewidth]{./figures/nwarnings_idw_map.png}
-        \caption{Spatial distribution of recurrent degradation (number of
-        alerts by subarea) in the Brazilian Amazon. Amazon's east front is
-        where most of recurrent DETER alerts area found.}
+        \includegraphics[width=\linewidth]{./figures/nwarnings_idw_map_with_legend.png}
+        \caption{Distribution of recurrent degradation (number of
+        DETER alerts by subarea) in the Brazilian Amazon. Amazon's east front is
+        where most of recurrent DETER alerts area found. Some smoothing is introduced by the interpolation method (IDW).}
     \label{fig:nwarnings_idw_map}
     \end{center}
 \end{figure}
 
+\vspace{0.3cm}
 
     \end{block}
-\vspace{1cm}
 \end{column}
+
+%
+%Moreover, the number of DETER alerts during the same period shows a somewhat similar pattern, characterized by the fact that half of yearly DETER alerts are issued for small areas (Figure~\ref{fig:deter_warnings_size}).
+%
+%From August to October is when most DETER alerts are issued, and September, the peak month, presents an increasing trend in area, reaching its maximum in 2021.
+%This period corresponds to the fire season in most of the Brazilian Amazon~\cite{carvalho2021} (see Figure~\ref{fig:deter_warnings_size_month}). 
 
 
 
 %==== Column 3 ====
 
 \begin{column}{0.33\linewidth}
-\vspace{1cm}
-    \begin{block}{Final remarks\vphantom{g}}
-        TODO.
-    \end{block}
-
-\vspace{1cm}
-    \begin{block}{References\vphantom{g}}
-    %{\small
-\bibliography{sbsr2024}
-    %}
-\bibliographystyle{sbc}
-    \end{block}
-
-
-
-\vspace{1.0cm}
-    \begin{block}{Links}
 
 \vspace{0.5cm}
+
+    \begin{block}{Final remarks\vphantom{g}}
+        \begin{itemize}
+            \item Our results show that recurrent DETER alerts over the same area are uncommon, and proportionally inverse to the number of alerts.
+            \item They also show that the \textit{subareas} with the most recurrent alerts tend to happen along the east of Amazonia (the deforestation arc) and to the north, in \textit{Roraima} state (Figure~\ref{fig:plot_area_by_warnings} and Figure~\ref{fig:nwarnings_idw_map}).
+            \item Also, most of the successive alerts in the same \textit{subarea} are at most five years apart (that is, the duration of our dataset, from 2016 to 2021), two years from the first to the second, and one year from there. 
+            \item It must be taken into account that DETER data is produced for a purpose other than the analysis presented here, and that it acknowledges its under estimation of forest degradation due to its associated challenges~\cite{dealmeida2022}.
+            \item Our analyses were carried out using the GNU's R language and environment for statistical computing and graphics to estimate statistics analysis~\cite{ihaka1996} and QGIS version 3.38.0~\cite{QGIS_software}. Additionally, our source code is available online (see links below).
+        \end{itemize}
+    \end{block}
+
+\vspace{1cm}
+
+    \begin{block}{References\vphantom{g}}
+        {\small
+\bibliography{sbsr2024}
+\bibliographystyle{sbc}
+        }
+    \end{block}
+
+\vspace{0.5cm}
+
+    \begin{block}{Links}
 \begin{figure}
     \begin{subfigure}[b]{0.2\textwidth}
+\includegraphics[width=0.99\textwidth]{images/qrcode_email_alber_ipia_at_inpe.png} \\
 \centering
-\includegraphics[width=0.90\textwidth]{images/qrcode_email_alber_ipia_at_inpe.png}\\
 {Email.}
     \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.2\textwidth}
+\includegraphics[width=0.99\textwidth]{images/qrcode_prioritizedeforestationhotspots.png} \\
+\centering
+{Code.}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.2\textwidth}
+\includegraphics[width=0.99\textwidth]{images/qr_poster.png} \\
+\centering
+{Poster.}
+    \end{subfigure}
 \end{figure}
-\vspace{0.4cm}
-
-\begin{itemize}
-\item Email: 
-\href{mailto:alber.ipia@inpe.br}{alber.ipia@inpe.br} 
-\item Code: {\scriptsize\url{https://github.com/albhasan/prioritizedeforestationhotspots}}
-\end{itemize}
-
+\vspace{0.7cm}
+    \begin{itemize}
+        \item Email: alber.ipia@inpe.br
+        \item Code: {\small\url{https://github.com/albhasan/treesburnareas}}
+        \item Poster: {\small\url{https://github.com/albhasan/slides/blob/main/sbsr2024/doc/latex/poster.pdf}}
+    \end{itemize}
     \end{block}
 \end{column}
 
