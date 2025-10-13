@@ -1,0 +1,155 @@
+% NOTE:
+% latexmk -shell-escape -pvc slides.tex # Compile PDF after any change.
+% latexmk -c slides.tex                 # Clean temporal files.
+
+\documentclass[aspectratio=169]{beamer}
+
+\setbeamertemplate{footline}[frame number]
+\beamertemplatenavigationsymbolsempty
+
+
+% NOTE:Use numeric style for references.
+\usepackage[backend=biber, style=numeric]{biblatex}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage{minted}
+\usepackage{siunitx}
+\usepackage{subcaption}
+
+\usetheme{Boadilla}
+\usecolortheme{default}
+
+\addbibresource{slides.bib}
+
+\captionsetup[figure]{labelformat=empty}
+
+\hypersetup{
+colorlinks,
+allcolors=.,
+urlcolor=blue,
+}
+
+\title[Tower data]{Exploratory analisis of AmeriFlux data}
+\subtitle{Advancements in tropical vegetation modelling and model-experiment 
+integration}
+
+%\author[Dutra, Débora]{D.~Dutra\inst{1} \and L.~Sato\inst{1} \and
+\author[Dutra, Sato, Mataveli, Sãnchez]{D.~Dutra\inst{1} \and L.~Sato\inst{1} \and
+G.~Mataveli\inst{1} \and A.~Sánchez\inst{1}}
+
+\institute[INPE]{\inst{1} National Institute for Space Research}
+
+\date{Freising, Germany\newline 2025-10-09}
+\logo{
+        \includegraphics[scale=0.19]{logos/logoinpe-azul-menor.png}
+        \includegraphics[scale=0.07]{logos/logo_tum.png}
+}
+
+
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+	\frametitle{Introduction}
+	\begin{itemize}
+		\item AmeriFlux and European flux databases.
+		\item Only one file analyzed:
+		      \textit{BR-Ma2\_HH\_199901010000\_201701010000\_LBAv2.csv}
+
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Method}
+	\begin{itemize}
+		\item Read data.
+		\item Replace invalid data with NAs.
+		\item Constrain analysis to only complete observations
+		      occurring during August's daytime (08:00 - 18:00). August
+		      is the fire peak season~\cite{carvalho2021a} and daylight,
+		      which doesn't change much through the seasons near the
+		      equator, is needed for photosynthesis.
+		\item Produce a correlation matrix
+		      (see Figure~\ref{fig:correlation_matrix}).
+		\item Choose the most correlated variables.
+		\item Plot observations and fit a quadratic model to the data
+		      (see Figure~\ref{fig:point_cloud_plot}).
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Correlation matrix}
+	\begin{figure}
+		\begin{columns}
+			\begin{column}{0.3\textwidth}
+				\caption{This correlation matrix shows
+					interessting variables for further
+					analysis, such as \textit{FC},
+					\textit{LW\_OUT}, \textit{RH}, and
+					\textit{TA}. The actual correlation
+					values were omitted to ease reading.}
+				\label{fig:correlation_matrix}
+			\end{column}
+			\begin{column}{0.7\textwidth}
+				\centering
+				\includegraphics[scale=0.3]
+				{figures/corr_plot.png}
+			\end{column}
+		\end{columns}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Most relevant variables}
+	\begin{itemize}
+		\item \textit{VPD\_F}: Vapor Pressure Deficit (\textit{hPA}).
+		\item \textit{FC}: Carbon Dioxide (CO2) turbulence flux, no
+		      storage correction ($\mu\ mol\ CO_{2}\ m^{-2}\ s^{-1}$).
+		\item \textit{LW\_OUT}: Longwave radiation, outgoing
+		      ($W\ m^{-2}$).
+		\item \textit{RH}: Relative Humidity, range 0-100 (\%).
+		\item \textit{TA}: Air temperature (\textit{deg C}).
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Observations' plot}
+	\begin{figure}
+		\begin{columns}
+			\begin{column}{0.3\textwidth}
+				\caption{This figure shows \textit{VPD\_F} as
+					a function of the interesting variables
+					selected before. Note the strong
+					correlation of \textit{RH} and
+					\textit{TA}.}
+				\label{fig:point_cloud_plot}
+			\end{column}
+			\begin{column}{0.7\textwidth}
+				\centering
+				\includegraphics[scale=0.25]
+				{figures/cloud_plot.png}
+			\end{column}
+		\end{columns}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Future work}
+	\begin{itemize}
+		\item Check the correlation details (e.g. $R^{2}$).
+		\item Include relations to vegetation through indices, such as
+		      NDVI, EVI, and GPP.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+	\frametitle{References}
+	\printbibliography{}
+\end{frame}
+
+\end{document}
