@@ -1,1 +1,1 @@
-/home/alber/Documents/trees_lab/bibliometry/trees_papers/queries/query_scopus.txt
+/home/alber/Documents/trees_lab/relatorios/bibliometry/trees_papers/queries/query_20251226/query_scopus.txt
