@@ -1,0 +1,93 @@
+% NOTE:
+% latexmk -shell-escape -pvc slides.tex # Compile PDF after any change.
+% latexmk -c slides.tex                 # Clean temporal files.
+
+\documentclass[aspectratio=169]{beamer}
+
+\setbeamertemplate{footline}[frame number]
+\beamertemplatenavigationsymbolsempty
+
+
+% NOTE:Use numeric style for references.
+\usepackage[backend=biber, style=numeric]{biblatex}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage{minted}
+\usepackage{siunitx}
+\usepackage{subcaption}
+
+\usetheme{Boadilla}
+\usecolortheme{default}
+
+\addbibresource{slides.bib}
+
+\captionsetup[figure]{labelformat=empty}
+
+\hypersetup{
+  colorlinks,
+  allcolors=.,
+  urlcolor=blue,
+}
+
+\title[\textit{Queimadas} reference Satellite]{\textit{Queimadas} Reference Satellite: A data analysis}
+\subtitle{Analysing data for choosing the next reference satellite for the Queimadas Program}
+
+\author[A. Sánchez]{
+  Alber Sánchez\inst{1} \\
+  \href{mailto:alber.ipia@inpe.br}{alber.ipia@inpe.br}
+}
+
+\institute[INPE]{\inst{1} National Institute for Space Research}
+
+\date{\today}
+\logo{
+  \includegraphics[scale=0.19]{logos/logoinpe-azul-menor.png}
+  \includegraphics[scale=0.05]{logos/logo_queimadas.png}
+}
+
+
+\includeonly{
+  tex/01_introduction,
+  tex/02_exploratory_data_analysis,
+  tex/04_time_series,
+  tex/03a_check_models_fit,
+  tex/04_forecast,
+  tex/99_future_work
+}
+
+\begin{document}
+
+
+
+\frame{\titlepage}
+
+\begin{frame}[allowframebreaks]
+        \frametitle{Agenda}
+        \tableofcontents
+\end{frame}
+
+
+\include{tex/01_introduction}
+\include{tex/02_exploratory_data_analysis}
+\include{tex/03_time_series}
+\include{tex/03a_check_models_fit}
+\include{tex/04_forecast}
+\include{tex/99_future_work}
+
+
+
+\section{References}
+
+\begin{frame}
+  References
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+	\frametitle{References}
+	\printbibliography{}
+\end{frame}
+
+\end{document}
