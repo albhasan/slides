@@ -12,6 +12,7 @@
 \usepackage[backend=biber, style=numeric]{biblatex}
 \usepackage{booktabs}
 \usepackage{caption}
+\usepackage[l3]{csvsimple}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{longtable}
@@ -52,15 +53,14 @@
 \includeonly{
   tex/01_introduction,
   tex/02_exploratory_data_analysis,
-  tex/04_time_series,
+  tex/03_time_series,
   tex/03a_check_models_fit,
   tex/04_forecast,
+  tex/05_forecast_vs_obs,
   tex/99_future_work
 }
 
 \begin{document}
-
-
 
 \frame{\titlepage}
 
@@ -69,15 +69,13 @@
         \tableofcontents
 \end{frame}
 
-
 \include{tex/01_introduction}
 \include{tex/02_exploratory_data_analysis}
 \include{tex/03_time_series}
 \include{tex/03a_check_models_fit}
 \include{tex/04_forecast}
+\include{tex/05_forecast_vs_obs}
 \include{tex/99_future_work}
-
-
 
 \section{References}
 

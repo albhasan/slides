@@ -1,0 +1,190 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{bdqueimadas2026}{online}{}{}
+      \name{author}{1}{}{%
+        {{useprefix=true,hash=e913916f69250f408cd90d318e064e0b}{%
+           family={Space\bibnamedelimb Research\bibnamedelimb in\bibnamedelima Brazil},
+           familyi={S\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim i\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={National\bibnamedelima Institute},
+           giveni={N\bibinitperiod\bibinitdelim I\bibinitperiod},
+           prefix={for},
+           prefixi={f\bibinitperiod}}}%
+      }
+      \strng{namehash}{e913916f69250f408cd90d318e064e0b}
+      \strng{fullhash}{e913916f69250f408cd90d318e064e0b}
+      \strng{fullhashraw}{e913916f69250f408cd90d318e064e0b}
+      \strng{bibnamehash}{e913916f69250f408cd90d318e064e0b}
+      \strng{authorbibnamehash}{e913916f69250f408cd90d318e064e0b}
+      \strng{authornamehash}{e913916f69250f408cd90d318e064e0b}
+      \strng{authorfullhash}{e913916f69250f408cd90d318e064e0b}
+      \strng{authorfullhashraw}{e913916f69250f408cd90d318e064e0b}
+      \field{sortinit}{f}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Banco de {{Dados}} de Queimadas}
+      \field{urlday}{11}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://www.inpe.br/queimadas/bdqueimadas
+      \endverb
+      \verb{url}
+      \verb http://www.inpe.br/queimadas/bdqueimadas
+      \endverb
+    \endentry
+    \entry{harvey1990}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=8b5397bf9e5e04cda1789b21aeef1dba}{%
+           family={Harvey},
+           familyi={H\bibinitperiod},
+           given={A.\bibnamedelimi C.},
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=125a8969223189971b7c1dec7afa243c}{%
+           family={Peters},
+           familyi={P\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{c0a9729ccc00ddf9f452cacf91b03c71}
+      \strng{fullhash}{c0a9729ccc00ddf9f452cacf91b03c71}
+      \strng{fullhashraw}{c0a9729ccc00ddf9f452cacf91b03c71}
+      \strng{bibnamehash}{c0a9729ccc00ddf9f452cacf91b03c71}
+      \strng{authorbibnamehash}{c0a9729ccc00ddf9f452cacf91b03c71}
+      \strng{authornamehash}{c0a9729ccc00ddf9f452cacf91b03c71}
+      \strng{authorfullhash}{c0a9729ccc00ddf9f452cacf91b03c71}
+      \strng{authorfullhashraw}{c0a9729ccc00ddf9f452cacf91b03c71}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Abstract A univariate structural time series model based on the traditional decomposition into trend, seasonal and irregular components is defined. A number of methods of computing maximum likelihood estimators are then considered. These include direct maximization of various time domain likelihood function. The asymptotic properties of the estimators are given and a comparison between the various methods in terms of computational efficiency and accuracy is made. The methods are then extended to models with explanatory variables.}
+      \field{issn}{0277-6693, 1099-131X}
+      \field{journaltitle}{Journal of Forecasting}
+      \field{langid}{english}
+      \field{month}{3}
+      \field{number}{2}
+      \field{shortjournal}{Journal of Forecasting}
+      \field{title}{Estimation Procedures for Structural Time Series Models}
+      \field{volume}{9}
+      \field{year}{1990}
+      \field{dateera}{ce}
+      \field{pages}{89\bibrangedash 108}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1002/for.3980090203
+      \endverb
+      \verb{file}
+      \verb /home/alber/Zotero/storage/UETQYNKC/Harvey and Peters - 1990 - Estimation procedures for structural time series models.pdf
+      \endverb
+    \endentry
+    \entry{setzer2019banco}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=d6984110daa3bdfd9525c730cc3a0364}{%
+           family={Setzer},
+           familyi={S\bibinitperiod},
+           given={Alberto},
+           giveni={A\bibinitperiod}}}%
+        {{hash=1ff88ed5a7e2d00819bc04ba3dbfd2f8}{%
+           family={Morelli},
+           familyi={M\bibinitperiod},
+           given={Fabiano},
+           giveni={F\bibinitperiod}}}%
+        {{hash=cda63a3d7fd3a850f72b3a4bd058dbf6}{%
+           family={Souza},
+           familyi={S\bibinitperiod},
+           given={Jean\bibnamedelima Carlos},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{4d8dd1586228b35c986c5df55600bcd8}
+      \strng{fullhash}{4d8dd1586228b35c986c5df55600bcd8}
+      \strng{fullhashraw}{4d8dd1586228b35c986c5df55600bcd8}
+      \strng{bibnamehash}{4d8dd1586228b35c986c5df55600bcd8}
+      \strng{authorbibnamehash}{4d8dd1586228b35c986c5df55600bcd8}
+      \strng{authornamehash}{4d8dd1586228b35c986c5df55600bcd8}
+      \strng{authorfullhash}{4d8dd1586228b35c986c5df55600bcd8}
+      \strng{authorfullhashraw}{4d8dd1586228b35c986c5df55600bcd8}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Biodiversidade Brasileira}
+      \field{number}{1}
+      \field{title}{O Banco de Dados de Queimadas Do {{INPE}}}
+      \field{volume}{9}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{pages}{239\bibrangedash 239}
+      \range{pages}{1}
+    \endentry
+    \entry{taylor2018}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=fbbb4a11ad0af3fa0efcac4d5b6bd293}{%
+           family={Taylor},
+           familyi={T\bibinitperiod},
+           given={Sean\bibnamedelima J.},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=a525646025b299bd9c5d7e38f7744f51}{%
+           family={Letham},
+           familyi={L\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{092b013303e7b549b663157b09187523}
+      \strng{fullhash}{092b013303e7b549b663157b09187523}
+      \strng{fullhashraw}{092b013303e7b549b663157b09187523}
+      \strng{bibnamehash}{092b013303e7b549b663157b09187523}
+      \strng{authorbibnamehash}{092b013303e7b549b663157b09187523}
+      \strng{authornamehash}{092b013303e7b549b663157b09187523}
+      \strng{authorfullhash}{092b013303e7b549b663157b09187523}
+      \strng{authorfullhashraw}{092b013303e7b549b663157b09187523}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{2}
+      \field{issn}{0003-1305, 1537-2731}
+      \field{journaltitle}{The American Statistician}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{number}{1}
+      \field{shortjournal}{The American Statistician}
+      \field{title}{Forecasting at {{Scale}}}
+      \field{volume}{72}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{pages}{37\bibrangedash 45}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1080/00031305.2017.1380080
+      \endverb
+      \verb{file}
+      \verb /home/alber/Zotero/storage/APSDUVHU/Taylor and Letham - 2018 - Forecasting at Scale.pdf
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

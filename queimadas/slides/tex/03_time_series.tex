@@ -1,0 +1,33 @@
+\section{Time Series}
+
+\begin{frame}
+  Time Series
+\end{frame}
+
+\begin{frame}
+  \frametitle{Time series' components}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item Structural time series model ~\cite{harvey1990}:
+        \begin{itemize}
+          \item Trend $g(t)$.
+          \item Periodic changes $s(t)$.
+          \item Effects of holidays $h(t)$.
+        \end{itemize}
+        \item \textbf{Assumptions}:
+        \begin{itemize}
+          \item $\epsilon_{t}$ is normally distributed.
+          \item Forecasting is a curve-fitting problem; no account for temporal
+            dependence structure in the data~\cite{taylor2018}.
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{math}
+        \centering
+        y(t) = g(t) + s(t) + h(t) + \epsilon_{t}
+      \end{math}
+    \end{column}
+  \end{columns}
+\end{frame}

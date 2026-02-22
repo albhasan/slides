@@ -1,0 +1,5 @@
+Name,       Trend, TLog, Autocor, Season, Random Res, Res Dist
+NPP-375D,   +,     +,    12 m,    yes,    TODO,       Normal
+NPP-375-PM, +,     +,    12 m,    yes,    TODO,       Normal
+AQUA M T,   -+,    -+,   12 m,    yes,    TODO,       Normal
+NOAA 12,    -,     +-,   12 m,    yes,    TODO,       Normal
