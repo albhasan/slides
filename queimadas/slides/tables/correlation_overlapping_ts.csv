@@ -1,0 +1,5 @@
+satelite\_x,satelite\_y,cor\_val
+NOAA-12,AQUA\_M-T,0.922
+AQUA\_M-T,NPP-375-PM,0.979
+AQUA\_M-T,NPP-375D,0.963
+NPP-375-PM,NPP-375D,0.957
