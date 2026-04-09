@@ -1,4 +1,4 @@
 satelite\_x,satelite\_y,equation
 AQUA\_M-T,NOAA-12,y = 0.534 * x + 439.303
-AQUA\_M-T,NPP-375D,y = 2.557 * x + (-6561.35)
-AQUA\_M-T,NPP-375-PM,y = 4.94 * x + (-1028.151)
+AQUA\_M-T,NPP-375D,y = 2.549 * x + (-6549.248)
+AQUA\_M-T,NPP-375-PM,y = 4.944 * x + (-1528.724)
