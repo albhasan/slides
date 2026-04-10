@@ -1,4 +1,9 @@
-satelite\_x,satelite\_y,equation
-AQUA\_M-T,NOAA-12,y = 0.534 * x + 439.303
-AQUA\_M-T,NPP-375D,y = 2.549 * x + (-6549.248)
-AQUA\_M-T,NPP-375-PM,y = 4.944 * x + (-1528.724)
+satelite\_x,satelite\_y,equation,r2
+AQUA\_M-T,NOAA-12,y = 0.534 * x + 439.303,0.85
+AQUA\_M-T,NPP-375-PM,y = 4.944 * x + (-1528.724),0.96
+AQUA\_M-T,NPP-375D,y = 2.549 * x + (-6549.248),0.93
+NOAA-12,AQUA\_M-T,y = 1.589 * x + 3271.974,0.85
+NPP-375-PM,AQUA\_M-T,y = 0.194 * x + 973.819,0.96
+NPP-375-PM,NPP-375D,y = 0.502 * x + (-4729.351),0.92
+NPP-375D,AQUA\_M-T,y = 0.363 * x + 3559.538,0.93
+NPP-375D,NPP-375-PM,y = 1.827 * x + 15008.547,0.92
