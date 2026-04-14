@@ -4,6 +4,16 @@
   \textit{Queimadas} method
 \end{frame}
 
+
+
+\csvstyle{outlierTableStyle}{
+tabular = |c|c|r|r|r|r|,
+table head = \hline Year & Month & x & y & yhat & Residual \\\hline,
+late after line = \\\hline
+}
+
+
+
 \subsection{\textit{Queimadas} method to forecast}
 
 \begin{frame}
@@ -24,12 +34,33 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Outliers and confidence intervals}
+  \begin{itemize}
+    \item Outliers were determined on the regression residuals.
+    \item The outliers are outside the range given by $+/-1.58 IQR/sqrt(n)$,
+      where IQR is the Interquartile range, that is, the range between the
+      first and third quartiles.
+    \item The confidence intervals (gray shadows in the regression and forecast
+      figures) is given the 95\% confidence level.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
   \frametitle{Linear model NOAA-12 vs. AQUA\_M-T}
   \begin{figure}
     \centering
     \includegraphics[scale=0.5]
     {figures/plot_queimadas_lm_NOAA-12_along_AQUA_M-T.png}
   \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Outliers linear model NOAA-12 vs. AQUA\_M-T}
+  \centering
+  \csvreader[outlierTableStyle]
+  {tables/outliers_queimadas_lm_NOAA-12_along_AQUA_M-T.csv}
+  {}
+  {\csvcoli & \csvcolii & \csvcoliii & \csvcoliv & \csvcolv & \csvcolvi }
 \end{frame}
 
 \begin{frame}
@@ -42,12 +73,33 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Outliers linear model NPP-375D vs. AQUA\_M-T}
+  \centering
+  \csvreader[outlierTableStyle]
+  {tables/outliers_queimadas_lm_NPP-375D_along_AQUA_M-T.csv}
+  {}
+  {\csvcoli & \csvcolii & \csvcoliii & \csvcoliv & \csvcolv & \csvcolvi }
+\end{frame}
+
+\begin{frame}
   \frametitle{Linear model NPP-375-PM vs. AQUA\_M-T}
   \begin{figure}
     \centering
     \includegraphics[scale=0.5]
     {figures/plot_queimadas_lm_NPP-375-PM_along_AQUA_M-T.png}
   \end{figure}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+  \frametitle{Outliers linear model NPP-375-PM vs. AQUA\_M-T}
+  \begin{table}
+    \tiny
+    \centering
+    \csvreader[outlierTableStyle]
+    {tables/outliers_queimadas_lm_NPP-375-PM_along_AQUA_M-T.csv}
+    {}
+    {\csvcoli & \csvcolii & \csvcoliii & \csvcoliv & \csvcolv & \csvcolvi }
+  \end{table}
 \end{frame}
 
 \begin{frame}
@@ -60,12 +112,33 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Outliers linear model AQUA\_M-T vs. NOAA-12}
+  \centering
+  \csvreader[outlierTableStyle]
+  {tables/outliers_queimadas_lm_AQUA_M-T_along_NOAA-12.csv}
+  {}
+  {\csvcoli & \csvcolii & \csvcoliii & \csvcoliv & \csvcolv & \csvcolvi }
+\end{frame}
+
+\begin{frame}
   \frametitle{Linear model AQUA\_M-T vs. NPP-375-PM}
   \begin{figure}
     \centering
     \includegraphics[scale=0.5]
     {figures/plot_queimadas_lm_AQUA_M-T_along_NPP-375-PM.png}
   \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Outliers linear model AQUA\_M-T vs. NPP-375-PM}
+  \begin{table}
+    \tiny
+    \centering
+    \csvreader[outlierTableStyle]
+    {tables/outliers_queimadas_lm_AQUA_M-T_along_NPP-375-PM.csv}
+    {}
+    {\csvcoli & \csvcolii & \csvcoliii & \csvcoliv & \csvcolv & \csvcolvi }
+  \end{table}
 \end{frame}
 
 \begin{frame}
@@ -78,6 +151,15 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Outliers linear model NPP-375D vs. NPP-375-PM}
+  \centering
+  \csvreader[outlierTableStyle]
+  {tables/outliers_queimadas_lm_NPP-375D_along_NPP-375-PM.csv}
+  {}
+  {\csvcoli & \csvcolii & \csvcoliii & \csvcoliv & \csvcolv & \csvcolvi }
+\end{frame}
+
+\begin{frame}
   \frametitle{Linear model AQUA\_M-T vs. NPP-375D}
   \begin{figure}
     \centering
@@ -87,12 +169,30 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Outlieres linear model AQUA\_M-T vs. NPP-375D}
+    \centering
+    \csvreader[outlierTableStyle]
+    {tables/outliers_queimadas_lm_AQUA_M-T_along_NPP-375D.csv}
+    {}
+    {\csvcoli & \csvcolii & \csvcoliii & \csvcoliv & \csvcolv & \csvcolvi }
+\end{frame}
+
+\begin{frame}
   \frametitle{Linear model NPP-375-PM vs. NPP-375D}
   \begin{figure}
     \centering
     \includegraphics[scale=0.5]
     {figures/plot_queimadas_lm_NPP-375-PM_along_NPP-375D.png}
   \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Outliers linear model NPP-375-PM vs. NPP-375D}
+  \centering
+  \csvreader[outlierTableStyle]
+  {tables/outliers_queimadas_lm_NPP-375-PM_along_NPP-375D.csv}
+  {}
+  {\csvcoli & \csvcolii & \csvcoliii & \csvcoliv & \csvcolv & \csvcolvi }
 \end{frame}
 
 \begin{frame}
