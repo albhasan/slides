@@ -7,6 +7,18 @@
 \begin{frame}
   \frametitle{Future work}
   \begin{itemize}
-    \item TODO.
+    \item Use a curve instead of a line for regressions. NOTE: This could have
+      been superseeded by using month-by-month regressions.
+    \item Get data from before 2003. It's not available at Queimadas' portal:
+\url{https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/anual/Brasil_todos_sats}
+    \item Use Landsat grid for spatial aggregation.
+    \item Try segmented regression on time series:
+    \begin{itemize}
+    \item Use BFast to identify breakpoints and adjust models to each
+      segment ~\cite{Verbesselt:2010a}.
+    \item Use Mann-Kendall to identify breakpoints and ajust models to each
+      segment. The \textit{segmented} package has an
+        implementation~\ref{muggeo2003,muggeo2017}.
+    \end{itemize}
   \end{itemize}
 \end{frame}

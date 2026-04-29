@@ -56,7 +56,8 @@
   tex/03_time_series,
   tex/03a_check_models_fit,
   tex/03b_forecast_time_series,
-  tex/04_queimadas_method,
+  tex/04_queimadas_method_12_month_regression,
+  tex/05_queimadas_method_01_month_regression,
   tex/91_forecast_vs_obs,
   tex/99_future_work
 }
@@ -68,16 +69,23 @@
 \frame{\titlepage}
 
 \begin{frame}[allowframebreaks]
-        \frametitle{Agenda}
-        \tableofcontents
+        \frametitle{Agenda} \tableofcontents
 \end{frame}
+
+% Outlier tables' style.
+\csvstyle{outlierTableStyle}{
+  tabular = |c|c|r|r|r|r|,
+  table head = \hline Year & Month & x & y & yhat & Residual \\\hline,
+  late after line = \\\hline
+}
 
 \include{tex/01_introduction}
 \include{tex/02_exploratory_data_analysis}
 \include{tex/03_time_series}
 \include{tex/03a_check_models_fit}
 \include{tex/03b_forecast_time_series}
-\include{tex/04_queimadas_method}
+\include{tex/04_queimadas_method_12_month_regression}
+\include{tex/05_queimadas_method_01_month_regression}
 \include{tex/91_forecast_vs_obs}
 \include{tex/99_future_work}
 
