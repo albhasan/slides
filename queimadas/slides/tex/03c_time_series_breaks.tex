@@ -1,0 +1,63 @@
+\subsection{Breakpoint identification}
+
+\subsubsection{BFast}
+
+\begin{frame}
+  BFast
+\end{frame}
+
+\begin{frame}
+\frametitle{Breaks For Additive Seasonal and Trend - BFAST}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item Additive decomposition model that iteratively fits a linear trend and a seasonal model.
+        \item $Y_{t}$ is the observed data at time \textit{t}.
+        \item $T_{t}$ is the trend component.
+        \item $S_{t}$ is the season component.
+        \item $e_{t}$ is the remaining variation in the data beyond the seasonal and trend components.
+        \item \cite{Verbesselt:2010}.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+    \centering
+    $Y_{t} = T_{t} + S_{t} + e_{t}$
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Time series Breaks (BFast) AQUA M-T}
+  \begin{figure}
+    \centering
+    \includegraphics[scale=0.5]
+    {figures/plot_bfast_brazil_year_month_AQUA_M-T.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Time series Breaks (BFast) NOAA-12}
+  \begin{figure}
+    \centering
+    \includegraphics[scale=0.5]
+    {figures/plot_bfast_brazil_year_month_NOAA-12.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Time series Breaks (BFast) NPP-375-PM}
+  \begin{figure}
+    \centering
+    \includegraphics[scale=0.5]
+    {figures/plot_bfast_brazil_year_month_NPP-375-PM.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Time series Breaks (BFast) NPP-375-PM}
+  \begin{figure}
+    \centering
+    \includegraphics[scale=0.5]
+    {figures/plot_bfast_brazil_year_month_NPP-375D.png}
+  \end{figure}
+\end{frame}
