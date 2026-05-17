@@ -1,0 +1,77 @@
+% NOTE:
+% latexmk -shell-escape -pvc slides # This compiles a PDF after any changes.
+% latexmk -c slides.tex             # This cleans temporal files.
+
+\documentclass[aspectratio=169]{beamer}
+
+\setbeamertemplate{footline}[frame number]
+\beamertemplatenavigationsymbolsempty
+
+% NOTE: User numeric style for references.
+\usepackage[backend=biber, style=numeric]{biblatex}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{subcaption}
+
+\usetheme{Boadilla}
+\usecolortheme{default}
+
+\addbibresource{treeslab_workshop.bib}
+
+\captionsetup[figure]{labelformat=empty}
+
+\hypersetup{
+    colorlinks,
+    allcolors=.,
+    urlcolor=blue,
+  }
+
+\title[References \& data]{Writing papers: references and data management}
+\subtitle{The TREESLab way for reference management \& manuscripts' data curation}
+
+\author[A. Sánchez]{
+    Alber Ipia\inst{1} \\
+    \href{mailto:alber.ipia@inpe.br}{alber.ipia@inpe.br}
+  }
+
+\institute[INPE]{
+  \includegraphics[scale=0.5]{logos/trees-color-h_2.png} \\
+  \inst{1} National Institute for Space Research
+}
+
+\date{\today}
+
+\includeonly{
+    tex/01_introduction,
+    tex/02_reference_management,
+    tex/03_data_management,
+    tex/99_remarks,
+  }
+
+\setcounter{tocdepth}{2}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}[allowframebreaks]
+  \frametitle{Agenda} \tableofcontents
+\end{frame}
+
+\include{tex/01_introduction}
+\include{tex/02_reference_management.tex}
+\include{tex/03_data_management.tex}
+\include{tex/99_remarks}
+
+\section{References}
+
+\begin{frame}
+  References
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+  \printbibliography
+\end{frame}
+
+\end{document}
