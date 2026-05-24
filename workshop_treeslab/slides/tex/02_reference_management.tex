@@ -8,27 +8,59 @@
 
 \begin{frame}
   \frametitle{Reference management}
-    What do researches do with bibliographic references?~\cite{rongilmour2011}
-    \begin{itemize}
-      \item Import them from databases.
-      \item Organize them.
-      \item Gather additional metadata.
-      \item Highlight and add notes to them.
-      \item Sharing them.
-      \item Convert them between formats or styles.
-      \item Insert them to documents using word processing software.
-    \end{itemize}
+    \begin{columns}
+      \begin{column}{0.5\textwidth}
+        What do researches do with bibliographic
+        references?~\cite{rongilmour2011}
+        \begin{itemize}
+          \item Import them from databases.
+          \item Organize them.
+          \item Gather additional metadata.
+          \item Highlight and add notes to them.
+          \item Sharing them.
+          \item Convert them between formats or styles.
+          \item Insert them to documents using word processing software.
+        \end{itemize}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+        \begin{figure}
+          \centering
+          \includegraphics[width=0.97\textwidth]{images/use_make_share.png}
+          \label{fig:use_make_share}
+          \caption{
+            Source:
+            \href{https://stemgateway.nasa.gov/s/course-offering/a0BSJ0000049ih3/open-science-101}{OpenScience101.org}
+            ~\cite{nasatopsopenscience101}.
+          }
+        \end{figure}
+      \end{column}
+    \end{columns}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Tools for reference management}
-  \begin{itemize}
-    \item (Outdated) Comparison between CiteULike, RefWorks, Mendeley, and
-      Zotero~\cite{rongilmour2011}.
-    \item For a more up-to-date comparison, also check
-      \href{https://en.wikipedia.org/wiki/Comparison_of_reference_management_software}
-      {software comparison article in Wikipedia.}
-  \end{itemize}
+\begin{frame}[label={tools-reference-management}]
+  \frametitle{Tools for reference management}  
+      \begin{columns}
+        \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item There are at least 15 pieces of software for reference management.
+        \item \citeauthor{rongilmour2011} made a comparison between
+          CiteULike, RefWorks, Mendeley, and Zotero~\cite{rongilmour2011} in
+          2011.
+        \item For a more up-to-date comparison, also check
+          \href{https://en.wikipedia.org/wiki/Comparison_of_reference_management_software}
+          {software comparison article in Wikipedia.}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[scale=0.3]{images/RTFM_coffee_mug.jpg}
+        \caption{Google is your friend. Source:~
+          \href{https://en.wikipedia.org/w/index.php?title=Google_is_your_friend&redirect=no}
+          {Wikipedia}}
+      \end{figure}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \subsection{Zotero}
@@ -133,7 +165,7 @@
       \begin{itemize}
         \item Zotero allows you to highlight and add notes to a PDF associated
           to an item (reference).
-        \item Notes help \href{https://www.zotero.org/support/notes}{here}.
+        \item You can also add notes to your highlights, to a (help \href{https://www.zotero.org/support/notes}{here}).
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
@@ -165,7 +197,7 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[label={convert_styles}]
   \frametitle{Convert references between formats or styles}
   \begin{columns}
     \begin{column}{0.5\textwidth}
@@ -189,15 +221,54 @@
 
 \begin{frame}
   \frametitle{Insert references into text documents}
-  \begin{itemize}
-    \item \href{https://www.zotero.org/support/word_processor_plugin_usage}
-      {MS Word}.
-    \item \href{https://www.zotero.org/support/libreoffice_writer_plugin_usage}
-      {Libre Office}.
-    \item \href{https://www.zotero.org/support/google_docs}{Google Docs} (using
-      the Zotero connector for Web Browsers).
-    \item LaTeX (export collection to a BIB file).
-  \end{itemize}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item \href{https://www.zotero.org/support/google_docs}{Google Docs} (using
+          the Zotero connector for Web Browsers).
+        \item \href{https://www.zotero.org/support/libreoffice_writer_plugin_usage}
+          {Libre Office}.
+        \item LaTeX (export collection to a BIB file).
+        \item \href{https://www.zotero.org/support/word_processor_plugin_usage}
+          {MS Word}.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \includegraphics[scale=0.5]{logos/libreoffice-tdf-logo.png} \\
+        \vspace{0.9cm}
+        \includegraphics[scale=0.3]{logos/Latex-Logo-Vector.png}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[label=google_docs_zotero]
+  \frametitle{Google Docs and Zotero}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item Download the connector from
+          \href{https://www.zotero.org/download/}{here}.
+        \item Grant Google access to your Zotero account.
+        \item Choose a style for your references.
+        \item The Zotero menu in the tool bar is activated.
+        \item Make sure your Zotero desktop instance is running.
+        \item Add references to your text.
+        \item Add a bibliography section.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[scale=0.7]
+        {images/Teufelspakt_Faust-Mephisto,_Julius_Nisle.jpg}
+        \caption{Faustian bargain.
+        Source:~\href{https://en.wikipedia.org/wiki/Deal_with_the_Devil}
+        {Wikipedia}}
+      \end{figure}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \subsection{Zotero and TREESLab}
@@ -252,4 +323,21 @@
     \centering
     \includegraphics[scale=0.275]{images/zotero_treeslab_add.png}
   \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Questions}
+  \begin{itemize}
+    \item \textit{Dificuldade de personalizar referências}
+      \begin{itemize}
+        \item Check slide~\ref{convert_styles}. \end{itemize}
+    \item \textit{Como vincular ao Google Docs }
+      \begin{itemize}
+        \item Check slide~\ref{google_docs_zotero}.
+      \end{itemize}
+    \item \textit{Qual a vantagem do Zotero em relação ao Mendeley?}
+      \begin{itemize}
+        \item Check slide~\ref{tools-reference-management}.
+      \end{itemize}
+  \end{itemize}
 \end{frame}
