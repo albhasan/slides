@@ -1,17 +1,87 @@
 @online{bdqueimadas2026,
-  title = {Banco de {{Dados}} de Queimadas},
-  author = {family=Space Research in Brazil, given=National Institute, prefix=for, useprefix=true},
+  title = {Banco de Dados de queimadas},
+  author = {{National Institute for Space Research in Brazil}},
   date = {2023},
   url = {http://www.inpe.br/queimadas/bdqueimadas},
-  urldate = {2026-02-11}
+  urldate = {2026-02-11},
+  langid = {portuguese}
 }
+
+@article{bernini2026,
+  title = {Modeling {{Multi-Sensor Daily Fire Events}} in {{Brazil}}: {{The DescrEVE Relational Framework}} for {{Wildfire Monitoring}}},
+  shorttitle = {Modeling {{Multi-Sensor Daily Fire Events}} in {{Brazil}}},
+  author = {Bernini, Henrique and Morelli, Fabiano and Carvalho, Fabr\'icio Galende Marques De and Benedito, Guilherme Dos Santos and Silva, William Max Dos Santos Silva and Melo, Samuel Lucas Vieira De},
+  date = {2026-02-14},
+  journaltitle = {Remote Sensing},
+  shortjournal = {Remote Sens.},
+  volume = {18},
+  number = {4},
+  pages = {606},
+  issn = {2072-4292},
+  doi = {10.3390/rs18040606},
+  abstract = {Wildfire monitoring in tropical regions requires robust frameworks capable of transforming heterogeneous satellite detections into consistent, event-level information suitable for decision support. This study presents the DescrEVE Fogo (Descri\c c\~ao de Eventos de Fogo) framework, a relational and scalable system that models daily fire events in Brazil by integrating Advanced Very High Resolution Radiometer (AVHRR), Moderate-Resolution Imaging Spectroradiometer (MODIS), and Visible Infrared Imaging Radiometer Suite (VIIRS) active-fire detections within a unified Structured Query Language (SQL)/PostGIS environment. The framework formalizes a mathematical and computational model that defines and tracks fire fronts and multi-day fire events based on explicit spatio-temporal rules and geometry-based operations. Using database-native functions, DescrEVE Fogo aggregates daily fronts into events and computes intrinsic and environmental descriptors, including duration, incremental area, Fire Radiative Power (FRP), number of fronts, rainless days, and fire risk. Applied to the 2003--2025 archive of the Brazilian National Institute for Space Research (INPE) Queimadas Program, the framework reveals that the integration of VIIRS increases the fraction of multi-front events and enhances detectability of larger and longer-lived events, while the overall regime remains dominated by small, short-lived occurrences. A simple, prototype fire-type rule distinguishes new isolated fire events, possible incipient wildfires, and wildfires, indicating that fewer than 10\% of events account for more than 40\% of the area proxy and nearly 60\% of maximum FRP. For the 2025 operational year, daily ignition counts show strong temporal coherence with the Global Fire Emissions Database version 5 (GFEDv5), albeit with a systematic positive bias reflecting differences in sensors and event definitions. A case study of the 2020 Pantanal wildfire illustrates how front-level metrics and environmental indicators can be combined to characterize persistence, spread, and climatic coupling. Overall, the database-native design provides a transparent and reproducible basis for large-scale, near-real-time wildfire analysis in Brazil, while current limitations in sensor homogeneity, typology, and validation point to clear avenues for future refinement and operational integration.},
+  langid = {english},
+  file = {/home/alber/Zotero/storage/6UFURX4F/Bernini et al. - 2026 - Modeling Multi-Sensor Daily Fire Events in Brazil The DescrEVE Relational Framework for Wildfire Mo.pdf;/home/alber/Zotero/storage/WREC7N6R/remotesensing-4061942-supplementary.pdf}
+}
+% == BibLaTeX quality report for bernini2026:
+% ? Title looks like it was stored in title-case in Zotero
+% ? unused Library catalog ("DOI.org (Crossref)")
+% ? unused URL ("https://www.mdpi.com/2072-4292/18/4/606")
+
+@software{bfastSpatial,
+  title = {{{bfastSpatial}}: {{Set}} of Utilities and Wrappers to Perform Change Detection on Satellite Image Time-Series},
+  author = {Dutrieux, Lo\"ic and DeVries, Ben},
+  date = {2014-12-04},
+  doi = {10.5281/zenodo.49693},
+  version = {0.6.2}
+}
+% == BibLaTeX quality report for bfastSpatial:
+% ? unused URL ("https://github.com/loicdtx/bfastSpatial")
+
+@article{gaffney2022,
+  title = {{{SQLite}}: Past, Present, and Future},
+  shorttitle = {{{SQLite}}},
+  author = {Gaffney, Kevin P. and Prammer, Martin and Brasfield, Larry and Hipp, D. Richard and Kennedy, Dan and Patel, Jignesh M.},
+  date = {2022-08},
+  journaltitle = {Proceedings of the VLDB Endowment},
+  shortjournal = {Proc. VLDB Endow.},
+  volume = {15},
+  number = {12},
+  pages = {3535--3547},
+  issn = {2150-8097},
+  doi = {10.14778/3554821.3554842},
+  abstract = {In the two decades following its initial release, SQLite has become the most widely deployed database engine in existence. Today, SQLite is found in nearly every smartphone, computer, web browser, television, and automobile. Several factors are likely responsible for its ubiquity, including its in-process design, standalone codebase, extensive test suite, and cross-platform file format. While it supports complex analytical queries, SQLite is primarily designed for fast online transaction processing (OLTP), employing row-oriented execution and a B-tree storage format. However, fueled by the rise of edge computing and data science, there is a growing need for efficient in-process online analytical processing (OLAP). DuckDB, a database engine nicknamed "the SQLite for analytics", has recently emerged to meet this demand. While DuckDB has shown strong performance on OLAP benchmarks, it is unclear how SQLite compares. Furthermore, we are aware of no work that attempts to identify root causes for SQLite's performance behavior on OLAP workloads. In this paper, we discuss SQLite in the context of this changing workload landscape. We describe how SQLite evolved from its humble beginnings to the full-featured database engine it is today. We evaluate the performance of modern SQLite on three benchmarks, each representing a different flavor of in-process data management, including transactional, analytical, and blob processing. We delve into analytical data processing on SQLite, identifying key bottlenecks and weighing potential solutions. As a result of our optimizations, SQLite is now up to 4.2X faster on SSB. Finally, we discuss the future of SQLite, envisioning how it will evolve to meet new demands and challenges.},
+  langid = {english}
+}
+% == BibLaTeX quality report for gaffney2022:
+% ? unused Library catalog ("DOI.org (Crossref)")
+% ? unused URL ("https://dl.acm.org/doi/10.14778/3554821.3554842")
+
+@article{galton1886,
+  title = {Regression {{Towards Mediocrity}} in {{Hereditary Stature}}.},
+  author = {Galton, Francis},
+  date = {1886},
+  journaltitle = {The Journal of the Anthropological Institute of Great Britain and Ireland},
+  shortjournal = {J. Anthropol. Inst. G. B. Irel.},
+  volume = {15},
+  eprint = {2841583},
+  eprinttype = {jstor},
+  pages = {246},
+  issn = {09595295},
+  doi = {10.2307/2841583},
+  file = {/home/alber/Zotero/storage/VUHBAI9N/Galton - 1886 - Regression Towards Mediocrity in Hereditary Stature..pdf}
+}
+% == BibLaTeX quality report for galton1886:
+% ? Title looks like it was stored in title-case in Zotero
+% ? unused Library catalog ("DOI.org (Crossref)")
+% ? unused URL ("https://www.jstor.org/stable/2841583?origin=crossref")
 
 @article{harvey1990,
   title = {Estimation Procedures for Structural Time Series Models},
   author = {Harvey, A. C. and Peters, S.},
   date = {1990-03},
   journaltitle = {Journal of Forecasting},
-  shortjournal = {Journal of Forecasting},
+  shortjournal = {J. Forecast.},
   volume = {9},
   number = {2},
   pages = {89--108},
@@ -21,25 +91,48 @@
   file = {/home/alber/Zotero/storage/UETQYNKC/Harvey and Peters - 1990 - Estimation procedures for structural time series models.pdf}
 }
 
+@misc{hausenblas2014rfc,
+  title = {{{RFC}} 7111: {{URI}} Fragment Identifiers for the Text/Csv Media Type},
+  author = {Hausenblas, M and Wilde, E and Tennison, J},
+  date = {2014},
+  organization = {RFC Editor}
+}
+
+@article{morton2013,
+  title = {Understorey Fire Frequency and the Fate of Burned Forests in Southern {{Amazonia}}},
+  author = {Morton, D. C. and Le Page, Y. and DeFries, R. and Collatz, G. J. and Hurtt, G. C.},
+  date = {2013-06-05},
+  journaltitle = {Philosophical Transactions of the Royal Society B: Biological Sciences},
+  shortjournal = {Philos. Trans. R. Soc. B Biol. Sci.},
+  volume = {368},
+  number = {1619},
+  pages = {20120163},
+  issn = {0962-8436, 1471-2970},
+  doi = {10.1098/rstb.2012.0163},
+  abstract = {Recent drought events underscore the vulnerability of Amazon forests to understorey fires. The long-term impact of fires on biodiversity and forest carbon stocks depends on the frequency of fire damages and deforestation rates of burned forests. Here, we characterized the spatial and temporal dynamics of understorey fires (1999--2010) and deforestation (2001--2010) in southern Amazonia using new satellite-based estimates of annual fire activity (greater than 50 ha) and deforestation (greater than 10 ha). Understorey forest fires burned more than 85 500 km               2               between 1999 and 2010 (2.8\% of all forests). Forests that burned more than once accounted for 16 per cent of all understorey fires. Repeated fire activity was concentrated in Mato Grosso and eastern Par\'a, whereas single fires were widespread across the arc of deforestation. Routine fire activity in Mato Grosso coincided with annual periods of low night-time relative humidity, suggesting a strong climate control on both single and repeated fires. Understorey fires occurred in regions with active deforestation, yet the interannual variability of fire and deforestation were uncorrelated, and only 2.6 per cent of forests that burned between 1999 and 2008 were deforested for agricultural use by 2010. Evidence from the past decade suggests that future projections of frontier landscapes in Amazonia should separately consider economic drivers to project future deforestation and climate to project fire risk.},
+  langid = {english},
+  file = {/home/alber/Zotero/storage/PVXGXCX2/Morton et al. - 2013 - Understorey fire frequency and the fate of burned .pdf}
+}
+% == BibLaTeX quality report for morton2013:
+% 'issn': not a valid ISSN
+% ? unused Journal abbr ("Phil. Trans. R. Soc. B")
+% ? unused Library catalog ("DOI.org (Crossref)")
+% ? unused URL ("https://royalsocietypublishing.org/doi/10.1098/rstb.2012.0163")
+
 @article{muggeo2003,
   title = {Estimating Regression Models with Unknown Break-points},
   author = {Muggeo, Vito M. R.},
   date = {2003-10-15},
   journaltitle = {Statistics in Medicine},
-  shortjournal = {Statistics in Medicine},
+  shortjournal = {Stat. Med.},
   volume = {22},
   number = {19},
   pages = {3055--3071},
-  issn = {0277-6715, 1097-0258},
   doi = {10.1002/sim.1545},
   abstract = {Abstract             This paper deals with fitting piecewise terms in regression models where one or more break-points are true parameters of the model. For estimation, a simple linearization technique is called for, taking advantage of the linear formulation of the problem. As a result, the method is suitable for any regression model with linear predictor and so current software can be used; threshold modelling as function of explanatory variables is also allowed. Differences between the other procedures available are shown and relative merits discussed. Simulations and two examples are presented to illustrate the method. Copyright \copyright{} 2003 John Wiley \& Sons, Ltd.},
   langid = {english},
   file = {/home/alber/Zotero/storage/WDEBAWWX/Muggeo - 2003 - Estimating regression models with unknown break‐points.pdf}
 }
-% == BibLateX quality report for muggeo2003:
-% 'issn': not a valid ISSN
-% ? unused Library catalog ("DOI.org (Crossref)")
-% ? unused URL ("https://onlinelibrary.wiley.com/doi/10.1002/sim.1545")
 
 @article{muggeo2017,
   title = {Interval Estimation for the Breakpoint in Segmented Regression: A Smoothed Score-based Approach},
@@ -47,36 +140,106 @@
   author = {Muggeo, Vito M.R.},
   date = {2017-09},
   journaltitle = {Australian \& New Zealand Journal of Statistics},
-  shortjournal = {Aus NZ J of Statistics},
+  shortjournal = {Aust. N. Z. J. Stat.},
   volume = {59},
   number = {3},
   pages = {311--322},
-  issn = {1369-1473, 1467-842X},
   doi = {10.1111/anzs.12200},
   abstract = {Summary             This paper is concerned with interval estimation for the breakpoint parameter in segmented regression. We present score-type confidence intervals derived from the score statistic itself and from the recently proposed gradient statistic. Due to lack of regularity conditions of the score, non-smoothness and non-monotonicity, naive application of the score-based statistics is unfeasible and we propose to exploit the smoothed score obtained via induced smoothing. We compare our proposals with the traditional methods based on the Wald and the likelihood ratio statistics via simulations and an analysis of a real dataset: results show that the smoothed score-like statistics perform in practice somewhat better than competitors, even when the model is not correctly specified.           ,              Score-type confidence intervals based on the induced smoothing framework are presented for the breakpoint parameter of segmented regression.},
   langid = {english}
 }
-% == BibLateX quality report for muggeo2017:
-% 'issn': not a valid ISSN
+% == BibLaTeX quality report for muggeo2017:
+% ? unused Journal abbr ("Aus NZ J of Statistics")
+
+@manual{rcoreteam2025a,
+  type = {manual},
+  title = {R: A Language and Environment for Statistical Computing},
+  author = {{R Core Team}},
+  date = {2025},
+  publisher = {R Foundation for Statistical Computing},
+  location = {Vienna, Austria},
+  url = {https://www.R-project.org/}
+}
+
+@article{roman2024,
+  title = {Continuity between {{NASA MODIS Collection}} 6.1 and {{VIIRS Collection}} 2 Land Products},
+  author = {Rom\'an, Miguel O. and Justice, Chris and Paynter, Ian and Boucher, Peter B. and Devadiga, Sadashiva and Endsley, Arthur and Erb, Angela and Friedl, Mark and Gao, Huilin and Giglio, Louis and Gray, Josh M. and Hall, Dorothy and Hulley, Glynn and Kimball, John and Knyazikhin, Yuri and Lyapustin, Alexei and Myneni, Ranga B. and Noojipady, Praveen and Pu, Jiabin and Riggs, George and Sarkar, Sudipta and Schaaf, Crystal and Shah, Deep and Tran, Khuong H. and Vermote, Eric and Wang, Dongdong and Wang, Zhuosen and Wu, Aisheng and Ye, Yongchang and Shen, Yu and Zhang, Shuai and Zhang, Shuai and Zhang, Xiaoyang and Zhao, Maosheng and Davidson, Carol and Wolfe, Robert},
+  date = {2024-03},
+  journaltitle = {Remote Sensing of Environment},
+  shortjournal = {Remote Sens. Environ.},
+  volume = {302},
+  pages = {113963},
+  issn = {00344257},
+  doi = {10.1016/j.rse.2023.113963},
+  langid = {english},
+  file = {/home/alber/Zotero/storage/QPBR9DH2/Román et al. - 2024 - Continuity between NASA MODIS Collection 6.1 and VIIRS Collection 2 land products.pdf}
+}
+% == BibLaTeX quality report for roman2024:
 % ? unused Library catalog ("DOI.org (Crossref)")
-% ? unused URL ("https://onlinelibrary.wiley.com/doi/10.1111/anzs.12200")
+% ? unused URL ("https://linkinghub.elsevier.com/retrieve/pii/S0034425723005151")
+
+@manual{rspecialinterestgroupondatabasesr-sig-db2026,
+  type = {manual},
+  title = {{{DBI}}: {{R}} Database Interface},
+  author = {{R Special Interest Group on Databases (R-SIG-DB)} and Wickham, Hadley and M\"uller, Kirill},
+  date = {2026},
+  doi = {10.32614/CRAN.package.DBI}
+}
+% == BibLaTeX quality report for rspecialinterestgroupondatabasesr-sig-db2026:
+% ? unused URL ("https://CRAN.R-project.org/package=DBI")
 
 @article{setzer2019banco,
   title = {O Banco de Dados de Queimadas Do {{INPE}}},
   author = {Setzer, Alberto and Morelli, Fabiano and Souza, Jean Carlos},
   date = {2019},
   journaltitle = {Biodiversidade Brasileira},
+  shortjournal = {Biodiversidade Bras.},
   volume = {9},
   number = {1},
   pages = {239--239}
 }
+
+@misc{setzer2020,
+  type = {Webpage},
+  title = {Programa Queimadas, INPE, Perguntas frequentes},
+  author = {Setzer, A.},
+  date = {2020-09-25},
+  url = {https://terrabrasilis.dpi.inpe.br/queimadas/portal/pages/secao_informacoes/faq/index.html},
+  urldate = {2026-06-07},
+  langid = {portuguese},
+  organization = {INPE}
+}
+
+@report{SetzerSismSant:2019:Ve11Ju,
+  type = {PRP},
+  title = {M\'etodo do c\'alculo do risco de fogo do programa do INPE - Vers\~ao 11, junho/2019},
+  author = {Setzer, Alberto Waingort and Sismanoglu, Raffi Agop and family=Santos, given=Jos\'e Guilherme Martins, prefix=dos, useprefix=false},
+  date = {2019},
+  number = {INPE-18256-PRP/267},
+  pages = {27},
+  institution = {Instituto Nacional de Pesquisas Espaciais},
+  location = {S\~ao Jos\'e dos Campos},
+  url = {http://urlib.net/ibi/8JMKD3MGP3W34R/3UEDKUB},
+  abstract = {Este documento descreve o m\'etodo de c\'alculo dos produtos de Risco de Fogo (RF) para queima da vegeta\c c\~ao gerados no Programa Queimadas do INPE. O princ\'{\i}pio meteorol\'ogico para estimar o RF \'e o de que quanto mais dias seguidos sem chuva em um local, maior o risco de queima da sua vegeta\c c\~ao. Adicionalmente, s\~ao considerados efeitos locais do tipo da vegeta\c c\~ao, da temperatura m\'axima e umidade relativa m\'{\i}nima do ar di\'arias, da eleva\c c\~ao topogr\'afica e latitude, assim como a presen\c ca de fogo na \'area. Calcula-se o n\'umero de dias sem chuva anteriormente ao dia de interesse, at\'e o limite de 120 dias; no caso da ocorr\^encia de precipita\c c\~ao no per\'{\i}odo, s\~ao atribu\'{\i}dos pesos em fun\c c\~ao da quantidade de chuva e do intervalo at\'e a data do c\'alculo. Chega-se assim ao n\'umero hipot\'etico de dias consecutivos sem chuva, ou Dias de Secura. Temperatura m\'axima acima de 30 oC e Umidade Relativa m\'{\i}nima abaixo de 40linearmente o RF no dia de interesse; abaixo e acima destes limites, respectivamente, diminuem o RF. A presen\c ca de focos de queima detectados por sat\'elites e a eleva\c c\~ao topogr\'afica e a latitude locais tamb\'em aumentam o risco diretamente. S\~ao cinco as categorias do RF na escala de 0 a 1: M\'{\i}nimo, abaixo de 0,15; Baixo, de 0,15 a 0,4; M\'edio, de 0,4 a 0,7; Alto, de 0,7 a 0,95 e; Cr\'{\i}tico, acima de 0.95. As previs\~oes di\'arias de RF para at\'e cinco dias, e de uma a quatro semanas seguem os mesmos princ\'{\i}pios do RF observado, por\'em utilizando dados de previs\~oes num\'ericas de tempo. Os mapas de RF gerados e os Fogogramas s\~ao apresentados no Portal Queimadas do INPE e enviados em relat\'orios individuais aos usu\'arios cadastrados. An\'alises de acerto do RF para as cinco regi\~oes do Pa\'{\i}s s\~ao feitas automaticamente com focos de queima detectados por sat\'elites, e os \'{\i}ndices de acerto para as classes M\'edia, Alta e Cr\'{\i}tica combinadas \'e superior a 9520130910\_RF\_V9.docx, assim como as anteriores. ABSTRACT: This document describes the method used to calculate the vegetation Fire Risk (FR) products at INPE\textasciiacute s Wildfire Monitoring Program. The meteorological principle used is that the higher the number of consecutive days without rain at a place, the higher the risk for burning its vegetation. Additionally considered are local effects of the vegetation type, maximum daily air temperature and minimum relative humidity, topographic elevation and latitude, and also the occurrence of fire in the area. The number of days without rain prior to the day of interest is calculated, up to the limit of 120 days; when rain occurs in the period the amount of precipitation and the interval to the day of the estimate are weighted in the estimates and a hypothetical number of consecutive dry days is obtained. Maximum air temperature above 30ºC and minimum Relative Humidity below 40FR for the day of interest; below and above those thresholds, respectively, FR is reduced. The local detection of active fires in satellite images, the topographical elevation and the latitude also increase the FR directly. The categories of FR are five in the scale of 0 to 1: Minimum, below 0.15; Low, from 0.15 to 0.4; Average, from 0.4 to 0.7; High, from 0.7 to 0.95 and; Critic, above 0.95. The daily FR forecasts up to five days and from one to four weeks follow the same principles of the observed FR, and are calculated data from numerical weather forecasts. The FR maps and the Firegrams produced are presented at INPE\textasciiacute s Wildfire Monitoring Program Portal and also automatically sent on and individual basis to registered users. Skill analysis of the FR for the five regions of Brazil are automatic using active fires detected by satellite monitoring, and the performance is above 95Average, High and Critical. This document replaces the previous 20130910\_RF\_V9 and all other issued before.},
+  affiliation = {Instituto Nacional de Pesquisas Espaciais (INPE) and Instituto Nacional de Pesquisas Espaciais (INPE) and Instituto Nacional de Pesquisas Espaciais (INPE)},
+  ibi = {8JMKD3MGP3W34R/3UEDKUB},
+  langid = {portuguese},
+  targetfile = {publicacao.pdf},
+  urlaccessdate = {07 jun. 2026},
+  keywords = {fire danger,fire risk,forest fires,inc\^endios florestais,queimadas,risco de fogo,vegeta\cc\~ao,vegetation.,wildfires}
+}
+% == BibLaTeX quality report for SetzerSismSant:2019:Ve11Ju:
+% Unexpected field 'affiliation'
+% Unexpected field 'ibi'
+% Unexpected field 'targetfile'
+% Unexpected field 'urlaccessdate'
 
 @article{taylor2018,
   title = {Forecasting at Scale},
   author = {Taylor, Sean J. and Letham, Benjamin},
   date = {2018-01-02},
   journaltitle = {The American Statistician},
-  shortjournal = {The American Statistician},
+  shortjournal = {Am. Stat.},
   volume = {72},
   number = {1},
   pages = {37--45},
@@ -90,6 +253,7 @@
   author = {Verbesselt, Jan and Hyndman, Rob and Newnham, Glenn and Culvenor, Darius},
   date = {2010-01},
   journaltitle = {Remote Sensing of Environment},
+  shortjournal = {Remote Sens. Environ.},
   volume = {114},
   number = {1},
   eprint = {16531038},
@@ -104,7 +268,7 @@
   keywords = {BFAST,Change detection,MODIS,NDVI,Phenology,Piecewise linear regression,Time series,Trend analysis,Vegetation dynamics},
   file = {/home/alber/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Verbesselt et al. - 2010 - Detecting trend and seasonal changes in satellite image time series.pdf;/home/alber/Zotero/storage/H6VUMYYZ/2010-Detecting_trend_and_seasonal_changes_in_satellite_image_time_series.pdf}
 }
-% == BibLateX quality report for Verbesselt:2010:
+% == BibLaTeX quality report for Verbesselt:2010:
 % Unexpected field 'publisher'
 % Unexpected field 'isbn'
 % Unexpected field 'mendeley-tags'
@@ -116,6 +280,7 @@
   author = {Verbesselt, Jan and Hyndman, Rob and Zeileis, Achim and Culvenor, Darius},
   date = {2010-12},
   journaltitle = {Remote Sensing of Environment},
+  shortjournal = {Remote Sens. Environ.},
   volume = {114},
   number = {12},
   eprint = {11818969},
@@ -129,11 +294,78 @@
   keywords = {Change detection,Climate change,Disturbance,Phenology,Remote sensing,Time series},
   file = {/home/alber/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Verbesselt et al. - 2010 - Phenological change detection while accounting for abrupt and gradual trends in satellite image time series.pdf}
 }
-% == BibLateX quality report for Verbesselt:2010a:
+% == BibLaTeX quality report for Verbesselt:2010a:
 % Unexpected field 'publisher'
 % Unexpected field 'isbn'
 % 'isbn': not a valid ISBN
 % ? unused URL ("http://dx.doi.org/10.1016/j.rse.2010.08.003 http://linkinghub.elsevier.com/retrieve/pii/S0034425710002336")
+
+@book{wickham2015,
+  title = {R Packages},
+  author = {Wickham, Hadley},
+  date = {2015},
+  edition = {First edition},
+  publisher = {O'Reilly Media},
+  location = {Sebastopol, CA},
+  abstract = {Turn your R code into packages that others can easily download and use. This practical book shows you how to bundle reusable R functions, sample data, and documentation together by applying author Hadley Wickham's package development philosophy. In the process, you'll work with devtools, roxygen, and testthat, a set of R packages that automate common development tasks. Devtools encapsulates best practices that Hadley has learned from years of working with this programming language. Ideal for developers, data scientists, and programmers with various backgrounds, this book starts you with the basics and shows you how to improve your package writing over time. You'll learn to focus on what you want your package to do, rather than think about package structure. Learn about the most useful components of an R package, including vignettes and unit tests. Automate anything you can, taking advantage of the years of development experience embodied in devtools. Get tips on good style, such as organizing functions into files. Streamline your development process with devtools. Learn the best way to submit your package to the Comprehensive R Archive Network (CRAN). Learn from a well-respected member of the R community who created 30 R packages, including ggplot2, dplyr, and tidyr},
+  isbn = {978-1-4919-1056-6},
+  langid = {english},
+  annotation = {OCLC: 905902760}
+}
+% == BibLaTeX quality report for wickham2015:
+% ? unused Library catalog ("Open WorldCat")
+
+@book{wickham2016,
+  title = {Ggplot2: {{Elegant Graphics}} for {{Data Analysis}}},
+  shorttitle = {Ggplot2},
+  author = {Wickham, Hadley},
+  date = {2016},
+  series = {Use {{R}}!},
+  edition = {2nd ed. 2016},
+  publisher = {Springer International Publishing : Imprint: Springer},
+  location = {Cham},
+  doi = {10.1007/978-3-319-24277-4},
+  abstract = {This new edition to the classic book by ggplot2 creator Hadley Wickham highlights compatibility with knitr and RStudio. ggplot2 is a data visualization package for R that helps users create data graphics, including those that are multi-layered, with ease. With ggplot2, it's easy to: - produce handsome, publication-quality plots with automatic legends created from the plot specification - superimpose multiple layers (points, lines, maps, tiles, box plots) from different data sources with automatically adjusted common scales - add customizable smoothers that use powerful modeling capabilities of R, such as loess, linear models, generalized additive models, and robust regression - save any ggplot2 plot (or part thereof) for later modification or reuse - create custom themes that capture in-house or journal style requirements and that can easily be applied to multiple plots - approach a graph from a visual perspective, thinking about how each component of the data is represented on the final plot This book will be useful to everyone who has struggled with displaying data in an informative and attractive way. Some basic knowledge of R is necessary (e.g., importing data into R). ggplot2 is a mini-language specifically tailored for producing graphics, and you'll learn everything you need in the book. After reading this book you'll be able to produce graphics customized precisely for your problems, and you'll find it easy to get graphics out of your head and on to the screen or page. New to this edition:{$<$} - Brings the book up-to-date with ggplot2 1.0, including major updates to the theme system - New scales, stats and geoms added throughout - Additional practice exercises - A revised introduction that focuses on ggplot() instead of qplot() - Updated chapters on data and modeling using tidyr, dplyr and broom},
+  isbn = {978-3-319-24277-4},
+  pagetotal = {1},
+  keywords = {Computer graphics,Computer Graphics,Mathematics,Statistics,Statistics and Computing/Statistics Programs,Visualization}
+}
+% == BibLaTeX quality report for wickham2016:
+% ? unused Call number ("519.5")
+% ? unused Library catalog ("Library of Congress ISBN")
+
+@article{wickham2019a,
+  title = {Welcome to the {{tidyverse}}},
+  author = {Wickham, Hadley and Averick, Mara and Bryan, Jennifer and Chang, Winston and McGowan, Lucy D'Agostino and Fran\c cois, Romain and Grolemund, Garrett and Hayes, Alex and Henry, Lionel and Hester, Jim and Kuhn, Max and Pedersen, Thomas Lin and Miller, Evan and Bache, Stephan Milton and M\"uller, Kirill and Ooms, Jeroen and Robinson, David and Seidel, Dana Paige and Spinu, Vitalie and Takahashi, Kohske and Vaughan, Davis and Wilke, Claus and Woo, Kara and Yutani, Hiroaki},
+  date = {2019},
+  journaltitle = {Journal of Open Source Software},
+  shortjournal = {J. Open Source Softw.},
+  volume = {4},
+  number = {43},
+  pages = {1686},
+  doi = {10.21105/joss.01686}
+}
+% == BibLaTeX quality report for wickham2019a:
+% ? Title looks like it was stored in title-case in Zotero
+
+@report{wmo2025,
+  type = {Technical},
+  title = {The 2022 {{GCOS ECVs Requirements}}},
+  shorttitle = {{{GCOS Report-245}}},
+  author = {{World Meteorological Organization} and {Intergovernmental Oceanographic Commission of the United Nations Educational, Scientific and Cultural Organization (IOC-UNESCO)} and {International Science Council (ISC)} and {United Nations Environment Programme (UNEP)} and {Copernicus Climate Change Service (C3S)}},
+  date = {2025},
+  number = {245},
+  pages = {250},
+  institution = {World Meteorological Organization},
+  location = {Geneva},
+  url = {https://library.wmo.int/idurl/4/58111},
+  urldate = {2026-07-13},
+  langid = {english},
+  file = {/home/alber/Zotero/storage/4JSM6ELQ/World Meteorological Organization et al. - 2025 - The 2022 GCOS ECVs Requirements.pdf}
+}
+% == BibLaTeX quality report for wmo2025:
+% ? Title looks like it was stored in title-case in Zotero
+% ? unused Series title ("GCOS Report")
 
 
 % The following packages could be loaded to get more precise latex output:

@@ -9,15 +9,57 @@
   \begin{itemize}
     \item Queimadas method:
       \begin{itemize}
-        \item Outliers tables.
-        \item Confidence intervals.
-        \item Use of a month-by-month regression and forecast.
-        \item Forecasts' differentes between Queimadas 12 vs. month-by-month.
-        \item BFast analysis.
-        \item Brazilian fire foci aggregated by year and month (facets) with
-          linear regression of annual peaks.
+        % \item Outliers tables~\hyperlink{outliers_and_cis}{\beamergotobutton{}}
+        % \item Confidence intervals
+        %   ~\hyperlink{outliers_and_cis}{\beamergotobutton{}}
+        % \item Use of a month-by-month regression and forecast
+        %   \hyperlink{quiemadas_1_month}{\beamergotobutton{}}
+        % \item Forecasts' differentes between Queimadas 12 vs. month-by-month
+        %   ~\hyperlink{12_vs_1_month_differences}{\beamergotobutton{}}
+        % \item Brazilian fire foci aggregated by year and month (facets) with
+        %   linear regression of annual peaks
+        %   ~\hyperlink{lm_peak_facets}{\beamergotobutton{}}
+        % \item BFast analysis
+        %   ~\hyperlink{bfast}{\beamergotobutton{}}
+        % \item BFast break of anual top values for AQUA M-T time series
+        %   ~\hyperlink{bfast_aqua}{\beamergotobutton{}}
+        \item Updated \textit{Queimadas} database to include data from 1998.
+            ~\hyperlink{lm_peak}{\beamergotobutton{}}
+        \item BFast:
+        \begin{itemize}
+          \item AQUA\_M-T still breaks on 2007-11-15.
+            ~\hyperlink{bfast_aqua}{\beamergotobutton{}}
+          \item New break on NOAA-12 on 2005-11-15.
+            ~\hyperlink{bfast_noaa}{\beamergotobutton{}}
+        \end{itemize}
       \end{itemize}
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{What is a reference satellite?}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+       The reference satellite is~\cite{setzer2020}:
+      \begin{itemize}
+        \item It's the satellite that daily senses fire foci used to build time
+          series. 
+        \item NOAA-12 (AVHRR sensor, late afternoon pass) from 1998-06-01 to
+          2002-07-03.
+        \item Then, AQUA\_M-T (MODIS sensor, early afternoon pass).
+        \item The reference satellite sennses only a fraction of the total fire
+          foci.
+        \item Evenso, this allows trend analysis.
+        \item Next reference satellite, NPP-SUOMI (VIIRS sensor).
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[scale=0.5]{logos/logo_queimadas.png}
+      \end{figure}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}

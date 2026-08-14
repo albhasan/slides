@@ -8,28 +8,33 @@
   \frametitle{Brazilian fire foci aggregated by month (all years)}
     \begin{figure}
       \centering
-      \includegraphics[scale=0.5]{figures/plot_lm_brazil_month.png}
+      \includegraphics[scale=0.45]{figures/plot_lm_brazil_month.png}
+      \caption{VIIRS detects more fire foci than AQUA M-T and NOAA 12.}
     \end{figure}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[label=lm_peak]
   \frametitle{Brazilian fire foci aggregated by year and month}
     \begin{figure}
       \centering
-      \includegraphics[scale=0.5]{figures/plot_line_brazil_year_month.png}
+      \includegraphics[scale=0.45]{figures/plot_line_brazil_year_month.png}
+      \caption{AQUA M-T has the longest time series of fire foci.}
     \end{figure}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[label=lm_peak_facets]
   \frametitle{Brazilian fire foci aggregated by year and month (facets)}
     \begin{figure}
       \centering
-      \includegraphics[scale=0.5]{figures/plot_line_brazil_year_month_facet.png}
+      \includegraphics[scale=0.45]
+      {figures/plot_line_brazil_year_month_facet.png}
+      \caption{AQUA M-T and NOAA-12 have a annual-peak negative trend.}
     \end{figure}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Correlation between fire foci from the reference satellites in Brazil}
+  \frametitle{Correlation between fire foci from the reference satellites in
+  Brazil}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
@@ -38,10 +43,11 @@
         \item This way we can use the whole time series in the estimation.
       \end{itemize}
     \end{column}
-    \begin{column}{0.5\textwidth}
+    \begin{column}{0.4444445\textwidth}
     \begin{figure}
       \centering
-      \includegraphics[scale=0.37]{figures/plot_cor_brazil_month.png}
+      \includegraphics[scale=0.35]{figures/plot_cor_brazil_month.png}
+      \caption{There are high correlation among fire foci time series.}
     \end{figure}
   \end{column}
   \end{columns}
@@ -59,8 +65,11 @@
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
-  \centering
-  \csvautotabular{tables/correlation_overlapping_ts.csv}
+      \begin{table}
+        \centering
+        \csvautotabular{tables/correlation_overlapping_ts.csv}
+        \caption{High correlation among fire foci time series.}
+      \end{table}
     \end{column}
   \end{columns}
 \end{frame}
@@ -69,6 +78,8 @@
   \frametitle{Brazilian regions by year and month}
     \begin{figure}
       \centering
-      \includegraphics[scale=0.35]{figures/plot_line_brazil_region_year_month.png}
+      \includegraphics[scale=0.30]
+      {figures/plot_line_brazil_region_year_month.png}
+      \caption{Fire foci time series by brazilian region.}
     \end{figure}
 \end{frame}
